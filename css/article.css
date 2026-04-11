@@ -74,7 +74,7 @@
 .article-body strong { color: var(--ink); font-weight: 500; }
 
 .toc {
-  background: var(--cream-dark);
+  background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 20px 24px;
@@ -97,7 +97,7 @@
 .toc a:hover { text-decoration: underline; }
 
 .hustle-card {
-  background: var(--cream);
+  background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 4px 0;
