@@ -23,6 +23,6 @@ window.TSI_ARTICLE_COUNT = window.TSI_ARTICLES.length;
 window.TSI_TOP_PICKS = [
   { title:'TopCashback', subtitle:'Free money on purchases you already make', earn:'£100–£400/yr', difficulty:'Easy', bonus:'🎁 Get £10 free when you sign up', readUrl:'articles/topcashback-vs-quidco.html', signupUrl:'https://www.topcashback.co.uk/ref/member4134008076116', icon:'💳', accentColor:'#c8972a' },
   { title:'Quidco', subtitle:'Cashback on everyday shopping and bills', earn:'£100–£400/yr', difficulty:'Easy', bonus:'🎁 Get £20 bonus after first cashback', readUrl:'articles/topcashback-vs-quidco.html', signupUrl:'https://quidco.com/raf/17840660/', icon:'🛒', accentColor:'#1a6b3a' },
-  { title:'Swagbucks', subtitle:'Earn rewards on surveys, videos & shopping', earn:'£20–£60/mo', difficulty:'Easy', bonus:'✓ Free welcome bonus when you join', readUrl:'articles/best-paid-surveys-uk.html', signupUrl:'#swagbucks-affiliate', icon:'📋', accentColor:'#4a5568' },
+  { title:'Swagbucks', subtitle:'Earn rewards on surveys, videos & shopping', earn:'£20–£60/mo', difficulty:'Easy', bonus:'✓ Free welcome bonus when you join', readUrl:'articles/best-paid-surveys-uk.html', signupUrl:'https://www.swagbucks.com/profile/r_232761491?rp=1', icon:'📋', accentColor:'#4a5568' },
   { title:'Matched Betting', subtitle:'Highest-earning strategy on this site', earn:'£500–£1,500/mo', difficulty:'Medium', bonus:'⚠ High Risk — read the guide first', readUrl:'articles/matched-betting-guide.html', signupUrl:'articles/matched-betting-guide.html', icon:'🎯', accentColor:'#c0392b' }
 ];
