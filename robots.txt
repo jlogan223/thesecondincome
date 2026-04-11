@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block admin or system files
+Disallow: /js/
+Disallow: /css/
+Disallow: /server.js
+
+# Sitemap location
+Sitemap: https://thesecondincome.uk/sitemap.xml
