@@ -1,0 +1,235 @@
+/* Article page styles */
+
+.article-layout {
+  padding: 56px 0 80px;
+}
+
+.article-container {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-bottom: 20px;
+}
+
+.breadcrumb a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.article-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.article-intro {
+  font-size: 19px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.article-byline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-bottom: 44px;
+  padding-bottom: 28px;
+  border-bottom: 2px solid var(--border);
+}
+
+.article-body {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  font-weight: 300;
+}
+
+.article-body p {
+  margin-bottom: 22px;
+}
+
+.article-body h2 {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 44px 0 18px;
+  padding-top: 16px;
+  border-top: 2px solid var(--border);
+}
+
+.article-body strong { color: var(--ink); font-weight: 500; }
+
+.toc {
+  background: var(--cream-dark);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 36px;
+  font-size: 15px;
+}
+
+.toc strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+.toc ol { padding-left: 18px; }
+.toc li { margin-bottom: 6px; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+.hustle-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 4px 0;
+  margin: 20px 0 28px;
+}
+
+.hc-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hc-row:last-child { border-bottom: none; }
+.hc-row span { color: var(--ink-muted); }
+.hc-row strong { color: var(--ink); }
+
+.affiliate-box {
+  border: 2px solid var(--gold);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 28px 0;
+}
+
+.ab-label {
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 16px;
+}
+
+.ab-content {
+  padding: 16px 18px;
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.ab-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: var(--radius);
+  margin-top: 14px;
+  transition: background 0.2s;
+}
+
+.ab-btn:hover { background: var(--gold-light); }
+
+/* ---- INCOME LIST (best-income-ideas article) ---- */
+.income-list { display: flex; flex-direction: column; gap: 0; margin: 32px 0; }
+
+.income-item {
+  display: flex;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.income-item:first-child { border-top: 1px solid var(--border); }
+
+.income-rank {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--border);
+  min-width: 40px;
+  line-height: 1;
+  padding-top: 4px;
+}
+
+.income-content { flex: 1; }
+
+.income-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.income-header h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.income-content p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.income-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-bottom: 12px;
+}
+
+.income-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.income-link:hover { color: var(--green); text-decoration: underline; }
+
+/* Pending affiliate link button */
+.ab-btn--pending {
+  display: inline-block;
+  background: var(--bg-secondary);
+  color: var(--ink-muted);
+  border: 1px dashed var(--border);
+  padding: 9px 18px;
+  font-size: 13px;
+  border-radius: var(--radius);
+  cursor: default;
+  margin-top: 14px;
+}
