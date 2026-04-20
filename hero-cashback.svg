@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" fill="none">
+  <rect width="800" height="200" fill="#1a1a1a"/>
+  <rect x="120" y="30" width="560" height="140" rx="10" fill="#222" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <rect x="120" y="30" width="560" height="32" rx="10" fill="#2a2a2a"/>
+  <circle cx="148" cy="46" r="6" fill="#e85d4a" opacity="0.7"/>
+  <circle cx="168" cy="46" r="6" fill="#e0a800" opacity="0.7"/>
+  <circle cx="188" cy="46" r="6" fill="#1a6b3a" opacity="0.7"/>
+  <rect x="140" y="80" width="200" height="12" rx="6" fill="#c8972a" opacity="0.5"/>
+  <rect x="140" y="100" width="300" height="8" rx="4" fill="rgba(255,255,255,0.12)"/>
+  <rect x="140" y="116" width="260" height="8" rx="4" fill="rgba(255,255,255,0.08)"/>
+  <rect x="140" y="132" width="180" height="8" rx="4" fill="rgba(255,255,255,0.08)"/>
+  <rect x="580" y="80" width="80" height="34" rx="17" fill="#c8972a"/>
+  <text x="620" y="102" font-family="Georgia,serif" font-size="13" fill="#1a1a1a" text-anchor="middle" font-weight="700">HIRE</text>
+</svg>

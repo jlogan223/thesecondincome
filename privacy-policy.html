@@ -1,142 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy & Cookie Policy — The Second Income UK</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/article.css" />
-  <script src="js/theme.js"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQGQYGMJ0R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TQGQYGMJ0R');
-  </script>
-</head>
-<body>
+// Central article registry — add new articles here, everything updates automatically
+window.TSI_ARTICLES = [
+  { slug:'articles/best-income-ideas-uk.html', title:'The 15 Best Ways to Earn a Second Income in the UK for 2026', snippet:'Ranked by earning potential, startup time, and ongoing effort required.', category:'income-ideas', categoryLabel:'Income Ideas', readTime:12, earn:'Up to £2,000/mo', featured:false, date:'2026-04-01' },
+  { slug:'articles/second-income-full-time-job-uk.html', title:'How to Build a Second Income Alongside a Full-Time Job', snippet:'Time is the real constraint. These are the strategies that fit around a day job.', category:'income-ideas', categoryLabel:'Income Ideas', readTime:9, earn:'Up to £2,000/mo', featured:false, date:'2026-04-01' },
+  { slug:'articles/topcashback-vs-quidco.html', title:'TopCashback vs Quidco: Which Pays More in 2026?', snippet:'We tracked every penny across both platforms. Here is the honest verdict.', category:'cashback', categoryLabel:'Cashback', readTime:8, earn:'£100–£400/yr', featured:false, date:'2026-04-01' },
+  { slug:'articles/how-to-maximise-cashback-uk.html', title:'How to Earn Cashback on Almost Everything You Buy', snippet:'A systematic approach that earns the average UK household £200–£500/yr.', category:'cashback', categoryLabel:'Cashback', readTime:7, earn:'£200–£500/yr', featured:false, date:'2026-04-01' },
+  { slug:'articles/hmrc-side-hustle-tax-uk.html', title:'Do I Need to Tell HMRC About My Extra Income?', snippet:'The Trading Allowance, Self Assessment, and what triggers a tax bill — plainly explained.', category:'tax', categoryLabel:'Tax & Money', readTime:9, earn:'Could save £1,000s', featured:false, date:'2026-04-01' },
+  { slug:'articles/best-paid-surveys-uk.html', title:'Best Paid Survey Sites in the UK for 2026 (Ranked by Pay)', snippet:'Not all survey sites are worth your time. Here are the ones that actually pay well.', category:'income-ideas', categoryLabel:'Income Ideas', readTime:8, earn:'£50–£200/mo', featured:false, date:'2026-04-01' },
+  { slug:'articles/freelancing-for-beginners-uk.html', title:'Freelancing for Beginners in the UK: How to Get Your First Client', snippet:"No portfolio needed. Here's exactly how to land your first freelance client.", category:'freelancing', categoryLabel:'Freelancing', readTime:11, earn:'£200–£1,000/mo', featured:false, date:'2026-04-01' },
+  { slug:'articles/become-virtual-assistant-uk.html', title:'How to Become a Virtual Assistant in the UK', snippet:'One of the most in-demand and accessible ways to earn extra income — no experience needed.', category:'freelancing', categoryLabel:'Freelancing', readTime:9, earn:'£200–£800/mo', featured:false, date:'2026-04-01' },
+  { slug:'articles/selling-on-ebay-uk.html', title:'How to Make Money Selling on eBay in the UK (2026 Guide)', snippet:'From clearing your loft to building a proper reselling business — everything you need.', category:'selling-online', categoryLabel:'Selling Online', readTime:14, earn:'£100–£2,000/mo', featured:false, date:'2026-04-01' },
+  { slug:'articles/flipping-items-for-profit-uk.html', title:"How to Make Money Flipping Items in the UK: A Beginner's Guide", snippet:'Buy low, sell high — one of the most reliable ways to turn small capital into consistent income.', category:'selling-online', categoryLabel:'Selling Online', readTime:10, earn:'£200–£1,500/mo', featured:false, date:'2026-04-01' },
+  { slug:'articles/selling-on-etsy-uk.html', title:'How to Make Money Selling on Etsy in the UK: 2026 Guide', snippet:'Etsy has millions of buyers and low competition in the right niches — here is how to start.', category:'selling-online', categoryLabel:'Selling Online', readTime:12, earn:'£100–£1,500/mo', featured:false, date:'2026-04-01' },
+  { slug:'articles/print-on-demand-uk.html', title:'How to Make Money with Print on Demand in the UK', snippet:'Create designs once, sell them forever — one of the most scalable passive income models.', category:'selling-online', categoryLabel:'Selling Online', readTime:10, earn:'£100–£800/mo', featured:false, date:'2026-04-01' },
+  { slug:'articles/rent-out-space-uk.html', title:'How to Make Money Renting Out Space in the UK', snippet:'Your driveway, garage, or spare room could be earning you £50–£500/mo with almost no effort.', category:'income-ideas', categoryLabel:'Income Ideas', readTime:8, earn:'£50–£500/mo', featured:false, date:'2026-04-01' },
+  { slug:'articles/investing-small-amounts-uk.html', title:'How to Start Investing Small Amounts of Money in the UK', snippet:"You don't need thousands. Here is how to put even £20/month to work safely.", category:'income-ideas', categoryLabel:'Income Ideas', readTime:10, earn:'Variable', featured:false, date:'2026-04-01' },
+  { slug:'articles/matched-betting-guide.html', title:"Is Matched Betting Still Worth It in 2026? A Beginner's Honest Guide", snippet:'Still the most reliable high earner — but requires discipline and the right approach.', category:'high-risk', categoryLabel:'High Risk', readTime:15, earn:'£500–£1,500/mo', featured:false, date:'2026-04-01' }
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <div class="logo-wordmark logo-wordmark--footer">
-          <span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span>
-        </div>
-      </a>
-      <nav class="main-nav">
-        <a href="../category/income-ideas.html">Income Ideas</a>
-        <a href="../category/cashback.html">Cashback</a>
-        <a href="../category/freelancing.html">Freelancing</a>
-        <a href="../category/selling-online.html">Selling Online</a>
-        <a href="../category/high-risk.html" style="color:#e85d4a">High Risk</a>
-      </nav>
-      <a href="about.html" class="nav-cta" style="text-decoration:none">About</a>
-      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
-    </div>
-  </header>
+  {
+    slug: 'best-side-hustles-uk',
+    title: 'Best Side Hustles UK 2026: 20 Ideas That Actually Pay',
+    category: 'Income Ideas',
+    categoryUrl: 'category/income-ideas.html',
+    earn: '£100–£2,000+/mo',
+    readTime: 14,
+    snippet: 'The most comprehensive, honest guide to UK side hustles — ranked by realistic earning potential.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'make-money-vinted-uk',
+    title: 'How to Make Money on Vinted UK in 2026',
+    category: 'Selling Online',
+    categoryUrl: 'category/selling-online.html',
+    earn: '£50–£400/mo',
+    readTime: 10,
+    snippet: 'Zero seller fees, 23 million buyers, and you can start in minutes. Here's how to turn your wardrobe into real cash.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'make-money-tiktok-uk',
+    title: 'How to Make Money on TikTok in the UK in 2026',
+    category: 'Income Ideas',
+    categoryUrl: 'category/income-ideas.html',
+    earn: '£50–£2,000+/mo',
+    readTime: 9,
+    snippet: 'TikTok Creator Fund, brand deals, TikTok Shop — an honest breakdown of what actually pays.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'passive-income-ideas-uk',
+    title: 'Passive Income Ideas UK: What Actually Works in 2026',
+    category: 'Income Ideas',
+    categoryUrl: 'category/income-ideas.html',
+    earn: '£50–£1,000+/mo',
+    readTime: 11,
+    snippet: 'Cutting through the hype — the passive income options that genuinely work for UK adults.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'become-online-tutor-uk',
+    title: 'How to Become an Online Tutor in the UK',
+    category: 'Freelancing',
+    categoryUrl: 'category/freelancing.html',
+    earn: '£200–£1,500/mo',
+    readTime: 9,
+    snippet: 'Earn £25–£50/hour sharing knowledge you already have. No teaching qualification needed.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'make-money-driving-uk',
+    title: 'How to Make Money Driving in the UK: Uber, Deliveroo and More',
+    category: 'Income Ideas',
+    categoryUrl: 'category/income-ideas.html',
+    earn: '£600–£1,800/mo',
+    readTime: 8,
+    snippet: 'Uber, Bolt, Deliveroo, Amazon Flex — compared honestly with real earnings and requirements.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'dropshipping-uk-guide',
+    title: 'Dropshipping UK: The Honest Guide for 2026',
+    category: 'Selling Online',
+    categoryUrl: 'category/selling-online.html',
+    earn: '£0–£500/mo',
+    readTime: 10,
+    snippet: 'Is dropshipping still worth it in 2026? The unvarnished truth — and better alternatives.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'become-virtual-assistant-uk',
+    title: 'How to Become a Virtual Assistant in the UK',
+    category: 'Freelancing',
+    categoryUrl: 'category/freelancing.html',
+    earn: '£300–£1,500/mo',
+    readTime: 8,
+    snippet: 'No qualifications needed. Earn £15–£35/hour doing admin work from home for UK businesses.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'make-money-airbnb-uk',
+    title: 'How to Make Money on Airbnb UK Without Owning Property',
+    category: 'Income Ideas',
+    categoryUrl: 'category/income-ideas.html',
+    earn: '£300–£2,000+/mo',
+    readTime: 9,
+    snippet: 'Spare room, experiences, and co-hosting — how to earn from Airbnb without a buy-to-let.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'side-hustle-sceptics-guide',
+    title: 'Are Side Hustles Worth It? An Honest Answer for Sceptics',
+    category: 'Income Ideas',
+    categoryUrl: 'category/income-ideas.html',
+    earn: 'Varies',
+    readTime: 8,
+    snippet: 'A no-hype, honest answer to whether side hustles are actually worth the effort in 2026.',
+    date: '2026-04-16'
+  },
+];
 
-  <main class="article-layout">
-    <div class="article-container">
+window.TSI_ARTICLE_COUNT = window.TSI_ARTICLES.length;
 
-      <div class="article-tag" style="margin-bottom:16px">Legal</div>
-      <h1 class="article-title">Privacy & Cookie Policy</h1>
-      <p class="article-intro">How we collect, use, and protect your information — and how we use cookies on this site.</p>
-
-      <div class="article-byline">
-        <span>Last updated: April 2025</span>
-        <span>·</span>
-        <span>Applies to thesecondincome.uk</span>
-      </div>
-
-      <div class="article-body">
-
-        <h2>Who we are</h2>
-        <p>This website, The Second Income UK, is operated by PB Eng Ltd, a company registered in England and Wales. When we refer to "we", "us", or "our" in this policy, we mean PB Eng Ltd.</p>
-        <p>If you have any questions about this policy, please contact us at <strong>hello@thesecondincome.uk</strong></p>
-
-        <h2>What information we collect</h2>
-        <p>We collect information in two ways:</p>
-        <p><strong>Information you give us voluntarily</strong> — if you sign up to our newsletter, we collect your email address and, where provided, your first name. We use this solely to send you the newsletter you signed up for.</p>
-        <p><strong>Information collected automatically</strong> — when you visit our site, we may collect standard technical data such as your IP address, browser type, pages visited, and time spent on the site. This is collected via cookies (see below) and is used to help us understand how the site is used and to improve it.</p>
-
-        <h2>How we use your information</h2>
-        <p>We use the information we collect to operate and improve the website, send newsletters to subscribers who have opted in, and analyse how the site is used so we can make it better. We do not sell your personal data to third parties. We do not use your data for automated decision-making or profiling.</p>
-
-        <h2>Cookies</h2>
-        <p>Cookies are small text files stored on your device when you visit a website. We use the following types of cookies:</p>
-
-        <div class="hustle-card">
-          <div class="hc-row"><span><strong>Essential cookies</strong></span><strong>Always active</strong></div>
-          <div class="hc-row"><span>Remember your cookie consent preference so we don't ask you again</span><span>No consent required</span></div>
-          <div class="hc-row"><span><strong>Analytics cookies</strong></span><strong>Only with consent</strong></div>
-          <div class="hc-row"><span>Google Analytics — helps us understand which pages are popular and how visitors find us</span><span>Optional</span></div>
-          <div class="hc-row"><span><strong>Advertising cookies</strong></span><strong>Only with consent</strong></div>
-          <div class="hc-row"><span>Google AdSense — used to show relevant adverts if ad monetisation is enabled</span><span>Optional</span></div>
-        </div>
-
-        <p>You can accept or decline non-essential cookies using the banner at the bottom of this page. You can also change your preferences at any time by clearing your browser's local storage, which will cause the banner to reappear on your next visit.</p>
-        <p>For more information about cookies generally, visit <a href="https://www.aboutcookies.org" target="_blank" rel="noopener">aboutcookies.org</a>.</p>
-
-        <h2>Affiliate links</h2>
-        <p>This site contains affiliate links. If you click a link and sign up or purchase through it, we may earn a commission at no extra cost to you. We only recommend services and products we believe are genuinely useful. Affiliate relationships never influence our editorial recommendations.</p>
-        <p>We are registered with affiliate networks including but not limited to Amazon Associates and various financial services affiliate programmes.</p>
-
-        <h2>Third-party services</h2>
-        <p>We may use the following third-party services which have their own privacy policies:</p>
-        <p><strong>Google Analytics</strong> — website traffic analysis. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></p>
-        <p><strong>Mailchimp</strong> — newsletter delivery (if you subscribe). <a href="https://mailchimp.com/legal/privacy/" target="_blank" rel="noopener">Mailchimp Privacy Policy</a></p>
-        <p><strong>Google AdSense</strong> — advertising (if enabled). <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></p>
-
-        <h2>Your rights</h2>
-        <p>Under UK GDPR you have the right to access the personal data we hold about you, request correction of inaccurate data, request deletion of your data, withdraw consent at any time (e.g. unsubscribe from the newsletter), and lodge a complaint with the ICO (the UK's data protection regulator) at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
-        <p>To exercise any of these rights, contact us at <strong>hello@thesecondincome.uk</strong></p>
-
-        <h2>Data retention</h2>
-        <p>Newsletter subscriber data is held until you unsubscribe. Analytics data is retained in accordance with Google Analytics' standard retention settings (26 months by default). We do not store any payment information.</p>
-
-        <h2>Changes to this policy</h2>
-        <p>We may update this policy from time to time. The date at the top of this page reflects when it was last updated. Continued use of the site after any changes constitutes acceptance of the updated policy.</p>
-
-      </div>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="logo-wordmark logo-wordmark--footer">
-          <span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span>
-        </div>
-          <p>TSI-UK helps people in the UK build a second income alongside their day job.</p>
-        </div>
-        <div class="footer-links">
-          <strong>Guides</strong>
-          <a href="../category/income-ideas.html">Income Ideas</a>
-          <a href="../category/cashback.html">Cashback</a>
-          <a href="../category/freelancing.html">Freelancing</a>
-          <a href="../category/selling-online.html">Selling Online</a>
-          <a href="#">Tax & Money</a>
-        </div>
-        <div class="footer-links">
-          <strong>Site</strong>
-          <a href="about.html">About</a>
-          <a href="#">Contact</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="privacy-policy.html">Cookie Policy</a>
-        </div>
-      </div>
-      <div class="footer-disclaimer">
-        <p>The Second Income UK contains affiliate links. If you sign up to a service through our links, we may earn a commission at no extra cost to you. We only recommend services we believe are genuinely useful. This site does not constitute financial advice.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-  <script src="js/cookies.js"></script>
-</body>
-</html>
+// Top picks for carousel — update monthly
+window.TSI_TOP_PICKS = [
+  { title:'TopCashback', subtitle:'Free money on purchases you already make', earn:'£100–£400/yr', difficulty:'Easy', bonus:'🎁 Get £10 free when you sign up', readUrl:'articles/topcashback-vs-quidco.html', signupUrl:'https://www.topcashback.co.uk/ref/member4134008076116', icon:'💳', accentColor:'#c8972a' },
+  { title:'Quidco', subtitle:'Cashback on everyday shopping and bills', earn:'£100–£400/yr', difficulty:'Easy', bonus:'🎁 Get £20 bonus after first cashback', readUrl:'articles/topcashback-vs-quidco.html', signupUrl:'https://quidco.com/raf/17840660/', icon:'🛒', accentColor:'#1a6b3a' },
+  { title:'Swagbucks', subtitle:'Earn rewards on surveys, videos & shopping', earn:'£20–£60/mo', difficulty:'Easy', bonus:'✓ Free welcome bonus when you join', readUrl:'articles/best-paid-surveys-uk.html', signupUrl:'https://www.swagbucks.com/profile/r_232761491?rp=1', icon:'📋', accentColor:'#4a5568' },
+  { title:'Matched Betting', subtitle:'Highest-earning strategy on this site', earn:'£500–£1,500/mo', difficulty:'Medium', bonus:'⚠ High Risk — read the guide first', readUrl:'articles/matched-betting-guide.html', signupUrl:'articles/matched-betting-guide.html', icon:'🎯', accentColor:'#c0392b' }
+];

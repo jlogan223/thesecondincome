@@ -1,102 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — The Second Income UK</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/article.css" />
-  <script src="js/theme.js"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQGQYGMJ0R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TQGQYGMJ0R');
-  </script>
-</head>
-<body>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <div class="logo-wordmark logo-wordmark--footer">
-          <span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span>
-        </div>
-      </a>
-      <nav class="main-nav">
-        <a href="category/income-ideas.html">Income Ideas</a>
-        <a href="category/cashback.html">Cashback</a>
-        <a href="category/freelancing.html">Freelancing</a>
-        <a href="category/selling-online.html">Selling Online</a>
-        <a href="category/high-risk.html" style="color:#e85d4a">High Risk</a>
-      </nav>
-      <a href="about.html" class="nav-cta" style="text-decoration:none">About</a>
-      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
-    </div>
-  </header>
-
-  <main class="article-layout">
-    <div class="article-container">
-
-      <div class="article-tag" style="margin-bottom:16px">About This Site</div>
-      <h1 class="article-title">About The Second Income UK</h1>
-      <p class="article-intro">Honest, practical guides to earning more money in the UK — written for people with a day job and limited time.</p>
-
-      <div class="article-body">
-
-        <h2>What we do</h2>
-        <p>The Second Income UK publishes in-depth, practical guides to side hustles, passive income ideas, and money-saving strategies specifically for people living and working in the UK.</p>
-        <p>There's a lot of generic "make money online" content out there that doesn't account for UK tax rules, UK platforms, or the UK cost of living. We focus exclusively on what actually works here.</p>
-
-        <h2>Our standards</h2>
-        <p>We only recommend products and services we believe are genuinely useful. Where we have an affiliate relationship with a service we recommend, we disclose it clearly. Affiliate commissions never influence which products we recommend or how we rate them — if something isn't worth your time, we say so.</p>
-        <p>All earning figures quoted in our guides are realistic estimates based on publicly available data and reader reports. We don't inflate numbers to make things sound better than they are. All earning figures quoted in our guides are accurate based on our research at the time of publication — income opportunities, platform terms, and market conditions change over time, so we recommend checking current figures before making any decisions.</p>
-
-        <h2>Affiliate disclosure</h2>
-        <p>Some links on this site are affiliate links. If you sign up to a service or make a purchase through one of our links, we may earn a small commission at no extra cost to you. This is how we keep the site free and ad-light.</p>
-        <p>We are registered with several affiliate networks including Amazon Associates and various financial services affiliate programmes.</p>
-
-        <h2>Contact</h2>
-        <p>Questions, suggestions, or spotted something inaccurate? Get in touch at <strong>hello@thesecondincome.co.uk</strong></p>
-
-      </div>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="logo-wordmark logo-wordmark--footer">
-          <span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span>
-        </div>
-          <p>TSI-UK helps people in the UK build a second income alongside their day job.</p>
-        </div>
-        <div class="footer-links">
-          <strong>Guides</strong>
-          <a href="category/income-ideas.html">Income Ideas</a>
-          <a href="category/cashback.html">Cashback</a>
-          <a href="category/freelancing.html">Freelancing</a>
-          <a href="category/selling-online.html">Selling Online</a>
-          <a href="#">Tax & Money</a>
-        </div>
-        <div class="footer-links">
-          <strong>Site</strong>
-          <a href="about.html">About</a>
-          <a href="#">Contact</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="privacy-policy.html">Affiliate Disclosure</a>
-        </div>
-      </div>
-      <div class="footer-disclaimer">
-        <p>The Second Income UK contains affiliate links. If you sign up to a service through our links, we may earn a commission at no extra cost to you. We only recommend services we believe are genuinely useful. This site does not constitute financial advice.</p>
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>
+(function() {
+  function getWeekLabel() {
+    var now = new Date();
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return 'Week of ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+  }
+  function getCatColor(cat) {
+    return cat === 'high-risk' ? '#e85d4a' : 'var(--gold)';
+  }
+  function getVis() {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 900) return 2;
+    return 3;
+  }
+  function buildCarousel() {
+    var container = document.getElementById('top-picks-carousel');
+    if (!container || !window.TSI_FEATURED) return;
+    var arts = window.TSI_FEATURED;
+    var current = 0;
+    var weekEl = document.getElementById('carousel-week');
+    if (weekEl) weekEl.textContent = getWeekLabel();
+    var track = document.getElementById('carousel-track');
+    if (!track) return;
+    track.innerHTML = '';
+    arts.forEach(function(a) {
+      var signupBtn = a.affiliate
+        ? '<a href="'+a.affiliate+'" target="_blank" rel="noopener" class="carousel-btn-signup">Sign up now →</a>'
+        : '<a href="'+a.slug+'" class="carousel-btn-signup">Read guide →</a>';
+      var card = document.createElement('div');
+      card.className = 'carousel-card';
+      card.innerHTML =
+        '<div class="carousel-card-body">'+
+          '<div class="carousel-category" style="color:'+getCatColor(a.category)+'">'+a.categoryLabel+'</div>'+
+          '<div class="carousel-earn">'+a.earn+'</div>'+
+          '<div class="carousel-earn-label">potential earnings</div>'+
+          '<div class="carousel-title">'+a.title+'</div>'+
+          '<div class="carousel-snippet">'+a.snippet+'</div>'+
+          '<div class="carousel-meta"><span>'+a.readTime+' min read</span></div>'+
+        '</div>'+
+        '<div class="carousel-card-footer">'+
+          '<a href="'+a.slug+'" class="carousel-btn-read">Read guide</a>'+
+          signupBtn+
+        '</div>';
+      track.appendChild(card);
+    });
+    var dotsEl = document.getElementById('carousel-dots');
+    function rebuildDots() {
+      if (!dotsEl) return;
+      dotsEl.innerHTML = '';
+      var total = Math.max(1, arts.length - getVis() + 1);
+      for (var d = 0; d < total; d++) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (d === current ? ' active' : '');
+        dot.setAttribute('aria-label', 'Slide '+(d+1));
+        (function(i){ dot.addEventListener('click', function(){ goTo(i); }); })(d);
+        dotsEl.appendChild(dot);
+      }
+    }
+    function cardWidth() {
+      var cards = track.querySelectorAll('.carousel-card');
+      if (!cards.length) return 0;
+      return cards[0].offsetWidth + 24;
+    }
+    function goTo(idx) {
+      var max = Math.max(0, arts.length - getVis());
+      current = Math.max(0, Math.min(idx, max));
+      track.style.transform = 'translateX(-'+(current * cardWidth())+'px)';
+      document.querySelectorAll('.carousel-dot').forEach(function(d,i){ d.classList.toggle('active', i === current); });
+    }
+    var prevBtn = document.getElementById('carousel-prev');
+    var nextBtn = document.getElementById('carousel-next');
+    if (prevBtn) prevBtn.addEventListener('click', function(){ goTo(current-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function(){ goTo(current+1); });
+    window.addEventListener('resize', function(){ rebuildDots(); goTo(current); });
+    rebuildDots();
+  }
+  document.addEventListener('DOMContentLoaded', buildCarousel);
+})();

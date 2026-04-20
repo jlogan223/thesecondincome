@@ -1,58 +1,37 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const os = require('os');
+// Cookie consent — slim bottom bar
+(function() {
+  if (localStorage.getItem('tsi_cookie_consent')) return;
 
-const mimeTypes = {
-  '.html': 'text/html',
-  '.css':  'text/css',
-  '.js':   'application/javascript',
-  '.png':  'image/png',
-  '.jpg':  'image/jpeg',
-  '.svg':  'image/svg+xml',
-};
+  const bar = document.createElement('div');
+  bar.id = 'cookie-bar';
+  bar.innerHTML = `
+    <div class="cookie-inner">
+      <p>We use cookies to improve your experience and analyse site traffic. 
+         <a href="/privacy-policy.html">Privacy & Cookie Policy</a></p>
+      <div class="cookie-actions">
+        <button id="cookie-accept">Accept</button>
+        <button id="cookie-decline">Decline</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(bar);
 
-const server = http.createServer((req, res) => {
-  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
-  const ext = path.extname(filePath);
-  const contentType = mimeTypes[ext] || 'text/plain';
+  // Animate in after short delay
+  setTimeout(() => bar.classList.add('cookie-visible'), 500);
 
-  fs.readFile(filePath, (err, data) => {
-    if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/html' });
-      res.end('<h2>Page not found</h2>');
-      return;
-    }
-    res.writeHead(200, { 'Content-Type': contentType });
-    res.end(data);
+  document.getElementById('cookie-accept').addEventListener('click', function() {
+    localStorage.setItem('tsi_cookie_consent', 'accepted');
+    dismissBar();
+    // Load analytics here once we have the GA code
   });
-});
 
-function getLocalIP() {
-  const interfaces = os.networkInterfaces();
-  for (const name of Object.keys(interfaces)) {
-    for (const iface of interfaces[name]) {
-      if (iface.family === 'IPv4' && !iface.internal) {
-        return iface.address;
-      }
-    }
+  document.getElementById('cookie-decline').addEventListener('click', function() {
+    localStorage.setItem('tsi_cookie_consent', 'declined');
+    dismissBar();
+  });
+
+  function dismissBar() {
+    bar.classList.remove('cookie-visible');
+    setTimeout(() => bar.remove(), 400);
   }
-  return 'unknown';
-}
-
-server.listen(3002, '0.0.0.0', () => {
-  const localIP = getLocalIP();
-  console.log('========================================');
-  console.log('  Extra Income UK is running!');
-  console.log('========================================');
-  console.log('');
-  console.log('  On this PC:');
-  console.log('  http://localhost:3002');
-  console.log('');
-  console.log('  On other devices (phone, tablet, laptop');
-  console.log('  on the same WiFi):');
-  console.log('  http://' + localIP + ':3002');
-  console.log('');
-  console.log('  Press Ctrl+C to stop.');
-  console.log('========================================');
-});
+})();
