@@ -1,5 +1,15 @@
 // Central article registry — add new articles here, everything updates automatically
 window.TSI_ARTICLES = [
+  {
+    slug: "how-to-make-money-on-fiverr-uk",
+    title: "How to Make Money on Fiverr in the UK in 2026",
+    category: "Freelancing",
+    categoryUrl: "category/freelancing.html",
+    earn: "£200-£1,500/mo",
+    readTime: 10,
+    snippet: "Which Fiverr gigs pay best in the UK, how to get your first order without a single review, and realistic earnings for beginners in your first three months.",
+    date: "2026-04-21"
+  },
   { slug:'articles/best-income-ideas-uk.html', title:'The 15 Best Ways to Earn a Second Income in the UK for 2026', snippet:'Ranked by earning potential, startup time, and ongoing effort required.', category:'income-ideas', categoryLabel:'Income Ideas', readTime:12, earn:'Up to £2,000/mo', featured:false, date:'2026-04-01' },
   { slug:'articles/second-income-full-time-job-uk.html', title:'How to Build a Second Income Alongside a Full-Time Job', snippet:'Time is the real constraint. These are the strategies that fit around a day job.', category:'income-ideas', categoryLabel:'Income Ideas', readTime:9, earn:'Up to £2,000/mo', featured:false, date:'2026-04-01' },
   { slug:'articles/topcashback-vs-quidco.html', title:'TopCashback vs Quidco: Which Pays More in 2026?', snippet:'We tracked every penny across both platforms. Here is the honest verdict.', category:'cashback', categoryLabel:'Cashback', readTime:8, earn:'£100–£400/yr', featured:false, date:'2026-04-01' },
