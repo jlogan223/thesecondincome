@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="description" content="The best paid survey sites in the UK ranked by actual pay. Not all survey sites are worth your time — here are the ones that actually pay well." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Best Paid Survey Sites in the UK for 2026 (Ranked by Hourly Rate) — TSI-UK</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +18,30 @@
     gtag('js', new Date());
     gtag('config', 'G-TQGQYGMJ0R');
   </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Best Paid Survey Sites in the UK for 2026 (Ranked by Pay)",
+  "description": "Not all survey sites are worth your time. Here are the ones that actually pay well.",
+  "url": "https://thesecondincome.uk/articles/best-paid-survey-sites-uk.html",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-01",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Second Income UK",
+    "url": "https://thesecondincome.uk"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "The Second Income UK"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://thesecondincome.uk/articles/best-paid-survey-sites-uk.html"
+  }
+}
+</script>
 </head>
 <body>
   <header class="site-header">
@@ -35,9 +60,21 @@
         <a href="../category/high-risk.html" style="color:#e85d4a">High Risk</a>
       </nav>
       <a href="../about.html" class="nav-cta" style="text-decoration:none">About</a>
+      <button class="burger" id="burger-btn" aria-label="Menu" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
       <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
     </div>
   </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="../category/income-ideas.html">Income Ideas</a>
+    <a href="../category/cashback.html">Cashback</a>
+    <a href="../category/freelancing.html">Freelancing</a>
+    <a href="../category/selling-online.html">Selling Online</a>
+    <a href="../category/tax.html">Tax &amp; Money</a>
+    <a href="../category/high-risk.html" class="nav-high-risk">High Risk</a>
+    <a href="../about.html">About</a>
+  </nav>
 
   <main class="article-layout">
     <div class="article-container">
@@ -119,5 +156,22 @@
   </footer>
   <script src="../js/main.js"></script>
   <script src="../js/cookies.js"></script>
+  <script>
+  function toggleMobileNav() {
+    var btn = document.getElementById('burger-btn');
+    var nav = document.getElementById('mobile-nav');
+    btn.classList.toggle('open');
+    nav.classList.toggle('open');
+  }
+  // Close on outside click
+  document.addEventListener('click', function(e) {
+    var btn = document.getElementById('burger-btn');
+    var nav = document.getElementById('mobile-nav');
+    if (nav && btn && !btn.contains(e.target) && !nav.contains(e.target)) {
+      btn.classList.remove('open');
+      nav.classList.remove('open');
+    }
+  });
+  </script>
 </body>
 </html>

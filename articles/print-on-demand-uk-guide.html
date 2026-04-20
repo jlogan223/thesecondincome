@@ -17,6 +17,30 @@
     gtag('js', new Date());
     gtag('config', 'G-TQGQYGMJ0R');
   </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Make Money with Print on Demand in the UK",
+  "description": "Create designs once, sell them forever with no stock needed.",
+  "url": "https://thesecondincome.uk/articles/print-on-demand-uk-guide.html",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-01",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Second Income UK",
+    "url": "https://thesecondincome.uk"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "The Second Income UK"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://thesecondincome.uk/articles/print-on-demand-uk-guide.html"
+  }
+}
+</script>
 </head>
 <body>
   <header class="site-header">
@@ -35,9 +59,21 @@
         <a href="../category/high-risk.html" style="color:#e85d4a">High Risk</a>
       </nav>
       <a href="../about.html" class="nav-cta" style="text-decoration:none">About</a>
+      <button class="burger" id="burger-btn" aria-label="Menu" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
       <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
     </div>
   </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="../category/income-ideas.html">Income Ideas</a>
+    <a href="../category/cashback.html">Cashback</a>
+    <a href="../category/freelancing.html">Freelancing</a>
+    <a href="../category/selling-online.html">Selling Online</a>
+    <a href="../category/tax.html">Tax &amp; Money</a>
+    <a href="../category/high-risk.html" class="nav-high-risk">High Risk</a>
+    <a href="../about.html">About</a>
+  </nav>
 
   <main class="article-layout">
     <div class="article-container">
@@ -54,7 +90,11 @@
         <span class="earn-badge">£100–£800/mo</span>
       </div>
       <div class="article-body">
-        <div class="toc">
+        
+      <div class="article-illustration">
+        <img src="../img/hero-selling.svg" alt="" role="presentation" />
+      </div>
+      <div class="toc">
           <strong>In this guide:</strong>
           <ol>
             <li><a href="#what-is">What is print on demand?</a></li>
@@ -126,5 +166,22 @@
   </footer>
   <script src="../js/main.js"></script>
   <script src="../js/cookies.js"></script>
+  <script>
+  function toggleMobileNav() {
+    var btn = document.getElementById('burger-btn');
+    var nav = document.getElementById('mobile-nav');
+    btn.classList.toggle('open');
+    nav.classList.toggle('open');
+  }
+  // Close on outside click
+  document.addEventListener('click', function(e) {
+    var btn = document.getElementById('burger-btn');
+    var nav = document.getElementById('mobile-nav');
+    if (nav && btn && !btn.contains(e.target) && !nav.contains(e.target)) {
+      btn.classList.remove('open');
+      nav.classList.remove('open');
+    }
+  });
+  </script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="description" content="Is matched betting still worth it in 2026? An honest beginner's guide to the UK's most reliable side hustle — what it is, how it works, and realistic earnings." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Is Matched Betting Still Worth It in 2026? — TSI-UK</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +18,30 @@
     gtag('js', new Date());
     gtag('config', 'G-TQGQYGMJ0R');
   </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Is Matched Betting Still Worth It in 2026? A Beginner's Honest Guide",
+  "description": "The most reliable high-earning strategy in the UK \u2014 what you need to know before starting.",
+  "url": "https://thesecondincome.uk/articles/matched-betting-guide.html",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-01",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Second Income UK",
+    "url": "https://thesecondincome.uk"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "The Second Income UK"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://thesecondincome.uk/articles/matched-betting-guide.html"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -36,9 +61,21 @@
         <a href="../category/high-risk.html" style="color:#e85d4a">High Risk</a>
       </nav>
       <a href="../about.html" class="nav-cta" style="text-decoration:none">About</a>
+      <button class="burger" id="burger-btn" aria-label="Menu" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
       <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
     </div>
   </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="../category/income-ideas.html">Income Ideas</a>
+    <a href="../category/cashback.html">Cashback</a>
+    <a href="../category/freelancing.html">Freelancing</a>
+    <a href="../category/selling-online.html">Selling Online</a>
+    <a href="../category/tax.html">Tax &amp; Money</a>
+    <a href="../category/high-risk.html" class="nav-high-risk">High Risk</a>
+    <a href="../about.html">About</a>
+  </nav>
 
   <main class="article-layout">
     <div class="article-container">
@@ -66,7 +103,11 @@
 
       <div class="article-body">
 
-        <div class="toc">
+        
+      <div class="article-illustration">
+        <img src="../img/hero-money.svg" alt="" role="presentation" />
+      </div>
+      <div class="toc">
           <strong>In this guide:</strong>
           <ol>
             <li><a href="#what-is">What is matched betting?</a></li>
@@ -167,5 +208,22 @@
 
   <script src="../js/main.js"></script>
   <script src="../js/cookies.js"></script>
+  <script>
+  function toggleMobileNav() {
+    var btn = document.getElementById('burger-btn');
+    var nav = document.getElementById('mobile-nav');
+    btn.classList.toggle('open');
+    nav.classList.toggle('open');
+  }
+  // Close on outside click
+  document.addEventListener('click', function(e) {
+    var btn = document.getElementById('burger-btn');
+    var nav = document.getElementById('mobile-nav');
+    if (nav && btn && !btn.contains(e.target) && !nav.contains(e.target)) {
+      btn.classList.remove('open');
+      nav.classList.remove('open');
+    }
+  });
+  </script>
 </body>
 </html>

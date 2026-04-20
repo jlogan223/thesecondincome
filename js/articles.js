@@ -15,6 +15,107 @@ window.TSI_ARTICLES = [
   { slug:'articles/rent-out-space-uk.html', title:'How to Make Money Renting Out Space in the UK', snippet:'Your driveway, garage, or spare room could be earning you £50–£500/mo with almost no effort.', category:'income-ideas', categoryLabel:'Income Ideas', readTime:8, earn:'£50–£500/mo', featured:false, date:'2026-04-01' },
   { slug:'articles/investing-small-amounts-uk.html', title:'How to Start Investing Small Amounts of Money in the UK', snippet:"You don't need thousands. Here is how to put even £20/month to work safely.", category:'income-ideas', categoryLabel:'Income Ideas', readTime:10, earn:'Variable', featured:false, date:'2026-04-01' },
   { slug:'articles/matched-betting-guide.html', title:"Is Matched Betting Still Worth It in 2026? A Beginner's Honest Guide", snippet:'Still the most reliable high earner — but requires discipline and the right approach.', category:'high-risk', categoryLabel:'High Risk', readTime:15, earn:'£500–£1,500/mo', featured:false, date:'2026-04-01' }
+
+  {
+    slug: 'best-side-hustles-uk',
+    title: 'Best Side Hustles UK 2026: 20 Ideas That Actually Pay',
+    category: 'Income Ideas',
+    categoryUrl: 'category/income-ideas.html',
+    earn: '£100–£2,000+/mo',
+    readTime: 14,
+    snippet: 'The most comprehensive, honest guide to UK side hustles — ranked by realistic earning potential.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'make-money-vinted-uk',
+    title: 'How to Make Money on Vinted UK in 2026',
+    category: 'Selling Online',
+    categoryUrl: 'category/selling-online.html',
+    earn: '£50–£400/mo',
+    readTime: 10,
+    snippet: 'Zero seller fees, 23 million buyers, and you can start in minutes. Here's how to turn your wardrobe into real cash.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'make-money-tiktok-uk',
+    title: 'How to Make Money on TikTok in the UK in 2026',
+    category: 'Income Ideas',
+    categoryUrl: 'category/income-ideas.html',
+    earn: '£50–£2,000+/mo',
+    readTime: 9,
+    snippet: 'TikTok Creator Fund, brand deals, TikTok Shop — an honest breakdown of what actually pays.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'passive-income-ideas-uk',
+    title: 'Passive Income Ideas UK: What Actually Works in 2026',
+    category: 'Income Ideas',
+    categoryUrl: 'category/income-ideas.html',
+    earn: '£50–£1,000+/mo',
+    readTime: 11,
+    snippet: 'Cutting through the hype — the passive income options that genuinely work for UK adults.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'become-online-tutor-uk',
+    title: 'How to Become an Online Tutor in the UK',
+    category: 'Freelancing',
+    categoryUrl: 'category/freelancing.html',
+    earn: '£200–£1,500/mo',
+    readTime: 9,
+    snippet: 'Earn £25–£50/hour sharing knowledge you already have. No teaching qualification needed.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'make-money-driving-uk',
+    title: 'How to Make Money Driving in the UK: Uber, Deliveroo and More',
+    category: 'Income Ideas',
+    categoryUrl: 'category/income-ideas.html',
+    earn: '£600–£1,800/mo',
+    readTime: 8,
+    snippet: 'Uber, Bolt, Deliveroo, Amazon Flex — compared honestly with real earnings and requirements.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'dropshipping-uk-guide',
+    title: 'Dropshipping UK: The Honest Guide for 2026',
+    category: 'Selling Online',
+    categoryUrl: 'category/selling-online.html',
+    earn: '£0–£500/mo',
+    readTime: 10,
+    snippet: 'Is dropshipping still worth it in 2026? The unvarnished truth — and better alternatives.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'become-virtual-assistant-uk',
+    title: 'How to Become a Virtual Assistant in the UK',
+    category: 'Freelancing',
+    categoryUrl: 'category/freelancing.html',
+    earn: '£300–£1,500/mo',
+    readTime: 8,
+    snippet: 'No qualifications needed. Earn £15–£35/hour doing admin work from home for UK businesses.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'make-money-airbnb-uk',
+    title: 'How to Make Money on Airbnb UK Without Owning Property',
+    category: 'Income Ideas',
+    categoryUrl: 'category/income-ideas.html',
+    earn: '£300–£2,000+/mo',
+    readTime: 9,
+    snippet: 'Spare room, experiences, and co-hosting — how to earn from Airbnb without a buy-to-let.',
+    date: '2026-04-16'
+  },
+  {
+    slug: 'side-hustle-sceptics-guide',
+    title: 'Are Side Hustles Worth It? An Honest Answer for Sceptics',
+    category: 'Income Ideas',
+    categoryUrl: 'category/income-ideas.html',
+    earn: 'Varies',
+    readTime: 8,
+    snippet: 'A no-hype, honest answer to whether side hustles are actually worth the effort in 2026.',
+    date: '2026-04-16'
+  },
 ];
 
 window.TSI_ARTICLE_COUNT = window.TSI_ARTICLES.length;

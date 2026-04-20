@@ -1,36 +1,289 @@
-// Theme switcher — auto-detects browser preference, persists user choice
-(function() {
-  const STORAGE_KEY = 'tsi_theme';
-
-  function getPreferred() {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) return saved;
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  }
-
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem(STORAGE_KEY, theme);
-    const btn = document.getElementById('theme-toggle');
-    if (btn) {
-      btn.innerHTML = theme === 'dark'
-        ? '<span>&#9788;</span> Light'
-        : '<span>&#9790;</span> Dark';
-      btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Honest UK side hustle guides, passive income ideas and extra money tips for people with a full-time job. Practical, no-hype advice on cashback, matched betting, selling online, freelancing and investing." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Second Income UK — Side Hustle Ideas &amp; Extra Money Guides for UK Adults</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/carousel.css" />
+  <script src="js/theme.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQGQYGMJ0R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TQGQYGMJ0R');
+  </script>
+  <meta name='impact-site-verification' value='8e213614-dee2-445f-9ce4-da2837f8fb04'>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "The Second Income UK",
+    "url": "https://thesecondincome.uk",
+    "description": "Helping UK adults earn a second income alongside their day job. Practical guides to cashback, matched betting, freelancing, selling online, and investing.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://thesecondincome.uk/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "The Second Income UK",
+    "url": "https://thesecondincome.uk",
+    "logo": "https://thesecondincome.uk/tsi-logo.png",
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@thesecondincome.uk",
+      "contactType": "customer support"
     }
   }
+]
+</script>
+</head>
+<body>
 
-  // Apply immediately to avoid flash
-  applyTheme(getPreferred());
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-wordmark logo-wordmark--footer">
+          <span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="category/income-ideas.html">Income Ideas</a>
+        <a href="category/cashback.html">Cashback</a>
+        <a href="category/freelancing.html">Freelancing</a>
+        <a href="category/selling-online.html">Selling Online</a>
+        <a href="category/high-risk.html" style="color:#e85d4a">High Risk</a>
+      </nav>
+      <a href="about.html" class="nav-cta" style="text-decoration:none">About</a>
+      <button class="burger" id="burger-btn" aria-label="Menu" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="category/income-ideas.html">Income Ideas</a>
+    <a href="category/cashback.html">Cashback</a>
+    <a href="category/freelancing.html">Freelancing</a>
+    <a href="category/selling-online.html">Selling Online</a>
+    <a href="category/tax.html">Tax &amp; Money</a>
+    <a href="category/high-risk.html" class="nav-high-risk">High Risk</a>
+    <a href="about.html">About</a>
+  </nav>
 
-  // Expose toggle function for button
-  window.toggleTheme = function() {
-    const current = document.documentElement.getAttribute('data-theme');
-    applyTheme(current === 'dark' ? 'light' : 'dark');
-  };
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">Updated for 2026</div>
+      <h1 class="hero-title">Real UK side hustles &amp;<br><em>extra income ideas</em> that actually work</h1>
+      <p class="hero-sub">Honest, practical guides to side hustles, passive income, and extra cash — written for people with a full-time job and limited time.</p>
+      <div class="hero-stats">
+        <div class="stat"><strong id="article-count">4</strong><span>Guides</span></div>
+        <div class="stat"><strong>£200–£2k</strong><span>Extra per month</span></div>
+        <div class="stat"><strong>100%</strong><span>UK focused</span></div>
+      </div>
+    </div>
+    <div class="hero-ticker">
+      <div class="ticker-track">
+        <span>Cashback Apps</span><span>•</span>
+        <span>Matched Betting</span><span>•</span>
+        <span>Selling on eBay</span><span>•</span>
+        <span>Freelance Writing</span><span>•</span>
+        <span>Paid Surveys</span><span>•</span>
+        <span>Print on Demand</span><span>•</span>
+        <span>Renting Your Space</span><span>•</span>
+        <span>Stock Photos</span><span>•</span>
+        <span>Virtual Assistant</span><span>•</span>
+        <span>Dropshipping</span><span>•</span>
+        <span>Tutoring Online</span><span>•</span>
+        <span>Investing</span><span>•</span>
+        <span>Cashback Apps</span><span>•</span>
+        <span>Matched Betting</span><span>•</span>
+        <span>Selling on eBay</span><span>•</span>
+        <span>Freelance Writing</span><span>•</span>
+        <span>Paid Surveys</span><span>•</span>
+        <span>Print on Demand</span><span>•</span>
+        <span>Renting Your Space</span><span>•</span>
+        <span>Stock Photos</span><span>•</span>
+        <span>Virtual Assistant</span><span>•</span>
+        <span>Dropshipping</span><span>•</span>
+        <span>Tutoring Online</span><span>•</span>
+        <span>Investing</span><span>•</span>
+      </div>
+    </div>
+  </section>
 
-  // Re-apply once DOM is ready (updates button label)
-  document.addEventListener('DOMContentLoaded', function() {
-    applyTheme(getPreferred());
+
+  <!-- TOP PICKS CAROUSEL -->
+  <section class="top-picks">
+    <div class="container">
+      <div class="top-picks-header">
+        <div>
+          <div class="section-label" style="margin-bottom:6px">Top Picks</div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <h2 style="font-family:var(--serif);font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink)">This Week's Best Earners</h2>
+            <span class="update-badge">↻ Updated weekly</span>
+          </div>
+          <p style="font-size:14px;color:var(--ink-muted);margin-top:6px" id="carousel-week"></p>
+        </div>
+        <div class="top-picks-controls">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-btn" id="carousel-next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+      <div class="carousel-track-wrap">
+        <div class="carousel-track" id="carousel-track"></div>
+      </div>
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+  </section>
+
+  <!-- FEATURED ARTICLE -->
+  <section class="featured">
+    <div class="container">
+      <div class="section-label">Featured Guide</div>
+      <div class="featured-card">
+        <div class="featured-content">
+          <div class="article-tag">Side Hustles</div>
+          <h2>The 15 Best Side Hustles in the UK for 2026 (Ranked by Earning Potential)</h2>
+          <p>We've tested and ranked every major UK side hustle by how much you can realistically earn, how quickly you can start, and how much time it actually takes. Whether you have 2 hours a week or 20, there's something here for you.</p>
+          <div class="article-meta">
+            <span class="read-time">12 min read</span>
+            <span class="earn-badge">Earn up to £2,000/mo</span>
+          </div>
+          <a href="articles/best-income-ideas-uk.html" class="btn-primary">Read the full guide →</a>
+        </div>
+        <div class="featured-visual">
+          <div class="visual-card vc-1">
+            <span class="vc-label">Matched Betting</span>
+            <span class="vc-earn">£500–£1,500/mo</span>
+            <span class="vc-bar" style="--w:90%"></span>
+          </div>
+          <div class="visual-card vc-2">
+            <span class="vc-label">Freelance Writing</span>
+            <span class="vc-earn">£200–£800/mo</span>
+            <span class="vc-bar" style="--w:60%"></span>
+          </div>
+          <div class="visual-card vc-3">
+            <span class="vc-label">Cashback + Surveys</span>
+            <span class="vc-earn">£50–£200/mo</span>
+            <span class="vc-bar" style="--w:35%"></span>
+          </div>
+          <div class="visual-card vc-4">
+            <span class="vc-label">Selling Online</span>
+            <span class="vc-earn">£100–£2,000/mo</span>
+            <span class="vc-bar" style="--w:75%"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TOP PICKS CAROUSEL -->
+  <section class="top-picks">
+    <div class="container">
+      <div class="top-picks-header">
+        <div>
+          <div class="section-label">Top Picks This Month</div>
+          <p style="font-size:15px;color:var(--ink-soft);margin-top:4px">Our highest-recommended income ideas right now — updated monthly</p>
+        </div>
+        <div class="top-picks-nav">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-btn" id="carousel-next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+      <div class="carousel-track-wrap">
+        <div class="carousel-track" id="carousel-track">
+          <!-- Cards injected by carousel.js -->
+        </div>
+      </div>
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+  </section>
+
+  <!-- ARTICLE GRID -->
+  <section class="articles">
+    <div class="container">
+      <div class="section-label">Latest Guides</div>
+      <div class="articles-grid" id="article-grid">
+          <!-- Cards rendered by articles.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo-wordmark logo-wordmark--footer">
+          <span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span>
+        </div>
+          <p>TSI-UK helps people in the UK build a second income alongside their day job.</p>
+        </div>
+        <div class="footer-links">
+          <strong>Guides</strong>
+          <a href="category/income-ideas.html">Income Ideas</a>
+          <a href="category/cashback.html">Cashback</a>
+          <a href="category/freelancing.html">Freelancing</a>
+          <a href="category/selling-online.html">Selling Online</a>
+          <a href="#">Tax & Money</a>
+        </div>
+        <div class="footer-links">
+          <strong>Site</strong>
+          <a href="about.html">About</a>
+          <a href="#">Contact</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="privacy-policy.html">Affiliate Disclosure</a>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        <p>The Second Income UK contains affiliate links. If you sign up to a service through our links, we may earn a commission at no extra cost to you. We only recommend services we believe are genuinely useful. This site does not constitute financial advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cookies.js"></script>
+  <script src="js/articles.js"></script>
+  <script src="js/carousel.js"></script>
+  <script>
+    // Live article count
+    var countEl = document.getElementById('article-count');
+    if (countEl && window.TSI_ARTICLE_COUNT) {
+      countEl.textContent = window.TSI_ARTICLE_COUNT;
+    }
+  </script>
+  <script>
+  function toggleMobileNav() {
+    var btn = document.getElementById('burger-btn');
+    var nav = document.getElementById('mobile-nav');
+    btn.classList.toggle('open');
+    nav.classList.toggle('open');
+  }
+  // Close on outside click
+  document.addEventListener('click', function(e) {
+    var btn = document.getElementById('burger-btn');
+    var nav = document.getElementById('mobile-nav');
+    if (nav && btn && !btn.contains(e.target) && !nav.contains(e.target)) {
+      btn.classList.remove('open');
+      nav.classList.remove('open');
+    }
   });
-})();
+  </script>
+</body>
+</html>

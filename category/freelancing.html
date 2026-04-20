@@ -17,6 +17,26 @@
     gtag('js', new Date());
     gtag('config', 'G-TQGQYGMJ0R');
   </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://thesecondincome.uk"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Freelancing",
+      "item": "https://thesecondincome.uk/category/freelancing.html"
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <header class="site-header">
@@ -35,9 +55,21 @@
         <a href="high-risk.html" style="color:#e85d4a">High Risk</a>
       </nav>
       <a href="../about.html" class="nav-cta" style="text-decoration:none">About</a>
+      <button class="burger" id="burger-btn" aria-label="Menu" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
       <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
     </div>
   </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="../category/income-ideas.html">Income Ideas</a>
+    <a href="../category/cashback.html">Cashback</a>
+    <a href="../category/freelancing.html">Freelancing</a>
+    <a href="../category/selling-online.html">Selling Online</a>
+    <a href="../category/tax.html">Tax &amp; Money</a>
+    <a href="../category/high-risk.html" class="nav-high-risk">High Risk</a>
+    <a href="../about.html">About</a>
+  </nav>
 
   <section class="cat-hero">
     <div class="container">
@@ -145,5 +177,22 @@
 
   <script src="../js/main.js"></script>
   <script src="../js/cookies.js"></script>
+  <script>
+  function toggleMobileNav() {
+    var btn = document.getElementById('burger-btn');
+    var nav = document.getElementById('mobile-nav');
+    btn.classList.toggle('open');
+    nav.classList.toggle('open');
+  }
+  // Close on outside click
+  document.addEventListener('click', function(e) {
+    var btn = document.getElementById('burger-btn');
+    var nav = document.getElementById('mobile-nav');
+    if (nav && btn && !btn.contains(e.target) && !nav.contains(e.target)) {
+      btn.classList.remove('open');
+      nav.classList.remove('open');
+    }
+  });
+  </script>
 </body>
 </html>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="200" viewBox="0 0 1000 200">
+  <!-- Black background -->
+  <rect width="1000" height="200" fill="#1a1a1a"/>
+
+  <!-- "Second Income" in gold -->
+  <text
+    x="24"
+    y="148"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="88"
+    font-weight="bold"
+    fill="#c8972a"
+    letter-spacing="-1"
+  >Second Income</text>
+
+  <!-- "UK" in white — shifted right to clear "Income" -->
+  <text
+    x="780"
+    y="148"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="88"
+    font-weight="bold"
+    fill="#ffffff"
+    letter-spacing="-1"
+  >UK</text>
+
+  <!-- "The" on top of the S -->
+  <text
+    x="22"
+    y="100"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="22"
+    font-weight="bold"
+    font-style="italic"
+    fill="rgba(255,255,255,0.75)"
+    letter-spacing="1"
+    transform="rotate(-11, 22, 100)"
+  >The</text>
+
+</svg>
