@@ -54,16 +54,17 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <div class="logo">
-        <div class="logo-wordmark logo-wordmark--footer">
+      <a href="index.html" class="logo">
+        <div class="logo-wordmark">
           <span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span>
         </div>
-      </div>
+      </a>
       <nav class="main-nav">
         <a href="category/income-ideas.html">Income Ideas</a>
         <a href="category/cashback.html">Cashback</a>
         <a href="category/freelancing.html">Freelancing</a>
         <a href="category/selling-online.html">Selling Online</a>
+        <a href="category/tax.html">Tax &amp; Money</a>
         <a href="category/high-risk.html" style="color:#e85d4a">High Risk</a>
       </nav>
       <a href="about.html" class="nav-cta" style="text-decoration:none">About</a>
@@ -96,59 +97,12 @@
       </div>
     </div>
     <div class="hero-ticker">
-      <div class="ticker-track">
-        <span>Cashback Apps</span><span>•</span>
-        <span>Matched Betting</span><span>•</span>
-        <span>Selling on eBay</span><span>•</span>
-        <span>Freelance Writing</span><span>•</span>
-        <span>Paid Surveys</span><span>•</span>
-        <span>Print on Demand</span><span>•</span>
-        <span>Renting Your Space</span><span>•</span>
-        <span>Stock Photos</span><span>•</span>
-        <span>Virtual Assistant</span><span>•</span>
-        <span>Dropshipping</span><span>•</span>
-        <span>Tutoring Online</span><span>•</span>
-        <span>Investing</span><span>•</span>
-        <span>Cashback Apps</span><span>•</span>
-        <span>Matched Betting</span><span>•</span>
-        <span>Selling on eBay</span><span>•</span>
-        <span>Freelance Writing</span><span>•</span>
-        <span>Paid Surveys</span><span>•</span>
-        <span>Print on Demand</span><span>•</span>
-        <span>Renting Your Space</span><span>•</span>
-        <span>Stock Photos</span><span>•</span>
-        <span>Virtual Assistant</span><span>•</span>
-        <span>Dropshipping</span><span>•</span>
-        <span>Tutoring Online</span><span>•</span>
-        <span>Investing</span><span>•</span>
+      <div class="ticker-track" id="topic-ticker">
+        <!-- Populated by articles.js from the live registry -->
       </div>
     </div>
   </section>
 
-
-  <!-- TOP PICKS CAROUSEL -->
-  <section class="top-picks">
-    <div class="container">
-      <div class="top-picks-header">
-        <div>
-          <div class="section-label" style="margin-bottom:6px">Top Picks</div>
-          <div style="display:flex;align-items:center;gap:12px">
-            <h2 style="font-family:var(--serif);font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink)">This Week's Best Earners</h2>
-            <span class="update-badge">↻ Updated weekly</span>
-          </div>
-          <p style="font-size:14px;color:var(--ink-muted);margin-top:6px" id="carousel-week"></p>
-        </div>
-        <div class="top-picks-controls">
-          <button class="carousel-btn" id="carousel-prev" aria-label="Previous">&#8592;</button>
-          <button class="carousel-btn" id="carousel-next" aria-label="Next">&#8594;</button>
-        </div>
-      </div>
-      <div class="carousel-track-wrap">
-        <div class="carousel-track" id="carousel-track"></div>
-      </div>
-      <div class="carousel-dots" id="carousel-dots"></div>
-    </div>
-  </section>
 
   <!-- FEATURED ARTICLE -->
   <section class="featured">
@@ -198,7 +152,7 @@
       <div class="top-picks-header">
         <div>
           <div class="section-label">Top Picks This Month</div>
-          <p style="font-size:15px;color:var(--ink-soft);margin-top:4px">Our highest-recommended income ideas right now — updated monthly</p>
+          <p style="font-size:15px;color:var(--ink-soft);margin-top:4px">Our highest-recommended income ideas right now — refreshed as new guides go live.</p>
         </div>
         <div class="top-picks-nav">
           <button class="carousel-btn" id="carousel-prev" aria-label="Previous">&#8592;</button>
@@ -207,10 +161,44 @@
       </div>
       <div class="carousel-track-wrap">
         <div class="carousel-track" id="carousel-track">
-          <!-- Cards injected by carousel.js -->
+          <!-- Cards injected by carousel.js from window.TSI_TOP_PICKS -->
         </div>
       </div>
       <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+  </section>
+
+  <!-- BROWSE BY CATEGORY -->
+  <section class="categories-section" style="padding:60px 0;background:var(--paper-alt,rgba(200,151,42,0.04))">
+    <div class="container">
+      <div class="section-label">Browse by category</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--ink);margin:8px 0 28px">Find your next income idea</h2>
+      <div class="category-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+        <a href="category/income-ideas.html" class="category-tile" style="display:block;padding:22px;border:1px solid rgba(200,151,42,0.25);border-radius:10px;background:var(--paper);text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s">
+          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px">Income Ideas</div>
+          <p style="font-size:14px;color:var(--ink-muted);margin:0">The 15+ side hustles ranked by realistic earnings.</p>
+        </a>
+        <a href="category/cashback.html" class="category-tile" style="display:block;padding:22px;border:1px solid rgba(200,151,42,0.25);border-radius:10px;background:var(--paper);text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s">
+          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px">Cashback</div>
+          <p style="font-size:14px;color:var(--ink-muted);margin:0">Free money on shopping you already do.</p>
+        </a>
+        <a href="category/freelancing.html" class="category-tile" style="display:block;padding:22px;border:1px solid rgba(200,151,42,0.25);border-radius:10px;background:var(--paper);text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s">
+          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px">Freelancing</div>
+          <p style="font-size:14px;color:var(--ink-muted);margin:0">Fiverr, Upwork, PeoplePerHour and more.</p>
+        </a>
+        <a href="category/selling-online.html" class="category-tile" style="display:block;padding:22px;border:1px solid rgba(200,151,42,0.25);border-radius:10px;background:var(--paper);text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s">
+          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px">Selling Online</div>
+          <p style="font-size:14px;color:var(--ink-muted);margin:0">eBay, Vinted, Etsy, Shopify, dropshipping.</p>
+        </a>
+        <a href="category/tax.html" class="category-tile" style="display:block;padding:22px;border:1px solid rgba(200,151,42,0.25);border-radius:10px;background:var(--paper);text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s">
+          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px">Tax &amp; Money</div>
+          <p style="font-size:14px;color:var(--ink-muted);margin:0">HMRC, Self Assessment, the trading allowance.</p>
+        </a>
+        <a href="category/high-risk.html" class="category-tile" style="display:block;padding:22px;border:1px solid rgba(232,93,74,0.25);border-radius:10px;background:var(--paper);text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s">
+          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:#e85d4a;margin-bottom:6px">High Risk</div>
+          <p style="font-size:14px;color:var(--ink-muted);margin:0">Matched betting, trading — proceed carefully.</p>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -218,9 +206,22 @@
   <section class="articles">
     <div class="container">
       <div class="section-label">Latest Guides</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--ink);margin:8px 0 28px">Every guide on the site</h2>
       <div class="articles-grid" id="article-grid">
-          <!-- Cards rendered by articles.js -->
-        </div>
+        <!-- Cards rendered by articles.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="closing-cta" style="padding:70px 0;background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%);color:#faf8f4">
+    <div class="container" style="max-width:760px;text-align:center">
+      <div class="section-label" style="color:#c8972a">Before you go</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:700;margin:10px 0 16px">Second income, on your terms</h2>
+      <p style="font-size:17px;line-height:1.6;color:rgba(250,248,244,0.85);margin:0 0 28px">Every guide on this site is written for people with a full-time job and limited spare time. No hype. No "quit your job by Friday" nonsense. Just honest numbers, the platforms we actually use, and the traps worth avoiding.</p>
+      <div style="display:inline-flex;flex-wrap:wrap;gap:14px;justify-content:center">
+        <a href="articles/best-side-hustles-uk.html" style="display:inline-block;padding:14px 26px;background:#c8972a;color:#1a1a1a;font-weight:600;text-decoration:none;border-radius:4px">Start with the 20-idea guide →</a>
+        <a href="articles/hmrc-side-hustle-tax-uk.html" style="display:inline-block;padding:14px 26px;background:transparent;color:#faf8f4;font-weight:500;text-decoration:none;border:1px solid rgba(250,248,244,0.3);border-radius:4px">Read the tax rules first</a>
       </div>
     </div>
   </section>
@@ -241,12 +242,12 @@
           <a href="category/cashback.html">Cashback</a>
           <a href="category/freelancing.html">Freelancing</a>
           <a href="category/selling-online.html">Selling Online</a>
-          <a href="#">Tax & Money</a>
+          <a href="category/tax.html">Tax &amp; Money</a>
+          <a href="category/high-risk.html">High Risk</a>
         </div>
         <div class="footer-links">
           <strong>Site</strong>
           <a href="about.html">About</a>
-          <a href="#">Contact</a>
           <a href="privacy-policy.html">Privacy Policy</a>
           <a href="privacy-policy.html">Affiliate Disclosure</a>
         </div>
@@ -257,17 +258,10 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script src="js/cookies.js"></script>
   <script src="js/articles.js"></script>
   <script src="js/carousel.js"></script>
-  <script>
-    // Live article count
-    var countEl = document.getElementById('article-count');
-    if (countEl && window.TSI_ARTICLE_COUNT) {
-      countEl.textContent = window.TSI_ARTICLE_COUNT;
-    }
-  </script>
+  <script src="js/main.js"></script>
+  <script src="js/cookies.js"></script>
   <script>
   function toggleMobileNav() {
     var btn = document.getElementById('burger-btn');
