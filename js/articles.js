@@ -1,159 +1,137 @@
-// Central article registry — add new articles here, everything updates automatically
+/**
+ * TSI-UK Article Registry
+ * -----------------------------------------------------
+ * Single source of truth for every article on the site.
+ * Powers: article count in hero, Top Picks carousel,
+ * Latest Guides grid, and topic ticker.
+ *
+ * New articles are inserted at the top (newest first) by
+ * the TSI-Auto Publisher Agent.
+ * -----------------------------------------------------
+ */
 window.TSI_ARTICLES = [
-  {
-    slug: "how-to-start-shopify-store-uk",
-    title: "How to Start a Shopify Store in the UK in 2026",
-    category: "Selling Online",
-    categoryUrl: "category/selling-online.html",
-    earn: "£300-£5,000/mo",
-    readTime: 12,
-    snippet: "A step-by-step UK guide to launching a Shopify store. Costs, niches that work, sourcing, tax, and realistic earnings for your first six months.",
-    date: "2026-04-23"
-  },
-  {
-    slug: "best-freelance-platforms-uk",
-    title: "Best Freelance Platforms in the UK for 2026",
-    category: "Freelancing",
-    categoryUrl: "category/freelancing.html",
-    earn: "£300-£3,000/mo",
-    readTime: 11,
-    snippet: "Fiverr, PeoplePerHour, Upwork, Toptal and more — which freelance platforms actually work for UK freelancers in 2026, which ones to avoid, and how to pick the right one for your skill.",
-    date: "2026-04-22"
-  },
-  {
-    slug: "how-to-make-money-on-fiverr-uk",
-    title: "How to Make Money on Fiverr in the UK in 2026",
-    category: "Freelancing",
-    categoryUrl: "category/freelancing.html",
-    earn: "£200-£1,500/mo",
-    readTime: 10,
-    snippet: "Which Fiverr gigs pay best in the UK, how to get your first order without a single review, and realistic earnings for beginners in your first three months.",
-    date: "2026-04-21"
-  },
-  { slug:'articles/best-income-ideas-uk.html', title:'The 15 Best Ways to Earn a Second Income in the UK for 2026', snippet:'Ranked by earning potential, startup time, and ongoing effort required.', category:'income-ideas', categoryLabel:'Income Ideas', readTime:12, earn:'Up to £2,000/mo', featured:false, date:'2026-04-01' },
-  { slug:'articles/second-income-full-time-job-uk.html', title:'How to Build a Second Income Alongside a Full-Time Job', snippet:'Time is the real constraint. These are the strategies that fit around a day job.', category:'income-ideas', categoryLabel:'Income Ideas', readTime:9, earn:'Up to £2,000/mo', featured:false, date:'2026-04-01' },
-  { slug:'articles/topcashback-vs-quidco.html', title:'TopCashback vs Quidco: Which Pays More in 2026?', snippet:'We tracked every penny across both platforms. Here is the honest verdict.', category:'cashback', categoryLabel:'Cashback', readTime:8, earn:'£100–£400/yr', featured:false, date:'2026-04-01' },
-  { slug:'articles/how-to-maximise-cashback-uk.html', title:'How to Earn Cashback on Almost Everything You Buy', snippet:'A systematic approach that earns the average UK household £200–£500/yr.', category:'cashback', categoryLabel:'Cashback', readTime:7, earn:'£200–£500/yr', featured:false, date:'2026-04-01' },
-  { slug:'articles/hmrc-side-hustle-tax-uk.html', title:'Do I Need to Tell HMRC About My Extra Income?', snippet:'The Trading Allowance, Self Assessment, and what triggers a tax bill — plainly explained.', category:'tax', categoryLabel:'Tax & Money', readTime:9, earn:'Could save £1,000s', featured:false, date:'2026-04-01' },
-  { slug:'articles/best-paid-surveys-uk.html', title:'Best Paid Survey Sites in the UK for 2026 (Ranked by Pay)', snippet:'Not all survey sites are worth your time. Here are the ones that actually pay well.', category:'income-ideas', categoryLabel:'Income Ideas', readTime:8, earn:'£50–£200/mo', featured:false, date:'2026-04-01' },
-  { slug:'articles/freelancing-for-beginners-uk.html', title:'Freelancing for Beginners in the UK: How to Get Your First Client', snippet:"No portfolio needed. Here's exactly how to land your first freelance client.", category:'freelancing', categoryLabel:'Freelancing', readTime:11, earn:'£200–£1,000/mo', featured:false, date:'2026-04-01' },
-  { slug:'articles/become-virtual-assistant-uk.html', title:'How to Become a Virtual Assistant in the UK', snippet:'One of the most in-demand and accessible ways to earn extra income — no experience needed.', category:'freelancing', categoryLabel:'Freelancing', readTime:9, earn:'£200–£800/mo', featured:false, date:'2026-04-01' },
-  { slug:'articles/selling-on-ebay-uk.html', title:'How to Make Money Selling on eBay in the UK (2026 Guide)', snippet:'From clearing your loft to building a proper reselling business — everything you need.', category:'selling-online', categoryLabel:'Selling Online', readTime:14, earn:'£100–£2,000/mo', featured:false, date:'2026-04-01' },
-  { slug:'articles/flipping-items-for-profit-uk.html', title:"How to Make Money Flipping Items in the UK: A Beginner's Guide", snippet:'Buy low, sell high — one of the most reliable ways to turn small capital into consistent income.', category:'selling-online', categoryLabel:'Selling Online', readTime:10, earn:'£200–£1,500/mo', featured:false, date:'2026-04-01' },
-  { slug:'articles/selling-on-etsy-uk.html', title:'How to Make Money Selling on Etsy in the UK: 2026 Guide', snippet:'Etsy has millions of buyers and low competition in the right niches — here is how to start.', category:'selling-online', categoryLabel:'Selling Online', readTime:12, earn:'£100–£1,500/mo', featured:false, date:'2026-04-01' },
-  { slug:'articles/print-on-demand-uk.html', title:'How to Make Money with Print on Demand in the UK', snippet:'Create designs once, sell them forever — one of the most scalable passive income models.', category:'selling-online', categoryLabel:'Selling Online', readTime:10, earn:'£100–£800/mo', featured:false, date:'2026-04-01' },
-  { slug:'articles/rent-out-space-uk.html', title:'How to Make Money Renting Out Space in the UK', snippet:'Your driveway, garage, or spare room could be earning you £50–£500/mo with almost no effort.', category:'income-ideas', categoryLabel:'Income Ideas', readTime:8, earn:'£50–£500/mo', featured:false, date:'2026-04-01' },
-  { slug:'articles/investing-small-amounts-uk.html', title:'How to Start Investing Small Amounts of Money in the UK', snippet:"You don't need thousands. Here is how to put even £20/month to work safely.", category:'income-ideas', categoryLabel:'Income Ideas', readTime:10, earn:'Variable', featured:false, date:'2026-04-01' },
-  { slug:'articles/matched-betting-guide.html', title:"Is Matched Betting Still Worth It in 2026? A Beginner's Honest Guide", snippet:'Still the most reliable high earner — but requires discipline and the right approach.', category:'high-risk', categoryLabel:'High Risk', readTime:15, earn:'£500–£1,500/mo', featured:false, date:'2026-04-01' }
-
-  {
-    slug: 'best-side-hustles-uk',
-    title: 'Best Side Hustles UK 2026: 20 Ideas That Actually Pay',
-    category: 'Income Ideas',
-    categoryUrl: 'category/income-ideas.html',
-    earn: '£100–£2,000+/mo',
-    readTime: 14,
-    snippet: 'The most comprehensive, honest guide to UK side hustles — ranked by realistic earning potential.',
-    date: '2026-04-16'
-  },
-  {
-    slug: 'make-money-vinted-uk',
-    title: 'How to Make Money on Vinted UK in 2026',
-    category: 'Selling Online',
-    categoryUrl: 'category/selling-online.html',
-    earn: '£50–£400/mo',
-    readTime: 10,
-    snippet: 'Zero seller fees, 23 million buyers, and you can start in minutes. Here's how to turn your wardrobe into real cash.',
-    date: '2026-04-16'
-  },
-  {
-    slug: 'make-money-tiktok-uk',
-    title: 'How to Make Money on TikTok in the UK in 2026',
-    category: 'Income Ideas',
-    categoryUrl: 'category/income-ideas.html',
-    earn: '£50–£2,000+/mo',
-    readTime: 9,
-    snippet: 'TikTok Creator Fund, brand deals, TikTok Shop — an honest breakdown of what actually pays.',
-    date: '2026-04-16'
-  },
-  {
-    slug: 'passive-income-ideas-uk',
-    title: 'Passive Income Ideas UK: What Actually Works in 2026',
-    category: 'Income Ideas',
-    categoryUrl: 'category/income-ideas.html',
-    earn: '£50–£1,000+/mo',
-    readTime: 11,
-    snippet: 'Cutting through the hype — the passive income options that genuinely work for UK adults.',
-    date: '2026-04-16'
-  },
-  {
-    slug: 'become-online-tutor-uk',
-    title: 'How to Become an Online Tutor in the UK',
-    category: 'Freelancing',
-    categoryUrl: 'category/freelancing.html',
-    earn: '£200–£1,500/mo',
-    readTime: 9,
-    snippet: 'Earn £25–£50/hour sharing knowledge you already have. No teaching qualification needed.',
-    date: '2026-04-16'
-  },
-  {
-    slug: 'make-money-driving-uk',
-    title: 'How to Make Money Driving in the UK: Uber, Deliveroo and More',
-    category: 'Income Ideas',
-    categoryUrl: 'category/income-ideas.html',
-    earn: '£600–£1,800/mo',
-    readTime: 8,
-    snippet: 'Uber, Bolt, Deliveroo, Amazon Flex — compared honestly with real earnings and requirements.',
-    date: '2026-04-16'
-  },
-  {
-    slug: 'dropshipping-uk-guide',
-    title: 'Dropshipping UK: The Honest Guide for 2026',
-    category: 'Selling Online',
-    categoryUrl: 'category/selling-online.html',
-    earn: '£0–£500/mo',
-    readTime: 10,
-    snippet: 'Is dropshipping still worth it in 2026? The unvarnished truth — and better alternatives.',
-    date: '2026-04-16'
-  },
-  {
-    slug: 'become-virtual-assistant-uk',
-    title: 'How to Become a Virtual Assistant in the UK',
-    category: 'Freelancing',
-    categoryUrl: 'category/freelancing.html',
-    earn: '£300–£1,500/mo',
-    readTime: 8,
-    snippet: 'No qualifications needed. Earn £15–£35/hour doing admin work from home for UK businesses.',
-    date: '2026-04-16'
-  },
-  {
-    slug: 'make-money-airbnb-uk',
-    title: 'How to Make Money on Airbnb UK Without Owning Property',
-    category: 'Income Ideas',
-    categoryUrl: 'category/income-ideas.html',
-    earn: '£300–£2,000+/mo',
-    readTime: 9,
-    snippet: 'Spare room, experiences, and co-hosting — how to earn from Airbnb without a buy-to-let.',
-    date: '2026-04-16'
-  },
-  {
-    slug: 'side-hustle-sceptics-guide',
-    title: 'Are Side Hustles Worth It? An Honest Answer for Sceptics',
-    category: 'Income Ideas',
-    categoryUrl: 'category/income-ideas.html',
-    earn: 'Varies',
-    readTime: 8,
-    snippet: 'A no-hype, honest answer to whether side hustles are actually worth the effort in 2026.',
-    date: '2026-04-16'
-  },
+  { slug: 'how-to-start-shopify-store-uk', title: 'How to Start a Shopify Store in the UK in 2026', category: 'Selling Online', categoryUrl: 'category/selling-online.html', earn: '£300–£5,000/mo', readTime: 12, snippet: 'A step-by-step UK guide to launching a Shopify store. Costs, niches that work, sourcing, tax, and realistic earnings for your first six months.', date: '2026-04-23', featured: true },
+  { slug: 'best-freelance-platforms-uk', title: 'Best Freelance Platforms in the UK for 2026', category: 'Freelancing', categoryUrl: 'category/freelancing.html', earn: '£300–£3,000/mo', readTime: 11, snippet: 'Fiverr, PeoplePerHour, Upwork, Toptal and more — which freelance platforms actually work for UK freelancers in 2026.', date: '2026-04-22', featured: true },
+  { slug: 'how-to-make-money-on-fiverr-uk', title: 'How to Make Money on Fiverr in the UK in 2026', category: 'Freelancing', categoryUrl: 'category/freelancing.html', earn: '£200–£1,500/mo', readTime: 10, snippet: 'Which Fiverr gigs pay best in the UK, how to get your first order without a single review, and realistic earnings for beginners in your first three months.', date: '2026-04-21', featured: true },
+  { slug: 'topcashback-vs-quidco', title: 'TopCashback vs Quidco: Which Pays More in 2026?', category: 'Cashback', categoryUrl: 'category/cashback.html', earn: '£100–£400/yr', readTime: 8, snippet: 'We tracked every penny across both platforms. Here is the honest verdict for UK shoppers in 2026.', date: '2026-04-16', featured: true },
+  { slug: 'best-side-hustles-uk', title: 'Best Side Hustles UK 2026: 20 Ideas That Actually Pay', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: '£100–£2,000+/mo', readTime: 14, snippet: 'The most comprehensive, honest guide to UK side hustles — ranked by realistic earning potential.', date: '2026-04-16', featured: true },
+  { slug: 'make-money-vinted-uk', title: 'How to Make Money on Vinted UK in 2026', category: 'Selling Online', categoryUrl: 'category/selling-online.html', earn: '£50–£400/mo', readTime: 10, snippet: 'Zero seller fees, 23 million buyers, and you can start in minutes. Here is how to turn your wardrobe into real cash.', date: '2026-04-16' },
+  { slug: 'make-money-tiktok-uk', title: 'How to Make Money on TikTok in the UK in 2026', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: '£50–£2,000+/mo', readTime: 9, snippet: 'TikTok Creator Fund, brand deals, TikTok Shop — an honest breakdown of what actually pays.', date: '2026-04-16' },
+  { slug: 'passive-income-ideas-uk', title: 'Passive Income Ideas UK: What Actually Works in 2026', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: '£50–£1,000+/mo', readTime: 11, snippet: 'Cutting through the hype — the passive income options that genuinely work for UK adults.', date: '2026-04-16' },
+  { slug: 'become-online-tutor-uk', title: 'How to Become an Online Tutor in the UK', category: 'Freelancing', categoryUrl: 'category/freelancing.html', earn: '£200–£1,500/mo', readTime: 9, snippet: 'Earn £25–£50/hour sharing knowledge you already have. No teaching qualification needed.', date: '2026-04-16' },
+  { slug: 'make-money-driving-uk', title: 'How to Make Money Driving in the UK: Uber, Deliveroo and More', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: '£600–£1,800/mo', readTime: 8, snippet: 'Uber, Bolt, Deliveroo, Amazon Flex — compared honestly with real earnings and requirements.', date: '2026-04-16' },
+  { slug: 'dropshipping-uk-guide', title: 'Dropshipping UK: The Honest Guide for 2026', category: 'Selling Online', categoryUrl: 'category/selling-online.html', earn: '£0–£500/mo', readTime: 10, snippet: 'Is dropshipping still worth it in 2026? The unvarnished truth — and better alternatives.', date: '2026-04-16' },
+  { slug: 'become-virtual-assistant-uk', title: 'How to Become a Virtual Assistant in the UK', category: 'Freelancing', categoryUrl: 'category/freelancing.html', earn: '£300–£1,500/mo', readTime: 8, snippet: 'No qualifications needed. Earn £15–£35/hour doing admin work from home for UK businesses.', date: '2026-04-16' },
+  { slug: 'make-money-airbnb-uk', title: 'How to Make Money on Airbnb UK Without Owning Property', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: '£300–£2,000+/mo', readTime: 9, snippet: 'Spare room, experiences, and co-hosting — how to earn from Airbnb without a buy-to-let.', date: '2026-04-16' },
+  { slug: 'side-hustle-sceptics-guide', title: 'Are Side Hustles Worth It? An Honest Answer for Sceptics', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: 'Varies', readTime: 8, snippet: 'A no-hype, honest answer to whether side hustles are actually worth the effort in 2026.', date: '2026-04-16' },
+  { slug: 'make-money-etsy-uk', title: "How to Make Money on Etsy in the UK: A Beginner's Guide for 2026", category: 'Selling Online', categoryUrl: 'category/selling-online.html', earn: '£100–£1,500/mo', readTime: 12, snippet: 'Etsy has millions of buyers and low competition in the right niches — here is how to start.', date: '2026-04-16' },
+  { slug: 'make-money-selling-ebay-uk', title: 'How to Make Money Selling on eBay UK: The Complete 2026 Guide', category: 'Selling Online', categoryUrl: 'category/selling-online.html', earn: '£100–£2,000/mo', readTime: 14, snippet: 'From clearing your loft to building a proper reselling business — everything you need.', date: '2026-04-16' },
+  { slug: 'print-on-demand-uk-guide', title: 'How to Make Money with Print on Demand in the UK', category: 'Selling Online', categoryUrl: 'category/selling-online.html', earn: '£100–£800/mo', readTime: 10, snippet: 'Create designs once, sell them forever — one of the most scalable passive income models.', date: '2026-04-16' },
+  { slug: 'rent-driveway-parking-space-uk', title: 'How to Make Money Renting Your Driveway or Parking Space in the UK', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: '£50–£500/mo', readTime: 7, snippet: 'Turn an empty driveway into £50–£500/mo of passive income. Best platforms and how to price.', date: '2026-04-16' },
+  { slug: 'rent-out-your-car-uk', title: 'How to Make Money Renting Out Your Car in the UK', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: '£100–£900/mo', readTime: 8, snippet: 'Peer-to-peer car hire via Hiyacar, Turo and Karshare — what it pays and the catches.', date: '2026-04-16' },
+  { slug: 'make-money-from-home-uk', title: 'How to Make Money from Home in the UK in 2026 (15 Real Methods)', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: '£100–£2,000/mo', readTime: 12, snippet: '15 legitimate ways to earn from home — ranked honestly by how much you can realistically make.', date: '2026-04-16' },
+  { slug: 'get-paid-testing-websites-uk', title: 'Get Paid to Test Websites and Apps in the UK (2026 Guide)', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: '£50–£300/mo', readTime: 7, snippet: 'UserTesting, TestingTime, Maze and more — which website testing platforms actually pay in the UK.', date: '2026-04-16' },
+  { slug: 'best-investing-apps-uk-beginners', title: 'Best Investing Apps for Beginners in the UK 2026', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: 'Variable', readTime: 9, snippet: 'Trading 212, Vanguard, Moneybox and more — an honest comparison for UK beginner investors.', date: '2026-04-16' },
+  { slug: 'second-income-tax-guide-uk', title: 'How Much Tax Do You Pay on a Second Income in the UK? (2026/27)', category: 'Tax & Money', categoryUrl: 'category/tax.html', earn: 'Could save £1,000s', readTime: 10, snippet: 'Trading allowance, tax bands and what second income actually costs you — in plain English.', date: '2026-04-16' },
+  { slug: 'best-income-ideas-uk', title: 'The 15 Best Ways to Earn a Second Income in the UK for 2026', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: 'Up to £2,000/mo', readTime: 12, snippet: 'Ranked by earning potential, startup time, and ongoing effort required.', date: '2026-04-01', featured: true },
+  { slug: 'freelancing-beginners-uk', title: 'How to Get Your First Freelance Client in the UK (With No Experience)', category: 'Freelancing', categoryUrl: 'category/freelancing.html', earn: '£200–£1,000/mo', readTime: 11, snippet: 'No portfolio needed. Here is exactly how to land your first freelance client.', date: '2026-04-01' },
+  { slug: 'hmrc-side-hustle-tax-uk', title: 'Do I Need to Tell HMRC About My Extra Income?', category: 'Tax & Money', categoryUrl: 'category/tax.html', earn: 'Could save £1,000s', readTime: 9, snippet: 'The Trading Allowance, Self Assessment, and what triggers a tax bill — plainly explained.', date: '2026-04-01' },
+  { slug: 'best-paid-survey-sites-uk', title: 'Best Paid Survey Sites in the UK for 2026 (Ranked by Hourly Rate)', category: 'Income Ideas', categoryUrl: 'category/income-ideas.html', earn: '£50–£200/mo', readTime: 8, snippet: 'Not all survey sites are worth your time. Here are the ones that actually pay well.', date: '2026-04-01' },
+  { slug: 'matched-betting-guide', title: "Is Matched Betting Still Worth It in 2026? A Beginner's Honest Guide", category: 'High Risk', categoryUrl: 'category/high-risk.html', earn: '£500–£1,500/mo', readTime: 15, snippet: 'Still the most reliable high earner — but requires discipline and the right approach.', date: '2026-04-01' }
 ];
 
+// -----------------------------------------------------
+// Derived values. Kept as properties of window so that
+// any page can show a live article count and top picks
+// without re-implementing the logic.
+// -----------------------------------------------------
 window.TSI_ARTICLE_COUNT = window.TSI_ARTICLES.length;
 
-// Top picks for carousel — update monthly
-window.TSI_TOP_PICKS = [
-  { title:'TopCashback', subtitle:'Free money on purchases you already make', earn:'£100–£400/yr', difficulty:'Easy', bonus:'🎁 Get £10 free when you sign up', readUrl:'articles/topcashback-vs-quidco.html', signupUrl:'https://www.topcashback.co.uk/ref/member4134008076116', icon:'💳', accentColor:'#c8972a' },
-  { title:'Quidco', subtitle:'Cashback on everyday shopping and bills', earn:'£100–£400/yr', difficulty:'Easy', bonus:'🎁 Get £20 bonus after first cashback', readUrl:'articles/topcashback-vs-quidco.html', signupUrl:'https://quidco.com/raf/17840660/', icon:'🛒', accentColor:'#1a6b3a' },
-  { title:'Swagbucks', subtitle:'Earn rewards on surveys, videos & shopping', earn:'£20–£60/mo', difficulty:'Easy', bonus:'✓ Free welcome bonus when you join', readUrl:'articles/best-paid-surveys-uk.html', signupUrl:'https://www.swagbucks.com/profile/r_232761491?rp=1', icon:'📋', accentColor:'#4a5568' },
-  { title:'Matched Betting', subtitle:'Highest-earning strategy on this site', earn:'£500–£1,500/mo', difficulty:'Medium', bonus:'⚠ High Risk — read the guide first', readUrl:'articles/matched-betting-guide.html', signupUrl:'articles/matched-betting-guide.html', icon:'🎯', accentColor:'#c0392b' }
-];
+// Top Picks = articles with `featured: true`, fall back to newest 6 if fewer than 4.
+(function () {
+  var feat = window.TSI_ARTICLES.filter(function (a) { return a.featured; });
+  if (feat.length < 4) {
+    // take newest until we have at least 6
+    var seen = new Set(feat.map(function (a) { return a.slug; }));
+    for (var i = 0; i < window.TSI_ARTICLES.length && feat.length < 6; i++) {
+      var a = window.TSI_ARTICLES[i];
+      if (!seen.has(a.slug)) { feat.push(a); seen.add(a.slug); }
+    }
+  }
+  window.TSI_TOP_PICKS = feat;
+})();
+
+// -----------------------------------------------------
+// Renderers. Run automatically on DOMContentLoaded if the
+// relevant container exists. Every container is optional
+// so individual pages can use whichever they need.
+// -----------------------------------------------------
+(function () {
+  function fmtUrl(slug) { return 'articles/' + slug + '.html'; }
+
+  function categoryClass(cat) {
+    return (cat || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+
+  function renderArticleGrid() {
+    var grid = document.getElementById('article-grid');
+    if (!grid || !window.TSI_ARTICLES) return;
+    grid.innerHTML = '';
+    window.TSI_ARTICLES.forEach(function (a) {
+      var card = document.createElement('a');
+      card.className = 'article-card article-card--' + categoryClass(a.category);
+      card.href = fmtUrl(a.slug);
+      card.innerHTML =
+        '<div class="article-card-inner">' +
+          '<div class="article-tag">' + a.category + '</div>' +
+          '<h3>' + a.title + '</h3>' +
+          '<p>' + a.snippet + '</p>' +
+          '<div class="article-meta">' +
+            '<span class="read-time">' + a.readTime + ' min read</span>' +
+            '<span class="earn-badge">' + a.earn + '</span>' +
+          '</div>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+  }
+
+  function renderHeroCount() {
+    var el = document.getElementById('article-count');
+    if (el) el.textContent = window.TSI_ARTICLE_COUNT;
+  }
+
+  function renderTicker() {
+    var el = document.getElementById('topic-ticker');
+    if (!el || !window.TSI_ARTICLES) return;
+    // Take the first 12 article categories deduplicated with the title
+    var topics = window.TSI_ARTICLES.slice(0, 12).map(function (a) {
+      // short topic phrase derived from title
+      return a.title
+        .replace(/^How to (?:Make Money |Become an? |Start a |Get Paid to )?/i, '')
+        .replace(/ in the UK.*/i, '')
+        .replace(/ UK.*/i, '')
+        .replace(/ for \d{4}.*/i, '')
+        .replace(/ \(.*$/, '')
+        .replace(/ — .*$/, '')
+        .trim();
+    });
+    // Repeat twice for seamless marquee
+    var all = topics.concat(topics);
+    el.innerHTML = all.map(function (t, i) {
+      var sep = i < all.length - 1 ? '<span>•</span>' : '';
+      return '<span>' + t + '</span>' + sep;
+    }).join('');
+  }
+
+  function init() {
+    renderHeroCount();
+    renderArticleGrid();
+    renderTicker();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
