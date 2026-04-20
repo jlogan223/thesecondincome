@@ -1,6 +1,16 @@
 // Central article registry — add new articles here, everything updates automatically
 window.TSI_ARTICLES = [
   {
+    slug: "best-freelance-platforms-uk",
+    title: "Best Freelance Platforms in the UK for 2026",
+    category: "Freelancing",
+    categoryUrl: "category/freelancing.html",
+    earn: "£300-£3,000/mo",
+    readTime: 11,
+    snippet: "Fiverr, PeoplePerHour, Upwork, Toptal and more — which freelance platforms actually work for UK freelancers in 2026, which ones to avoid, and how to pick the right one for your skill.",
+    date: "2026-04-22"
+  },
+  {
     slug: "how-to-make-money-on-fiverr-uk",
     title: "How to Make Money on Fiverr in the UK in 2026",
     category: "Freelancing",
