@@ -1,6 +1,16 @@
 // Central article registry — add new articles here, everything updates automatically
 window.TSI_ARTICLES = [
   {
+    slug: "how-to-start-shopify-store-uk",
+    title: "How to Start a Shopify Store in the UK in 2026",
+    category: "Selling Online",
+    categoryUrl: "category/selling-online.html",
+    earn: "£300-£5,000/mo",
+    readTime: 12,
+    snippet: "A step-by-step UK guide to launching a Shopify store. Costs, niches that work, sourcing, tax, and realistic earnings for your first six months.",
+    date: "2026-04-23"
+  },
+  {
     slug: "best-freelance-platforms-uk",
     title: "Best Freelance Platforms in the UK for 2026",
     category: "Freelancing",
