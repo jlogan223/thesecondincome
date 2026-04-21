@@ -288,6 +288,34 @@ html, body { max-width: 100%; overflow-x: hidden; }
 }
 .faq-list__a { color: var(--ink-soft); }
 
+/* Warning / disclaimer callout box. Used for gambling warnings, risk
+   disclaimers, and anything that needs to visually separate from body
+   copy as "read this carefully". Two variants:
+     .warning-box         — amber (matched-betting gambling warning)
+     .warning-box--danger — red   (end-of-article risk disclaimer)
+   Token-driven so it themes correctly in dark mode. */
+.warning-box {
+  background: var(--warning-bg);
+  border: 2px solid var(--warning-ink);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-6);
+}
+.warning-box--danger {
+  background: var(--danger-bg);
+  border-width: 1px;
+  margin-top: var(--space-6);
+  margin-bottom: 0;
+}
+.warning-box p {
+  font-size: 14px;
+  color: var(--warning-ink);
+  margin: 0;
+  line-height: 1.6;
+}
+.warning-box--danger p { font-size: 13px; }
+.warning-box a { color: var(--warning-ink); text-decoration: underline; }
+
 [data-theme="dark"] {
   --bg-primary:   #1a1a1a;
   --bg-secondary: #222222;
@@ -613,6 +641,7 @@ body {
   border-radius: 2px;
   margin-bottom: 16px;
 }
+.article-tag--danger { background: var(--danger-bg); color: var(--danger-ink); }
 
 .featured-content h2 {
   font-family: var(--serif);
