@@ -21,7 +21,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
   --accent-freelance:  #c8972a;
   --accent-selling:    #c8972a;
   --accent-income:     #c8972a;
-  --accent-tax:        #4a4a4a;
+  --accent-tax:        #5a4a7a;  /* muted editorial purple; matches card bg rgba(90,74,122). Was #4a4a4a, which read as missing colour. */
   --accent-high-risk:  #e85d4a;
 
   /* Semantic — success / warning / danger */

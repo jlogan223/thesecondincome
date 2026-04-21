@@ -128,7 +128,10 @@
   font-size: clamp(22px, 2.4vw, 30px);
   font-weight: 700;
   line-height: 1.15;
-  color: var(--ink);
+  /* Always brand gold, regardless of category. Keeps the snapshot strip
+     visually identical across every category page; the category identity
+     comes through on the smaller card-tag pill instead. */
+  color: var(--gold);
   letter-spacing: -0.01em;
 }
 
@@ -158,15 +161,9 @@
   margin-top: 0;
 }
 
-/* Per-category accent on the stat value. Uses the same accent tokens
-   that drive card [data-cat] tinting, so the stat colour and the card
-   tag colour always match on a given category page. */
-.category-page[data-category-filter="Income Ideas"]   .cat-stat-value { color: var(--accent-income); }
-.category-page[data-category-filter="Cashback"]       .cat-stat-value { color: var(--accent-cashback); }
-.category-page[data-category-filter="Freelancing"]    .cat-stat-value { color: var(--accent-freelance); }
-.category-page[data-category-filter="Selling Online"] .cat-stat-value { color: var(--accent-selling); }
-.category-page[data-category-filter="Tax & Money"]    .cat-stat-value { color: var(--accent-tax); }
-.category-page[data-category-filter="High Risk"]      .cat-stat-value { color: var(--accent-high-risk); }
+/* Per-category stat value overrides removed 2026-04-21. All snapshot
+   stats now render in brand gold for cross-page consistency. Category
+   identity is carried by the card-tag pill, not the stat strip. */
 
 @media (max-width: 720px) {
   .cat-snapshot-grid { grid-template-columns: 1fr; gap: 18px; }
