@@ -50,6 +50,17 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thesecondincome.uk/"},
+      {"@type": "ListItem", "position": 2, "name": "Freelancing", "item": "https://thesecondincome.uk/category/freelancing.html"},
+      {"@type": "ListItem", "position": 3, "name": "Best Freelance Platforms in the UK for 2026", "item": "https://thesecondincome.uk/articles/best-freelance-platforms-uk.html"}
+    ]
+  }
+  </script>
 </head>
 <body>
  <header class="site-header">
@@ -93,7 +104,7 @@
  <span class="earn-small">&pound;300&ndash;&pound;3,000/mo</span>
  </div>
 
- <div class="article-illustration"><img src="../img/hero-freelance.svg" alt="" role="presentation" /></div>
+ <div class="article-illustration"><img src="../img/hero-freelance.svg" alt="" role="presentation"  fetchpriority="high"/></div>
 
  <div class="article-body">
 
@@ -197,8 +208,17 @@
  <p>Realistic benchmark for someone starting from zero: 3 to 6 months to earn a meaningful side income (&pound;500+ a month), 12 to 18 months to replace an average UK salary working full-time. Specialists with high-demand skills can hit this faster. Generalists take longer.</p>
 
  </div>
- </div>
- </main>
+ 
+      <section class="related-articles" aria-labelledby="related-heading">
+        <h2 id="related-heading" class="related-articles__heading">Related guides</h2>
+        <div class="related-articles__grid">
+        <a class="related-card" data-cat="freelancing" href="/articles/how-to-make-money-on-fiverr-uk.html"><div class="related-tag">Freelancing</div><h4>How to Make Money on Fiverr in the UK in 2026</h4><p>Which Fiverr gigs pay best in the UK, how to get your first order without a single review, and realistic earnings for beginners in your first three months.</p></a>
+        <a class="related-card" data-cat="freelancing" href="/articles/become-online-tutor-uk.html"><div class="related-tag">Freelancing</div><h4>How to Become an Online Tutor in the UK</h4><p>Earn £25–£50/hour sharing knowledge you already have. No teaching qualification needed.</p></a>
+        <a class="related-card" data-cat="freelancing" href="/articles/become-virtual-assistant-uk.html"><div class="related-tag">Freelancing</div><h4>How to Become a Virtual Assistant in the UK</h4><p>No qualifications needed. Earn £15–£35/hour doing admin work from home for UK businesses.</p></a>
+        </div>
+      </section>
+    </div>
+  </main>
 
  <footer class="site-footer">
  <div class="container">

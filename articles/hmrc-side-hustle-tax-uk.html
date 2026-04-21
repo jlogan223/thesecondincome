@@ -56,6 +56,17 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thesecondincome.uk/"},
+      {"@type": "ListItem", "position": 2, "name": "Tax & Money", "item": "https://thesecondincome.uk/category/tax.html"},
+      {"@type": "ListItem", "position": 3, "name": "Do I Need to Tell HMRC About My Extra Income?", "item": "https://thesecondincome.uk/articles/hmrc-side-hustle-tax-uk.html"}
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -93,7 +104,9 @@
  <main class="article-layout">
  <div class="article-container">
 
- <div class="breadcrumb"><a href="../index.html">Home</a> → Tax & Money</div>
+ <div class="breadcrumb">
+        <a href="../index.html">Home</a> &rsaquo; <a href="../category/tax.html">Tax &amp; Money</a>
+      </div>
 
  <div class="article-tag" style="margin-bottom:16px">Tax & Money</div>
  <h1 class="article-title">Do I Need to Tell HMRC About My Side Hustle? UK Tax Explained Simply</h1>
@@ -110,7 +123,7 @@
  <div class="article-body">
 
  
- <div class="article-illustration"><img src="../img/hero-money.svg" alt="" role="presentation" /></div>
+ <div class="article-illustration"><img src="../img/hero-money.svg" alt="" role="presentation"  fetchpriority="high"/></div>
  <div class="toc">
  <strong>In this guide:</strong>
  <ol>
@@ -166,8 +179,17 @@
  <p>Most people with a straightforward side hustle don't need an accountant, but if you're earning £20,000+ per year from self-employment, the cost of an accountant (typically £200–£400/yr for a simple return) usually saves you more than it costs.</p>
 
  </div>
- </div>
- </main>
+ 
+      <section class="related-articles" aria-labelledby="related-heading">
+        <h2 id="related-heading" class="related-articles__heading">Related guides</h2>
+        <div class="related-articles__grid">
+        <a class="related-card" data-cat="tax-and-money" href="/articles/second-income-tax-guide-uk.html"><div class="related-tag">Tax &amp; Money</div><h4>How Much Tax Do You Pay on a Second Income in the UK? (2026/27)</h4><p>Trading allowance, tax bands and what second income actually costs you ,  in plain English.</p></a>
+        <a class="related-card" data-cat="selling-online" href="/articles/how-to-start-shopify-store-uk.html"><div class="related-tag">Selling Online</div><h4>How to Start a Shopify Store in the UK in 2026</h4><p>A step-by-step UK guide to launching a Shopify store. Costs, niches that work, sourcing, tax, and realistic earnings for your first six months.</p></a>
+        <a class="related-card" data-cat="freelancing" href="/articles/best-freelance-platforms-uk.html"><div class="related-tag">Freelancing</div><h4>Best Freelance Platforms in the UK for 2026</h4><p>Fiverr, PeoplePerHour, Upwork, Toptal and more ,  which freelance platforms actually work for UK freelancers in 2026.</p></a>
+        </div>
+      </section>
+    </div>
+  </main>
 
  <footer class="site-footer">
  <div class="container">
