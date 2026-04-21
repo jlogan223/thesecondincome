@@ -734,7 +734,15 @@ body {
   gap: 10px;
   transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
   cursor: pointer;
+  /* Neutralise <a> defaults (cards are anchors since 2026-04-21) */
+  text-decoration: none;
+  color: inherit;
 }
+.article-card,
+.article-card:hover,
+.article-card:visited,
+.article-card:focus { text-decoration: none; color: inherit; }
+.article-card * { text-decoration: none; }
 
 .article-card:hover {
   transform: translateY(-3px);
@@ -764,6 +772,102 @@ body {
   font-weight: 300;
   flex: 1;
 }
+
+/* Related cards (article foot). Same anchor-reset as article-card. */
+.related-card {
+  display: block;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+}
+.related-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+.related-card,
+.related-card:hover,
+.related-card:visited,
+.related-card:focus { text-decoration: none; color: inherit; }
+.related-card * { text-decoration: none; }
+.related-card h4 { font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--ink); margin: 8px 0; line-height: 1.3; }
+.related-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+.related-tag { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+
+/* Shared section headings (homepage + category pages) */
+.section-heading {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 8px 0 28px;
+}
+
+/* Browse-by-category tiles (homepage) */
+.categories-section { padding: 60px 0; background: var(--paper-alt, rgba(200,151,42,0.04)); }
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+.category-tile {
+  display: block;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--paper);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.3s;
+  cursor: pointer;
+}
+.category-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+  border-color: var(--gold);
+}
+.category-tile,
+.category-tile:hover,
+.category-tile:visited,
+.category-tile:focus { text-decoration: none; color: inherit; }
+.category-tile * { text-decoration: none; }
+.category-tile__title {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.category-tile__body {
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+/* Per-category tint on tile title + border accent on hover */
+.category-tile[data-cat="cashback"]:hover      { border-color: var(--accent-cashback); }
+.category-tile[data-cat="freelancing"]:hover   { border-color: var(--accent-freelance); }
+.category-tile[data-cat="selling-online"]:hover { border-color: var(--accent-selling); }
+.category-tile[data-cat="income-ideas"]:hover  { border-color: var(--accent-income); }
+.category-tile[data-cat="tax-and-money"]:hover { border-color: var(--accent-tax); }
+.category-tile[data-cat="high-risk"]           { border-color: rgba(232, 93, 74, 0.25); }
+.category-tile[data-cat="high-risk"] .category-tile__title { color: var(--accent-high-risk); }
+.category-tile[data-cat="high-risk"]:hover    { border-color: var(--accent-high-risk); }
+
+/* Homepage "browse all" CTA under the latest-guides grid */
+.articles-footer { margin-top: 32px; text-align: center; }
+.articles-footer__link {
+  display: inline-block;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  transition: border-color 0.2s, background 0.2s;
+}
+.articles-footer__link:hover { border-color: var(--gold); background: var(--gold-alpha); }
 
 .card-meta {
   display: flex;

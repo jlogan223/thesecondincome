@@ -169,46 +169,49 @@
   </section>
 
   <!-- BROWSE BY CATEGORY -->
-  <section class="categories-section" style="padding:60px 0;background:var(--paper-alt,rgba(200,151,42,0.04))">
+  <section class="categories-section">
     <div class="container">
       <div class="section-label">Browse by category</div>
-      <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--ink);margin:8px 0 28px">Find your next income idea</h2>
-      <div class="category-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
-        <a href="category/income-ideas.html" class="category-tile" style="display:block;padding:22px;border:1px solid rgba(200,151,42,0.25);border-radius:10px;background:var(--paper);text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s">
-          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px">Income Ideas</div>
-          <p style="font-size:14px;color:var(--ink-muted);margin:0">The 15+ side hustles ranked by realistic earnings.</p>
+      <h2 class="section-heading">Find your next income idea</h2>
+      <div class="category-grid">
+        <a href="/category/income-ideas.html" class="category-tile" data-cat="income-ideas">
+          <div class="category-tile__title">Income Ideas</div>
+          <p class="category-tile__body">The 15+ side hustles ranked by realistic earnings.</p>
         </a>
-        <a href="category/cashback.html" class="category-tile" style="display:block;padding:22px;border:1px solid rgba(200,151,42,0.25);border-radius:10px;background:var(--paper);text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s">
-          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px">Cashback</div>
-          <p style="font-size:14px;color:var(--ink-muted);margin:0">Free money on shopping you already do.</p>
+        <a href="/category/cashback.html" class="category-tile" data-cat="cashback">
+          <div class="category-tile__title">Cashback</div>
+          <p class="category-tile__body">Free money on shopping you already do.</p>
         </a>
-        <a href="category/freelancing.html" class="category-tile" style="display:block;padding:22px;border:1px solid rgba(200,151,42,0.25);border-radius:10px;background:var(--paper);text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s">
-          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px">Freelancing</div>
-          <p style="font-size:14px;color:var(--ink-muted);margin:0">Fiverr, Upwork, PeoplePerHour and more.</p>
+        <a href="/category/freelancing.html" class="category-tile" data-cat="freelancing">
+          <div class="category-tile__title">Freelancing</div>
+          <p class="category-tile__body">Fiverr, Upwork, PeoplePerHour and more.</p>
         </a>
-        <a href="category/selling-online.html" class="category-tile" style="display:block;padding:22px;border:1px solid rgba(200,151,42,0.25);border-radius:10px;background:var(--paper);text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s">
-          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px">Selling Online</div>
-          <p style="font-size:14px;color:var(--ink-muted);margin:0">eBay, Vinted, Etsy, Shopify, dropshipping.</p>
+        <a href="/category/selling-online.html" class="category-tile" data-cat="selling-online">
+          <div class="category-tile__title">Selling Online</div>
+          <p class="category-tile__body">eBay, Vinted, Etsy, Shopify, dropshipping.</p>
         </a>
-        <a href="category/tax.html" class="category-tile" style="display:block;padding:22px;border:1px solid rgba(200,151,42,0.25);border-radius:10px;background:var(--paper);text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s">
-          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px">Tax &amp; Money</div>
-          <p style="font-size:14px;color:var(--ink-muted);margin:0">HMRC, Self Assessment, the trading allowance.</p>
+        <a href="/category/tax.html" class="category-tile" data-cat="tax-and-money">
+          <div class="category-tile__title">Tax &amp; Money</div>
+          <p class="category-tile__body">HMRC, Self Assessment, the trading allowance.</p>
         </a>
-        <a href="category/high-risk.html" class="category-tile" style="display:block;padding:22px;border:1px solid rgba(232,93,74,0.25);border-radius:10px;background:var(--paper);text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s">
-          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:#e85d4a;margin-bottom:6px">High Risk</div>
-          <p style="font-size:14px;color:var(--ink-muted);margin:0">Matched betting, trading — proceed carefully.</p>
+        <a href="/category/high-risk.html" class="category-tile" data-cat="high-risk">
+          <div class="category-tile__title">High Risk</div>
+          <p class="category-tile__body">Matched betting, trading. Proceed carefully.</p>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ARTICLE GRID -->
+  <!-- LATEST GUIDES — capped to 9 most recent; full archive lives on the category pages -->
   <section class="articles">
     <div class="container">
       <div class="section-label">Latest Guides</div>
-      <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--ink);margin:8px 0 28px">Every guide on the site</h2>
-      <div class="articles-grid" id="article-grid">
+      <h2 class="section-heading">Fresh off the desk</h2>
+      <div class="articles-grid" id="article-grid" data-limit="9">
         <!-- Cards rendered by articles.js -->
+      </div>
+      <div class="articles-footer">
+        <a href="#browse-by-category" class="articles-footer__link" onclick="document.querySelector('.categories-section').scrollIntoView({behavior:'smooth'});return false;">Browse all guides by category &rarr;</a>
       </div>
     </div>
   </section>

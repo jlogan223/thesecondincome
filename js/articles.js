@@ -74,7 +74,12 @@ window.TSI_ARTICLE_COUNT = window.TSI_ARTICLES.length;
       if (window.console) console.warn('TSI_CARDS missing — ensure cards.js loads before articles.js');
       return;
     }
-    grid.innerHTML = window.TSI_ARTICLES.map(function (a) {
+    // Respect an optional data-limit attribute (e.g. data-limit="9" on homepage).
+    // When absent, show everything.
+    var limit = parseInt(grid.getAttribute('data-limit'), 10);
+    var list = window.TSI_ARTICLES;
+    if (!isNaN(limit) && limit > 0) list = list.slice(0, limit);
+    grid.innerHTML = list.map(function (a) {
       return window.TSI_CARDS.render(a, 'grid');
     }).join('');
   }

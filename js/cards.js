@@ -11,7 +11,10 @@
  * -----------------------------------------------------
  */
 (function () {
-  function fmtUrl(slug) { return 'articles/' + slug + '.html'; }
+  // Absolute path — works from any page (root, /category/*, /articles/*).
+  // The old relative 'articles/<slug>.html' 404'd on category pages because
+  // it resolved to /category/articles/<slug>.html.
+  function fmtUrl(slug) { return '/articles/' + slug + '.html'; }
 
   // Slugified category -> matches CSS selectors like
   //   .article-card[data-cat="high-risk"] { ... }

@@ -72,6 +72,108 @@
   margin: 0;
 }
 
+/* Trending-now pill inside the hero.
+   Small neutral badge with a gold pulse dot. Registry-driven so
+   categories without a `trending` field render without the pill. */
+.cat-trending {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 999px;
+  color: rgba(255,255,255,0.85);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.cat-trending-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 0 var(--gold-alpha);
+  animation: tsi-pulse 2.2s ease-out infinite;
+}
+@keyframes tsi-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(198, 163, 90, 0.55); }
+  80%  { box-shadow: 0 0 0 10px rgba(198, 163, 90, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(198, 163, 90, 0); }
+}
+
+/* Snapshot strip: 3 stats + hook paragraph, sits between hero and grids.
+   Upgrades the old "title + grid" layout (which felt archival) into a
+   punchier opportunity frame. Registry-driven, purely static content. */
+.cat-snapshot {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 0 40px;
+}
+
+.cat-snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 860px;
+}
+
+.cat-stat {
+  padding: 4px 0;
+}
+
+.cat-stat-value {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.cat-stat-label {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 220px;
+}
+
+.cat-hook {
+  margin-top: 28px;
+  max-width: 720px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  font-weight: 300;
+}
+
+/* Stats empty state: if a category omitted stats, collapse the strip
+   instead of leaving a weird empty band. */
+.cat-snapshot-grid:empty {
+  display: none;
+}
+.cat-snapshot-grid:empty + .cat-hook {
+  margin-top: 0;
+}
+
+/* Per-category accent on the stat value. Uses the same accent tokens
+   that drive card [data-cat] tinting, so the stat colour and the card
+   tag colour always match on a given category page. */
+.category-page[data-category-filter="Income Ideas"]   .cat-stat-value { color: var(--accent-income); }
+.category-page[data-category-filter="Cashback"]       .cat-stat-value { color: var(--accent-cashback); }
+.category-page[data-category-filter="Freelancing"]    .cat-stat-value { color: var(--accent-freelance); }
+.category-page[data-category-filter="Selling Online"] .cat-stat-value { color: var(--accent-selling); }
+.category-page[data-category-filter="Tax & Money"]    .cat-stat-value { color: var(--accent-tax); }
+.category-page[data-category-filter="High Risk"]      .cat-stat-value { color: var(--accent-high-risk); }
+
+@media (max-width: 720px) {
+  .cat-snapshot-grid { grid-template-columns: 1fr; gap: 18px; }
+  .cat-stat-value    { font-size: 22px; }
+  .cat-hook          { font-size: 16px; }
+}
+
 /* Featured articles section */
 .cat-featured { padding: 56px 0 0; }
 
