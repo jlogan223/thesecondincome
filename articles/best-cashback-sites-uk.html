@@ -56,6 +56,64 @@
     "mainEntityOfPage": {"@type": "WebPage", "@id": "https://thesecondincome.uk/articles/best-cashback-sites-uk.html"}
   }
   </script>
+
+  <!-- JSON-LD FAQPage Schema (auto-emitted when the body contains a FAQ section) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it safe to use cashback sites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the established platforms (TopCashback, Quidco) have been operating for well over a decade and have paid out hundreds of millions of pounds to UK members. You are not giving them your payment details directly. They simply redirect you to the retailer's site via a tracked link. The main risk is that a transaction fails to track, in which case you can raise a claim through the cashback site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my cashback sometimes show as pending for months?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retailers do not pay out until they are confident the sale is final, meaning no refund has been requested. A retailer with a 60-day return policy will typically hold off paying the cashback site for at least that long. Once the retailer pays the cashback site, the site then releases the cashback to your account. It is not instant, and it can feel frustrating, but it is how the whole system works."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use both TopCashback and Quidco at the same time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on a single purchase. You can only click through one portal per transaction, as using two would cause tracking conflicts and likely result in neither paying out. What you can do is check both platforms before you buy and use whichever is offering the better rate for that specific retailer at that moment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do cashback sites work on mobile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They do, but you need to be careful. Using the cashback site's own app or clicking through from the mobile browser tends to work better than clicking from a desktop and then switching devices. In-app browsers on social media platforms can break tracking. Stick to Safari or Chrome on mobile, and check the retailer on the cashback site's mobile app before heading to the retailer's site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are cashback rates consistent throughout the year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, they fluctuate regularly. Retailers increase rates during promotions and drop them at other times. Black Friday, January sales, and the run-up to Christmas often see elevated rates. Signing up for email alerts from your cashback platform means you will be notified when rates go up on retailers you use regularly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if a retailer goes bust while my cashback is pending?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the retailer fails before paying the cashback platform, the platform typically cannot pay you either. In this scenario you would lose that pending cashback. It is an unlikely outcome with major retailers but worth knowing about. The cashback platforms generally try to chase outstanding payments even in these circumstances, though they cannot guarantee recovery."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -69,9 +127,9 @@
         <a href="../category/freelancing.html">Freelancing</a>
         <a href="../category/selling-online.html">Selling Online</a>
         <a href="../category/tax.html">Tax &amp; Money</a>
-        <a href="../category/high-risk.html" style="color:#e85d4a">High Risk</a>
+        <a href="../category/high-risk.html" class="cat-accent-high-risk">High Risk</a>
       </nav>
-      <a href="../about.html" class="nav-cta" style="text-decoration:none">About</a>
+      <a href="../about.html" class="nav-cta">About</a>
       <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
       <button class="burger" id="burger-btn" aria-label="Menu" onclick="toggleMobileNav()">
         <span></span><span></span><span></span>
@@ -106,6 +164,9 @@
       <div class="article-illustration">
         <img src="../img/hero-cashback.svg" alt="" role="presentation" />
       </div>
+
+      <!-- ad slots: content added later via data-ad-slot attr + one-file edit. Empty = zero layout impact. -->
+      <div class="ad-slot" data-ad-slot="top"></div>
 
       <div class="article-body">
 <p>Cashback sites are one of the few genuinely passive ways to save money. You shop through a portal, a retailer pays a referral fee, and the site passes most of it back to you. There is no survey to fill in, no app to fiddle with and no skill required. You just click before you buy.</p>
@@ -184,10 +245,12 @@
 
         <p>For everyday household use, cashback is simply a saving, not income, and you do not need to worry about it from a tax perspective.</p>
 
-        <div class="affiliate-box" style="margin:2em 0;padding:1.5em;border:2px solid #c8972a;border-radius:8px;background:rgba(200,151,42,0.05)">
-          <h3 style="margin-top:0">Join TopCashback (free)</h3>
-          <p>TopCashback pays you real cash back for shopping you do anyway. Free to join, and we earn a small commission if you sign up through the link below.</p>
-          <a href="https://www.topcashback.co.uk/ref/member4134008076116" rel="sponsored nofollow" target="_blank" style="display:inline-block;padding:0.75em 1.5em;background:#c8972a;color:#1a1a1a;font-weight:600;text-decoration:none;border-radius:4px">Join TopCashback</a>
+        <p class="affiliate-disclosure">We may earn a small commission if you sign up through the link below, at no extra cost to you.</p>
+        <div class="affiliate-box">
+          <div class="affiliate-box__label">Recommended</div>
+          <h3 class="affiliate-box__title">Join TopCashback (free)</h3>
+          <p class="affiliate-box__body">TopCashback pays you real cash back for shopping you do anyway. Free to join, and takes about 30 seconds to set up.</p>
+          <a class="cta-btn cta-btn--primary" href="https://www.topcashback.co.uk/ref/member4134008076116" rel="sponsored nofollow" target="_blank">Join TopCashback</a>
         </div>
 
         <h2>Frequently Asked Questions</h2>
@@ -210,6 +273,8 @@
         <h3>What happens if a retailer goes bust while my cashback is pending?</h3>
         <p>If the retailer fails before paying the cashback platform, the platform typically cannot pay you either. In this scenario you would lose that pending cashback. It is an unlikely outcome with major retailers but worth knowing about. The cashback platforms generally try to chase outstanding payments even in these circumstances, though they cannot guarantee recovery.</p>
       </div>
+
+      <div class="ad-slot" data-ad-slot="end"></div>
     </div>
   </main>
 

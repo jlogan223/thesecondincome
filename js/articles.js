@@ -10,8 +10,6 @@
  * -----------------------------------------------------
  */
 window.TSI_ARTICLES = [
-  { slug: "how-to-start-shopify-store-uk", title: "How to Start a Shopify Store in the UK in 2026", category: "Selling Online", categoryUrl: "category/selling-online.html", earn: "£300-£5,000/mo", readTime: 12, snippet: "A step-by-step UK guide to launching a Shopify store. Costs, niches that work, sourcing, tax, and realistic earnings for your first six months.", date: "2026-04-23" },
-  { slug: "best-cashback-sites-uk", title: "Best Cashback Sites in the UK for 2026", category: "Cashback", categoryUrl: "category/cashback.html", earn: "£200-£800/yr", readTime: 9, snippet: "The cashback sites UK shoppers actually earn from in 2026, ranked honestly. Fees, payout reliability, and how to stack cashback with credit card rewards.", date: "2026-04-25" },
   { slug: 'how-to-start-shopify-store-uk', title: 'How to Start a Shopify Store in the UK in 2026', category: 'Selling Online', categoryUrl: 'category/selling-online.html', earn: '£300–£5,000/mo', readTime: 12, snippet: 'A step-by-step UK guide to launching a Shopify store. Costs, niches that work, sourcing, tax, and realistic earnings for your first six months.', date: '2026-04-23', featured: true },
   { slug: 'best-freelance-platforms-uk', title: 'Best Freelance Platforms in the UK for 2026', category: 'Freelancing', categoryUrl: 'category/freelancing.html', earn: '£300–£3,000/mo', readTime: 11, snippet: 'Fiverr, PeoplePerHour, Upwork, Toptal and more — which freelance platforms actually work for UK freelancers in 2026.', date: '2026-04-22', featured: true },
   { slug: 'how-to-make-money-on-fiverr-uk', title: 'How to Make Money on Fiverr in the UK in 2026', category: 'Freelancing', categoryUrl: 'category/freelancing.html', earn: '£200–£1,500/mo', readTime: 10, snippet: 'Which Fiverr gigs pay best in the UK, how to get your first order without a single review, and realistic earnings for beginners in your first three months.', date: '2026-04-21', featured: true },
@@ -69,32 +67,16 @@ window.TSI_ARTICLE_COUNT = window.TSI_ARTICLES.length;
 // so individual pages can use whichever they need.
 // -----------------------------------------------------
 (function () {
-  function fmtUrl(slug) { return 'articles/' + slug + '.html'; }
-
-  function categoryClass(cat) {
-    return (cat || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  }
-
   function renderArticleGrid() {
     var grid = document.getElementById('article-grid');
     if (!grid || !window.TSI_ARTICLES) return;
-    grid.innerHTML = '';
-    window.TSI_ARTICLES.forEach(function (a) {
-      var card = document.createElement('a');
-      card.className = 'article-card article-card--' + categoryClass(a.category);
-      card.href = fmtUrl(a.slug);
-      card.innerHTML =
-        '<div class="article-card-inner">' +
-          '<div class="article-tag">' + a.category + '</div>' +
-          '<h3>' + a.title + '</h3>' +
-          '<p>' + a.snippet + '</p>' +
-          '<div class="article-meta">' +
-            '<span class="read-time">' + a.readTime + ' min read</span>' +
-            '<span class="earn-badge">' + a.earn + '</span>' +
-          '</div>' +
-        '</div>';
-      grid.appendChild(card);
-    });
+    if (!window.TSI_CARDS) {
+      if (window.console) console.warn('TSI_CARDS missing — ensure cards.js loads before articles.js');
+      return;
+    }
+    grid.innerHTML = window.TSI_ARTICLES.map(function (a) {
+      return window.TSI_CARDS.render(a, 'grid');
+    }).join('');
   }
 
   function renderHeroCount() {
@@ -125,10 +107,52 @@ window.TSI_ARTICLE_COUNT = window.TSI_ARTICLES.length;
     }).join('');
   }
 
+  // Category pages: body has class "category-page" and data-category-filter="<label>".
+  // Populates #cat-featured-grid (featured:true entries) and #cat-catalogue-grid
+  // (all entries) with TSI_CARDS.render(a, 'grid'). Empty state message when
+  // no articles match the filter yet.
+  function renderCategoryPage() {
+    var body = document.body;
+    if (!body || !body.classList.contains('category-page')) return;
+    var filter = body.getAttribute('data-category-filter');
+    if (!filter || !window.TSI_ARTICLES) return;
+    if (!window.TSI_CARDS) {
+      if (window.console) console.warn('TSI_CARDS missing — ensure cards.js loads before articles.js');
+      return;
+    }
+
+    var inCat = window.TSI_ARTICLES.filter(function (a) { return a.category === filter; });
+    var featured = inCat.filter(function (a) { return a.featured; });
+
+    var catalogueGrid = document.getElementById('cat-catalogue-grid');
+    var catalogueEmpty = document.getElementById('cat-empty-msg');
+    if (catalogueGrid) {
+      catalogueGrid.innerHTML = inCat.map(function (a) {
+        return window.TSI_CARDS.render(a, 'grid');
+      }).join('');
+    }
+    if (catalogueEmpty) {
+      if (inCat.length === 0) catalogueEmpty.removeAttribute('hidden');
+      else catalogueEmpty.setAttribute('hidden', '');
+    }
+
+    var featuredSection = document.getElementById('cat-featured-section');
+    var featuredGrid = document.getElementById('cat-featured-grid');
+    if (featuredGrid && featured.length > 0) {
+      featuredGrid.innerHTML = featured.map(function (a) {
+        return window.TSI_CARDS.render(a, 'grid');
+      }).join('');
+      if (featuredSection) featuredSection.removeAttribute('hidden');
+    } else if (featuredSection) {
+      featuredSection.setAttribute('hidden', '');
+    }
+  }
+
   function init() {
     renderHeroCount();
     renderArticleGrid();
     renderTicker();
+    renderCategoryPage();
   }
 
   if (document.readyState === 'loading') {

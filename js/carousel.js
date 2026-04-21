@@ -2,9 +2,10 @@
  * TSI-UK Top Picks Carousel
  * -----------------------------------------------------
  * Reads window.TSI_TOP_PICKS (populated by articles.js)
- * and renders into #carousel-track. Arrow buttons,
- * pagination dots, and responsive card count are all
- * handled here.
+ * and renders into #carousel-track via window.TSI_CARDS.
+ *
+ * Card visuals live in App/js/cards.js — this file only
+ * handles paging, dots, and responsive card count.
  * -----------------------------------------------------
  */
 (function () {
@@ -12,16 +13,6 @@
     var now = new Date();
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     return 'Week of ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
-  }
-
-  function catAccent(cat) {
-    var c = (cat || '').toLowerCase();
-    if (c.indexOf('high') !== -1) return '#e85d4a';
-    if (c.indexOf('cashback') !== -1) return '#1a6b3a';
-    if (c.indexOf('freelanc') !== -1) return '#3e5c76';
-    if (c.indexOf('selling') !== -1) return '#7a4a2e';
-    if (c.indexOf('tax') !== -1) return '#5a4a7a';
-    return '#c8972a';
   }
 
   function visibleCount() {
@@ -33,6 +24,11 @@
   function build() {
     var track = document.getElementById('carousel-track');
     if (!track || !window.TSI_TOP_PICKS || window.TSI_TOP_PICKS.length === 0) return;
+    if (!window.TSI_CARDS) {
+      // cards.js must be loaded before this script.
+      if (window.console) console.warn('TSI_CARDS missing — ensure cards.js loads before carousel.js');
+      return;
+    }
 
     var picks = window.TSI_TOP_PICKS;
     var current = 0;
@@ -40,25 +36,9 @@
     var weekEl = document.getElementById('carousel-week');
     if (weekEl) weekEl.textContent = getWeekLabel();
 
-    track.innerHTML = '';
-    picks.forEach(function (a) {
-      var card = document.createElement('div');
-      card.className = 'carousel-card';
-      card.innerHTML =
-        '<div class="carousel-card-body">' +
-          '<div class="carousel-category" style="color:' + catAccent(a.category) + '">' + a.category + '</div>' +
-          '<div class="carousel-earn">' + a.earn + '</div>' +
-          '<div class="carousel-earn-label">potential earnings</div>' +
-          '<div class="carousel-title">' + a.title + '</div>' +
-          '<div class="carousel-snippet">' + a.snippet + '</div>' +
-          '<div class="carousel-meta"><span>' + a.readTime + ' min read</span></div>' +
-        '</div>' +
-        '<div class="carousel-card-footer">' +
-          '<a href="articles/' + a.slug + '.html" class="carousel-btn-read">Read guide</a>' +
-          '<a href="articles/' + a.slug + '.html" class="carousel-btn-signup">Open →</a>' +
-        '</div>';
-      track.appendChild(card);
-    });
+    track.innerHTML = picks.map(function (a) {
+      return window.TSI_CARDS.render(a, 'carousel');
+    }).join('');
 
     var dotsEl = document.getElementById('carousel-dots');
     function rebuildDots() {

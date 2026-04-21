@@ -7,14 +7,286 @@
 html, body { max-width: 100%; overflow-x: hidden; }
 
 :root {
+  /* Brand core */
   --gold:       #c8972a;
   --gold-light: #f0d98a;
+  --gold-alpha: rgba(200, 151, 42, 0.13);   /* was inline #c8972a22 */
+  --gold-ink:   #7a5800;                    /* on-gold text */
   --green:      #1a6b3a;
   --green-light:#e8f4ec;
-  --radius:     6px;
+  --green-alpha:rgba(26, 107, 58, 0.13);    /* was inline #1a6b3a22 */
+
+  /* Category accents */
+  --accent-cashback:   #1a6b3a;
+  --accent-freelance:  #c8972a;
+  --accent-selling:    #c8972a;
+  --accent-income:     #c8972a;
+  --accent-tax:        #4a4a4a;
+  --accent-high-risk:  #e85d4a;
+
+  /* Semantic — success / warning / danger */
+  --success-bg:   #e8f4ec;
+  --success-ink:  #1a6b3a;
+  --warning-bg:   #fff3cd;
+  --warning-ink:  #7a5800;
+  --danger-bg:    #fde8e8;
+  --danger-ink:   #c0392b;
+  --danger-accent:#e85d4a;
+
+  /* Spacing scale (px) — use wherever possible instead of arbitrary values */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius:    6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow:    0 4px 14px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+
+  /* Typography */
   --serif:      'Playfair Display', Georgia, serif;
   --sans:       'DM Sans', system-ui, sans-serif;
+
+  /* Breakpoints (for reference in docs — CSS @media must hardcode) */
+  --bp-mobile:  480px;
+  --bp-tablet:  768px;
+  --bp-desktop: 1024px;
+  --bp-wide:    1280px;
 }
+
+/* === Design-token utilities — use these instead of inline styles === */
+
+/* Category accent link (nav "High Risk", etc.) */
+.cat-accent-cashback  { color: var(--accent-cashback); }
+.cat-accent-freelance { color: var(--accent-freelance); }
+.cat-accent-selling   { color: var(--accent-selling); }
+.cat-accent-income    { color: var(--accent-income); }
+.cat-accent-tax       { color: var(--accent-tax); }
+.cat-accent-high-risk { color: var(--accent-high-risk); }
+
+/* === Card category tinting via [data-cat] ===
+   Single source for card colour differentiation. Cards render
+   `data-cat="cashback|freelancing|selling-online|income-ideas|tax-and-money|high-risk"`
+   (slugs produced by TSI_CARDS.categoryClass — see App/js/cards.js).
+   Tints apply to the category label in each card variant only;
+   adjust here to recolour everywhere at once. */
+
+/* Grid article cards */
+.article-card[data-cat="cashback"]      .article-tag { color: var(--accent-cashback);  background: var(--green-alpha); }
+.article-card[data-cat="freelancing"]   .article-tag { color: var(--accent-freelance); background: rgba(62, 92, 118, 0.10); }
+.article-card[data-cat="selling-online"] .article-tag { color: var(--accent-selling);  background: rgba(122, 74, 46, 0.10); }
+.article-card[data-cat="income-ideas"]  .article-tag { color: var(--accent-income);    background: var(--gold-alpha); }
+.article-card[data-cat="tax-and-money"] .article-tag { color: var(--accent-tax);       background: rgba(90, 74, 122, 0.10); }
+.article-card[data-cat="high-risk"]     .article-tag { color: var(--accent-high-risk); background: rgba(232, 93, 74, 0.10); }
+
+/* Carousel cards */
+.carousel-card[data-cat="cashback"]      .carousel-category { color: var(--accent-cashback); }
+.carousel-card[data-cat="freelancing"]   .carousel-category { color: var(--accent-freelance); }
+.carousel-card[data-cat="selling-online"] .carousel-category { color: var(--accent-selling); }
+.carousel-card[data-cat="income-ideas"]  .carousel-category { color: var(--accent-income); }
+.carousel-card[data-cat="tax-and-money"] .carousel-category { color: var(--accent-tax); }
+.carousel-card[data-cat="high-risk"]     .carousel-category { color: var(--accent-high-risk); }
+
+/* Related cards (article foot) */
+.related-card[data-cat="cashback"]      .related-tag { color: var(--accent-cashback); }
+.related-card[data-cat="freelancing"]   .related-tag { color: var(--accent-freelance); }
+.related-card[data-cat="selling-online"] .related-tag { color: var(--accent-selling); }
+.related-card[data-cat="income-ideas"]  .related-tag { color: var(--accent-income); }
+.related-card[data-cat="tax-and-money"] .related-tag { color: var(--accent-tax); }
+.related-card[data-cat="high-risk"]     .related-tag { color: var(--accent-high-risk); }
+
+/* Earn / status badges */
+.earn-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--gold-alpha);
+  color: var(--gold-ink);
+}
+.earn-badge--low    { background: var(--success-bg); color: var(--success-ink); }
+.earn-badge--mid    { background: var(--gold-alpha); color: var(--gold-ink); }
+.earn-badge--high   { background: var(--green-alpha); color: var(--green); }
+.earn-badge--risky  { background: var(--danger-bg);  color: var(--danger-ink); }
+
+/* CTA buttons */
+.cta-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+  border: 0;
+  font-family: var(--sans);
+  font-size: 1rem;
+}
+.cta-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.cta-btn--primary   { background: var(--gold);    color: #111; }
+.cta-btn--secondary { background: transparent;    color: var(--ink); border: 1px solid var(--border); }
+.cta-btn--danger    { background: var(--danger-accent); color: #fff; }
+
+/* Affiliate box (brand-locked, no inline styles) */
+.affiliate-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  margin: var(--space-6) 0;
+  box-shadow: var(--shadow-sm);
+}
+.affiliate-box__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-2);
+}
+.affiliate-box__title {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  margin-bottom: var(--space-3);
+  color: var(--ink);
+}
+.affiliate-box__body { color: var(--ink-soft); margin-bottom: var(--space-4); }
+
+/* Inline affiliate disclosure (ASA rule) */
+.affiliate-disclosure {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  margin: var(--space-3) 0;
+  display: block;
+}
+.affiliate-disclosure::before {
+  content: "ⓘ ";
+  color: var(--gold);
+}
+
+/* Stat row (horizontal headline numbers) */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  margin: var(--space-6) 0;
+}
+.stat-row__item { text-align: center; }
+.stat-row__value {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--gold);
+  display: block;
+  line-height: 1.1;
+}
+.stat-row__label {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: var(--space-1);
+  display: block;
+}
+
+/* Comparison table */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-6) 0;
+  font-size: 0.95rem;
+}
+.compare-table th, .compare-table td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.compare-table th {
+  background: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--ink);
+  font-family: var(--serif);
+}
+.compare-table tr:nth-child(even) td { background: var(--bg-secondary); }
+.compare-table__win  { color: var(--success-ink); font-weight: 600; }
+.compare-table__lose { color: var(--danger-ink); }
+
+/* CSS-bar chart (earnings comparison — zero JS) */
+.cssbar {
+  display: grid;
+  grid-template-columns: 160px 1fr 120px;
+  gap: var(--space-3);
+  align-items: center;
+  margin: var(--space-2) 0;
+  font-size: 0.9rem;
+}
+.cssbar__label { color: var(--ink); font-weight: 500; }
+.cssbar__track {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-pill);
+  height: 16px;
+  overflow: hidden;
+}
+.cssbar__fill {
+  background: var(--gold);
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 0.6s ease;
+}
+.cssbar__value { font-variant-numeric: tabular-nums; color: var(--ink-soft); text-align: right; }
+
+/* Ad slot — invisible when empty per Justin's spec */
+.ad-slot {
+  margin: var(--space-6) 0;
+  text-align: center;
+  min-height: 0;
+}
+.ad-slot:empty {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.ad-slot > * + * { margin-top: var(--space-2); }
+.ad-slot__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+/* FAQ block (maps to FAQPage JSON-LD via lib/faq-schema.js) */
+.faq-list { margin: var(--space-5) 0; }
+.faq-list__item {
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border);
+}
+.faq-list__q {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  margin-bottom: var(--space-2);
+  color: var(--ink);
+  font-weight: 600;
+}
+.faq-list__a { color: var(--ink-soft); }
 
 [data-theme="dark"] {
   --bg-primary:   #1a1a1a;
@@ -170,6 +442,20 @@ body {
 }
 
 .main-nav a:hover { color: var(--gold); }
+
+/* Header About/CTA link — token-driven so no inline styles needed */
+.nav-cta {
+  color: var(--nav-link);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 6px 14px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-pill);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover { background: var(--gold); color: #111; }
 
 /* ---- THEME TOGGLE ---- */
 .theme-toggle {

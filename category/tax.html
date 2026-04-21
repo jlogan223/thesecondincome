@@ -3,48 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tax & Money — The Second Income UK</title>
+  <meta name="description" content="Plain English UK tax guides for side hustlers. HMRC rules, the trading allowance, Self Assessment, and what extra income really costs." />
+  <title>Tax &amp; Money | The Second Income UK</title>
+  <link rel="canonical" href="https://thesecondincome.uk/category/tax.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tax &amp; Money | The Second Income UK" />
+  <meta property="og:description" content="Plain English UK tax guides for side hustlers. HMRC rules, the trading allowance, Self Assessment, and what extra income really costs." />
+  <meta property="og:url" content="https://thesecondincome.uk/category/tax.html" />
+  <meta property="og:site_name" content="The Second Income UK" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Theme (set before CSS so no FOUC) -->
   <script src="../js/theme.js"></script>
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/category.css" />
-  <!-- Google tag (gtag.js) -->
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQGQYGMJ0R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TQGQYGMJ0R');
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TQGQYGMJ0R');</script>
+
+  <!-- Breadcrumb JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thesecondincome.uk"},
+      {"@type": "ListItem", "position": 2, "name": "Tax & Money", "item": "https://thesecondincome.uk/category/tax.html"}
+    ]
+  }
   </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://thesecondincome.uk"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Tax & Money",
-      "item": "https://thesecondincome.uk/category/tax.html"
-    }
-  ]
-}
-</script>
 </head>
-<body>
+<body class="category-page" data-category-filter="Tax &amp; Money">
   <header class="site-header">
     <div class="header-inner">
       <a href="../index.html" class="logo">
-        <div class="logo-wordmark">
-          <span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span>
-        </div>
+        <div class="logo-wordmark"><span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span></div>
       </a>
       <nav class="main-nav">
         <a href="income-ideas.html">Income Ideas</a>
@@ -52,22 +53,22 @@
         <a href="freelancing.html">Freelancing</a>
         <a href="selling-online.html">Selling Online</a>
         <a href="tax.html">Tax &amp; Money</a>
-        <a href="high-risk.html" style="color:#e85d4a">High Risk</a>
+        <a href="high-risk.html" class="cat-accent-high-risk">High Risk</a>
       </nav>
-      <a href="../about.html" class="nav-cta" style="text-decoration:none">About</a>
+      <a href="../about.html" class="nav-cta">About</a>
+      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
       <button class="burger" id="burger-btn" aria-label="Menu" onclick="toggleMobileNav()">
         <span></span><span></span><span></span>
       </button>
-      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
     </div>
   </header>
   <nav class="mobile-nav" id="mobile-nav">
-    <a href="../category/income-ideas.html">Income Ideas</a>
-    <a href="../category/cashback.html">Cashback</a>
-    <a href="../category/freelancing.html">Freelancing</a>
-    <a href="../category/selling-online.html">Selling Online</a>
-    <a href="../category/tax.html">Tax &amp; Money</a>
-    <a href="../category/high-risk.html" class="nav-high-risk">High Risk</a>
+    <a href="income-ideas.html">Income Ideas</a>
+    <a href="cashback.html">Cashback</a>
+    <a href="freelancing.html">Freelancing</a>
+    <a href="selling-online.html">Selling Online</a>
+    <a href="tax.html">Tax &amp; Money</a>
+    <a href="high-risk.html" class="nav-high-risk">High Risk</a>
     <a href="../about.html">About</a>
   </nav>
 
@@ -75,67 +76,27 @@
     <div class="container">
       <div class="cat-hero-inner">
         <div class="cat-label">Category</div>
-        <h1 class="cat-title">Tax & Money</h1>
-        <p class="cat-sub">Everything you need to know about tax on extra income in the UK — explained in plain English, without the jargon.</p>
+        <h1 class="cat-title">Tax &amp; Money</h1>
+        <p class="cat-sub">HMRC, the trading allowance, and what a second income actually costs in tax. Plain English, no jargon.</p>
       </div>
     </div>
   </section>
 
-  <section class="cat-featured">
+  <!-- Featured guides: populated by articles.js from window.TSI_ARTICLES
+       (articles matching this category with featured:true). Hidden when empty. -->
+  <section class="cat-featured" id="cat-featured-section" hidden>
     <div class="container">
       <div class="section-label">Featured Guides</div>
-      <div class="cat-featured-grid">
-        
-        <article class="cat-hero-card" onclick="location.href='../articles/hmrc-side-hustle-tax-uk.html'">
-          <div class="cat-hero-card-img" style="background: linear-gradient(135deg, #c8972a22, #1a6b3a22);">
-            <div class="cat-hero-card-icon">📋</div>
-          </div>
-          <div class="cat-hero-card-body">
-            <div class="card-category">Tax & Money</div>
-            <h2>Do I Need to Tell HMRC About My Extra Income? UK Tax Explained Simply</h2>
-            <p>The £1,000 Trading Allowance, Self Assessment, and what actually triggers a tax bill — in plain English.</p>
-            <div class="card-meta">
-              <span>9 min read</span>
-              <span class="earn-small">Could save £1,000s</span>
-            </div>
-          </div>
-        </article>
-        <article class="cat-hero-card" onclick="location.href='../articles/second-income-tax-guide-uk.html'">
-          <div class="cat-hero-card-img" style="background: linear-gradient(135deg, #c8972a22, #1a6b3a22);">
-            <div class="cat-hero-card-icon">💷</div>
-          </div>
-          <div class="cat-hero-card-body">
-            <div class="card-category">Tax & Money</div>
-            <h2>The Complete Guide to Tax on a Second Income in the UK</h2>
-            <p>How your extra income is taxed, what expenses you can claim, and how to stay on the right side of HMRC.</p>
-            <div class="card-meta">
-              <span>11 min read</span>
-              <span class="earn-small">Could save £1,000s</span>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div class="articles-grid" id="cat-featured-grid"></div>
     </div>
   </section>
 
+  <!-- Catalogue: every article in this category. Message shown when empty. -->
   <section class="cat-catalogue">
     <div class="container">
-      <div class="section-label">All Tax & Money Guides</div>
-      <div class="articles-grid">
-        
-        <article class="article-card" onclick="location.href='../articles/hmrc-side-hustle-tax-uk.html'">
-          <div class="card-category">Tax & Money</div>
-          <h3>Do I Need to Tell HMRC About My Extra Income?</h3>
-          <p>The Trading Allowance, Self Assessment, and what triggers a tax bill.</p>
-          <div class="card-meta"><span>9 min read</span><span class="earn-small">Could save £1,000s</span></div>
-        </article>
-        <article class="article-card" onclick="location.href='../articles/second-income-tax-guide-uk.html'">
-          <div class="card-category">Tax & Money</div>
-          <h3>The Complete Guide to Tax on a Second Income in the UK</h3>
-          <p>How extra income is taxed and what you can claim back.</p>
-          <div class="card-meta"><span>11 min read</span><span class="earn-small">Could save £1,000s</span></div>
-        </article>
-      </div>
+      <div class="section-label">All Tax &amp; Money Guides</div>
+      <div class="articles-grid" id="cat-catalogue-grid"></div>
+      <p class="cat-empty" id="cat-empty-msg" hidden>More guides in this category are on the way.</p>
     </div>
   </section>
 
@@ -146,7 +107,7 @@
           <div class="logo-wordmark logo-wordmark--footer">
             <span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span>
           </div>
-          <p>TSI-UK helps people in the UK build a second income alongside their day job.</p>
+          <p>Helping UK adults earn a second income alongside their day job.</p>
         </div>
         <div class="footer-links">
           <strong>Categories</strong>
@@ -155,7 +116,6 @@
           <a href="freelancing.html">Freelancing</a>
           <a href="selling-online.html">Selling Online</a>
           <a href="tax.html">Tax &amp; Money</a>
-          <a href="high-risk.html">High Risk</a>
         </div>
         <div class="footer-links">
           <strong>Site</strong>
@@ -164,29 +124,22 @@
         </div>
       </div>
       <div class="footer-disclaimer">
-        <p>TSI-UK contains affiliate links. Earning figures are accurate at time of research — rates and availability may change. This site does not constitute financial advice.</p>
+        <p>TSI-UK contains affiliate links. We may earn a commission when you sign up through our links, at no extra cost to you. This site does not constitute financial advice.</p>
       </div>
     </div>
   </footer>
 
+  <script src="../js/cards.js"></script>
+  <script src="../js/articles.js"></script>
   <script src="../js/main.js"></script>
   <script src="../js/cookies.js"></script>
   <script>
   function toggleMobileNav() {
     var btn = document.getElementById('burger-btn');
     var nav = document.getElementById('mobile-nav');
-    btn.classList.toggle('open');
-    nav.classList.toggle('open');
+    if (btn) btn.classList.toggle('open');
+    if (nav) nav.classList.toggle('open');
   }
-  // Close on outside click
-  document.addEventListener('click', function(e) {
-    var btn = document.getElementById('burger-btn');
-    var nav = document.getElementById('mobile-nav');
-    if (nav && btn && !btn.contains(e.target) && !nav.contains(e.target)) {
-      btn.classList.remove('open');
-      nav.classList.remove('open');
-    }
-  });
   </script>
 </body>
 </html>

@@ -127,3 +127,12 @@
 
 /* All articles catalogue */
 .cat-catalogue { padding: 48px 0 72px; }
+
+/* Shown when a category has no articles yet. Populated by articles.js. */
+.cat-empty {
+  margin-top: 24px;
+  color: var(--ink-muted);
+  font-size: 15px;
+  text-align: center;
+  font-style: italic;
+}
