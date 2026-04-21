@@ -14,6 +14,11 @@
   <meta property="og:url" content="https://thesecondincome.uk/category/freelancing.html" />
   <meta property="og:site_name" content="The Second Income UK" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Freelancing | The Second Income UK" />
+  <meta name="twitter:description" content="UK freelancing guides: best platforms, getting your first client, Fiverr gigs that pay, and realistic freelance earnings for 2026." />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -96,19 +101,26 @@
   </section>
 
   <!-- Featured guides: populated by articles.js from window.TSI_ARTICLES
-       (articles matching this category with featured:true). Hidden when empty. -->
-  <section class="cat-featured" id="cat-featured-section" hidden>
+       (articles matching this category with featured:true). Pre-rendered
+       server-side so crawlers see static links; JS replaces on load. -->
+  <section class="cat-featured" id="cat-featured-section">
     <div class="container">
       <div class="section-label">Featured Guides</div>
-      <div class="articles-grid" id="cat-featured-grid"></div>
+      <div class="articles-grid" id="cat-featured-grid"><a class="article-card" data-cat="freelancing" href="/articles/best-freelance-platforms-uk.html"><div class="article-card-inner"><div class="article-tag">Freelancing</div><h3>Best Freelance Platforms in the UK for 2026</h3><p>Fiverr, PeoplePerHour, Upwork, Toptal and more, which freelance platforms actually work for UK freelancers in 2026.</p><div class="article-meta"><span class="read-time">11 min read</span><span class="earn-badge">£300–£3,000/mo</span></div></div></a>
+      <a class="article-card" data-cat="freelancing" href="/articles/how-to-make-money-on-fiverr-uk.html"><div class="article-card-inner"><div class="article-tag">Freelancing</div><h3>How to Make Money on Fiverr in the UK in 2026</h3><p>Which Fiverr gigs pay best in the UK, how to get your first order without a single review, and realistic earnings for beginners in your first three months.</p><div class="article-meta"><span class="read-time">10 min read</span><span class="earn-badge">£200–£1,500/mo</span></div></div></a></div>
     </div>
   </section>
 
-  <!-- Catalogue: every article in this category. Message shown when empty. -->
+  <!-- Catalogue: every article in this category. Pre-rendered server-side for
+       SEO + no-JS fallback; replaced by articles.js on hydration. -->
   <section class="cat-catalogue">
     <div class="container">
       <div class="section-label">All Freelancing Guides</div>
-      <div class="articles-grid" id="cat-catalogue-grid"></div>
+      <div class="articles-grid" id="cat-catalogue-grid"><a class="article-card" data-cat="freelancing" href="/articles/best-freelance-platforms-uk.html"><div class="article-card-inner"><div class="article-tag">Freelancing</div><h3>Best Freelance Platforms in the UK for 2026</h3><p>Fiverr, PeoplePerHour, Upwork, Toptal and more, which freelance platforms actually work for UK freelancers in 2026.</p><div class="article-meta"><span class="read-time">11 min read</span><span class="earn-badge">£300–£3,000/mo</span></div></div></a>
+      <a class="article-card" data-cat="freelancing" href="/articles/how-to-make-money-on-fiverr-uk.html"><div class="article-card-inner"><div class="article-tag">Freelancing</div><h3>How to Make Money on Fiverr in the UK in 2026</h3><p>Which Fiverr gigs pay best in the UK, how to get your first order without a single review, and realistic earnings for beginners in your first three months.</p><div class="article-meta"><span class="read-time">10 min read</span><span class="earn-badge">£200–£1,500/mo</span></div></div></a>
+      <a class="article-card" data-cat="freelancing" href="/articles/become-online-tutor-uk.html"><div class="article-card-inner"><div class="article-tag">Freelancing</div><h3>How to Become an Online Tutor in the UK</h3><p>Earn £25–£50/hour sharing knowledge you already have. No teaching qualification needed.</p><div class="article-meta"><span class="read-time">9 min read</span><span class="earn-badge">£200–£1,500/mo</span></div></div></a>
+      <a class="article-card" data-cat="freelancing" href="/articles/become-virtual-assistant-uk.html"><div class="article-card-inner"><div class="article-tag">Freelancing</div><h3>How to Become a Virtual Assistant in the UK</h3><p>No qualifications needed. Earn £15–£35/hour doing admin work from home for UK businesses.</p><div class="article-meta"><span class="read-time">8 min read</span><span class="earn-badge">£300–£1,500/mo</span></div></div></a>
+      <a class="article-card" data-cat="freelancing" href="/articles/freelancing-beginners-uk.html"><div class="article-card-inner"><div class="article-tag">Freelancing</div><h3>How to Get Your First Freelance Client in the UK (With No Experience)</h3><p>No portfolio needed. Here is exactly how to land your first freelance client.</p><div class="article-meta"><span class="read-time">11 min read</span><span class="earn-badge">£200–£1,000/mo</span></div></div></a></div>
       <p class="cat-empty" id="cat-empty-msg" hidden>More guides in this category are on the way.</p>
     </div>
   </section>

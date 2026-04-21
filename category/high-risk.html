@@ -14,6 +14,11 @@
   <meta property="og:url" content="https://thesecondincome.uk/category/high-risk.html" />
   <meta property="og:site_name" content="The Second Income UK" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="High Risk | The Second Income UK" />
+  <meta name="twitter:description" content="High risk UK side hustles: matched betting, trading, and more. What the rewards really are and where most people lose money." />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -96,7 +101,8 @@
   </section>
 
   <!-- Featured guides: populated by articles.js from window.TSI_ARTICLES
-       (articles matching this category with featured:true). Hidden when empty. -->
+       (articles matching this category with featured:true). Pre-rendered
+       server-side so crawlers see static links; JS replaces on load. -->
   <section class="cat-featured" id="cat-featured-section" hidden>
     <div class="container">
       <div class="section-label">Featured Guides</div>
@@ -104,11 +110,12 @@
     </div>
   </section>
 
-  <!-- Catalogue: every article in this category. Message shown when empty. -->
+  <!-- Catalogue: every article in this category. Pre-rendered server-side for
+       SEO + no-JS fallback; replaced by articles.js on hydration. -->
   <section class="cat-catalogue">
     <div class="container">
       <div class="section-label">All High Risk Guides</div>
-      <div class="articles-grid" id="cat-catalogue-grid"></div>
+      <div class="articles-grid" id="cat-catalogue-grid"><a class="article-card" data-cat="high-risk" href="/articles/matched-betting-guide.html"><div class="article-card-inner"><div class="article-tag">High Risk</div><h3>Is Matched Betting Still Worth It in 2026? A Beginner's Honest Guide</h3><p>Still the most reliable high earner, but requires discipline and the right approach.</p><div class="article-meta"><span class="read-time">15 min read</span><span class="earn-badge">£500–£1,500/mo</span></div></div></a></div>
       <p class="cat-empty" id="cat-empty-msg" hidden>More guides in this category are on the way.</p>
     </div>
   </section>

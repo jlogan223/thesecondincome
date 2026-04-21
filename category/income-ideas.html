@@ -14,6 +14,11 @@
   <meta property="og:url" content="https://thesecondincome.uk/category/income-ideas.html" />
   <meta property="og:site_name" content="The Second Income UK" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Income Ideas | The Second Income UK" />
+  <meta name="twitter:description" content="The best second income ideas in the UK for 2026, ranked honestly. Side hustles, passive income, and extra earnings that actually pay." />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -96,19 +101,34 @@
   </section>
 
   <!-- Featured guides: populated by articles.js from window.TSI_ARTICLES
-       (articles matching this category with featured:true). Hidden when empty. -->
-  <section class="cat-featured" id="cat-featured-section" hidden>
+       (articles matching this category with featured:true). Pre-rendered
+       server-side so crawlers see static links; JS replaces on load. -->
+  <section class="cat-featured" id="cat-featured-section">
     <div class="container">
       <div class="section-label">Featured Guides</div>
-      <div class="articles-grid" id="cat-featured-grid"></div>
+      <div class="articles-grid" id="cat-featured-grid"><a class="article-card" data-cat="income-ideas" href="/articles/best-side-hustles-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>Best Side Hustles UK 2026: 20 Ideas That Actually Pay</h3><p>The most comprehensive, honest guide to UK side hustles, ranked by realistic earning potential.</p><div class="article-meta"><span class="read-time">14 min read</span><span class="earn-badge">£100–£2,000+/mo</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/best-income-ideas-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>The 15 Best Ways to Earn a Second Income in the UK for 2026</h3><p>Ranked by earning potential, startup time, and ongoing effort required.</p><div class="article-meta"><span class="read-time">12 min read</span><span class="earn-badge">Up to £2,000/mo</span></div></div></a></div>
     </div>
   </section>
 
-  <!-- Catalogue: every article in this category. Message shown when empty. -->
+  <!-- Catalogue: every article in this category. Pre-rendered server-side for
+       SEO + no-JS fallback; replaced by articles.js on hydration. -->
   <section class="cat-catalogue">
     <div class="container">
       <div class="section-label">All Income Ideas Guides</div>
-      <div class="articles-grid" id="cat-catalogue-grid"></div>
+      <div class="articles-grid" id="cat-catalogue-grid"><a class="article-card" data-cat="income-ideas" href="/articles/best-side-hustles-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>Best Side Hustles UK 2026: 20 Ideas That Actually Pay</h3><p>The most comprehensive, honest guide to UK side hustles, ranked by realistic earning potential.</p><div class="article-meta"><span class="read-time">14 min read</span><span class="earn-badge">£100–£2,000+/mo</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/make-money-tiktok-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>How to Make Money on TikTok in the UK in 2026</h3><p>TikTok Creator Fund, brand deals, TikTok Shop, an honest breakdown of what actually pays.</p><div class="article-meta"><span class="read-time">9 min read</span><span class="earn-badge">£50–£2,000+/mo</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/passive-income-ideas-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>Passive Income Ideas UK: What Actually Works in 2026</h3><p>Cutting through the hype, the passive income options that genuinely work for UK adults.</p><div class="article-meta"><span class="read-time">11 min read</span><span class="earn-badge">£50–£1,000+/mo</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/make-money-driving-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>How to Make Money Driving in the UK: Uber, Deliveroo and More</h3><p>Uber, Bolt, Deliveroo, Amazon Flex, compared honestly with real earnings and requirements.</p><div class="article-meta"><span class="read-time">8 min read</span><span class="earn-badge">£600–£1,800/mo</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/make-money-airbnb-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>How to Make Money on Airbnb UK Without Owning Property</h3><p>Spare room, experiences, and co-hosting, how to earn from Airbnb without a buy-to-let.</p><div class="article-meta"><span class="read-time">9 min read</span><span class="earn-badge">£300–£2,000+/mo</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/side-hustle-sceptics-guide.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>Are Side Hustles Worth It? An Honest Answer for Sceptics</h3><p>A no-hype, honest answer to whether side hustles are actually worth the effort in 2026.</p><div class="article-meta"><span class="read-time">8 min read</span><span class="earn-badge">Varies</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/rent-driveway-parking-space-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>How to Make Money Renting Your Driveway or Parking Space in the UK</h3><p>Turn an empty driveway into £50–£500/mo of passive income. Best platforms and how to price.</p><div class="article-meta"><span class="read-time">7 min read</span><span class="earn-badge">£50–£500/mo</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/rent-out-your-car-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>How to Make Money Renting Out Your Car in the UK</h3><p>Peer-to-peer car hire via Hiyacar, Turo and Karshare, what it pays and the catches.</p><div class="article-meta"><span class="read-time">8 min read</span><span class="earn-badge">£100–£900/mo</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/make-money-from-home-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>How to Make Money from Home in the UK in 2026 (15 Real Methods)</h3><p>15 legitimate ways to earn from home, ranked honestly by how much you can realistically make.</p><div class="article-meta"><span class="read-time">12 min read</span><span class="earn-badge">£100–£2,000/mo</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/get-paid-testing-websites-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>Get Paid to Test Websites and Apps in the UK (2026 Guide)</h3><p>UserTesting, TestingTime, Maze and more, which website testing platforms actually pay in the UK.</p><div class="article-meta"><span class="read-time">7 min read</span><span class="earn-badge">£50–£300/mo</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/best-investing-apps-uk-beginners.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>Best Investing Apps for Beginners in the UK 2026</h3><p>Trading 212, Vanguard, Moneybox and more, an honest comparison for UK beginner investors.</p><div class="article-meta"><span class="read-time">9 min read</span><span class="earn-badge">Variable</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/best-income-ideas-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>The 15 Best Ways to Earn a Second Income in the UK for 2026</h3><p>Ranked by earning potential, startup time, and ongoing effort required.</p><div class="article-meta"><span class="read-time">12 min read</span><span class="earn-badge">Up to £2,000/mo</span></div></div></a>
+      <a class="article-card" data-cat="income-ideas" href="/articles/best-paid-survey-sites-uk.html"><div class="article-card-inner"><div class="article-tag">Income Ideas</div><h3>Best Paid Survey Sites in the UK for 2026 (Ranked by Hourly Rate)</h3><p>Not all survey sites are worth your time. Here are the ones that actually pay well.</p><div class="article-meta"><span class="read-time">8 min read</span><span class="earn-badge">£50–£200/mo</span></div></div></a></div>
       <p class="cat-empty" id="cat-empty-msg" hidden>More guides in this category are on the way.</p>
     </div>
   </section>

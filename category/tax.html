@@ -14,6 +14,11 @@
   <meta property="og:url" content="https://thesecondincome.uk/category/tax.html" />
   <meta property="og:site_name" content="The Second Income UK" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tax &amp; Money | The Second Income UK" />
+  <meta name="twitter:description" content="Plain English UK tax guides for side hustlers. HMRC rules, the trading allowance, Self Assessment, and what extra income really costs." />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -96,7 +101,8 @@
   </section>
 
   <!-- Featured guides: populated by articles.js from window.TSI_ARTICLES
-       (articles matching this category with featured:true). Hidden when empty. -->
+       (articles matching this category with featured:true). Pre-rendered
+       server-side so crawlers see static links; JS replaces on load. -->
   <section class="cat-featured" id="cat-featured-section" hidden>
     <div class="container">
       <div class="section-label">Featured Guides</div>
@@ -104,11 +110,13 @@
     </div>
   </section>
 
-  <!-- Catalogue: every article in this category. Message shown when empty. -->
+  <!-- Catalogue: every article in this category. Pre-rendered server-side for
+       SEO + no-JS fallback; replaced by articles.js on hydration. -->
   <section class="cat-catalogue">
     <div class="container">
       <div class="section-label">All Tax &amp; Money Guides</div>
-      <div class="articles-grid" id="cat-catalogue-grid"></div>
+      <div class="articles-grid" id="cat-catalogue-grid"><a class="article-card" data-cat="tax-and-money" href="/articles/second-income-tax-guide-uk.html"><div class="article-card-inner"><div class="article-tag">Tax &amp; Money</div><h3>How Much Tax Do You Pay on a Second Income in the UK? (2026/27)</h3><p>Trading allowance, tax bands and what second income actually costs you, in plain English.</p><div class="article-meta"><span class="read-time">10 min read</span><span class="earn-badge">Could save £1,000s</span></div></div></a>
+      <a class="article-card" data-cat="tax-and-money" href="/articles/hmrc-side-hustle-tax-uk.html"><div class="article-card-inner"><div class="article-tag">Tax &amp; Money</div><h3>Do I Need to Tell HMRC About My Extra Income?</h3><p>The Trading Allowance, Self Assessment, and what triggers a tax bill, plainly explained.</p><div class="article-meta"><span class="read-time">9 min read</span><span class="earn-badge">Could save £1,000s</span></div></div></a></div>
       <p class="cat-empty" id="cat-empty-msg" hidden>More guides in this category are on the way.</p>
     </div>
   </section>

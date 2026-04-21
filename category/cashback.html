@@ -14,6 +14,11 @@
   <meta property="og:url" content="https://thesecondincome.uk/category/cashback.html" />
   <meta property="og:site_name" content="The Second Income UK" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cashback | The Second Income UK" />
+  <meta name="twitter:description" content="UK cashback guides: TopCashback, Quidco, Airtime Rewards and more. How to earn £200 to £800 a year back on everyday spending." />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -96,19 +101,21 @@
   </section>
 
   <!-- Featured guides: populated by articles.js from window.TSI_ARTICLES
-       (articles matching this category with featured:true). Hidden when empty. -->
-  <section class="cat-featured" id="cat-featured-section" hidden>
+       (articles matching this category with featured:true). Pre-rendered
+       server-side so crawlers see static links; JS replaces on load. -->
+  <section class="cat-featured" id="cat-featured-section">
     <div class="container">
       <div class="section-label">Featured Guides</div>
-      <div class="articles-grid" id="cat-featured-grid"></div>
+      <div class="articles-grid" id="cat-featured-grid"><a class="article-card" data-cat="cashback" href="/articles/topcashback-vs-quidco.html"><div class="article-card-inner"><div class="article-tag">Cashback</div><h3>TopCashback vs Quidco: Which Pays More in 2026?</h3><p>We tracked every penny across both platforms. Here is the honest verdict for UK shoppers in 2026.</p><div class="article-meta"><span class="read-time">8 min read</span><span class="earn-badge">£100–£400/yr</span></div></div></a></div>
     </div>
   </section>
 
-  <!-- Catalogue: every article in this category. Message shown when empty. -->
+  <!-- Catalogue: every article in this category. Pre-rendered server-side for
+       SEO + no-JS fallback; replaced by articles.js on hydration. -->
   <section class="cat-catalogue">
     <div class="container">
       <div class="section-label">All Cashback Guides</div>
-      <div class="articles-grid" id="cat-catalogue-grid"></div>
+      <div class="articles-grid" id="cat-catalogue-grid"><a class="article-card" data-cat="cashback" href="/articles/topcashback-vs-quidco.html"><div class="article-card-inner"><div class="article-tag">Cashback</div><h3>TopCashback vs Quidco: Which Pays More in 2026?</h3><p>We tracked every penny across both platforms. Here is the honest verdict for UK shoppers in 2026.</p><div class="article-meta"><span class="read-time">8 min read</span><span class="earn-badge">£100–£400/yr</span></div></div></a></div>
       <p class="cat-empty" id="cat-empty-msg" hidden>More guides in this category are on the way.</p>
     </div>
   </section>

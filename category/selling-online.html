@@ -14,6 +14,11 @@
   <meta property="og:url" content="https://thesecondincome.uk/category/selling-online.html" />
   <meta property="og:site_name" content="The Second Income UK" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Selling Online | The Second Income UK" />
+  <meta name="twitter:description" content="UK guides to selling online: Etsy, eBay, Vinted, Shopify and print on demand. Honest earning figures and the platforms that pay." />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -96,19 +101,26 @@
   </section>
 
   <!-- Featured guides: populated by articles.js from window.TSI_ARTICLES
-       (articles matching this category with featured:true). Hidden when empty. -->
-  <section class="cat-featured" id="cat-featured-section" hidden>
+       (articles matching this category with featured:true). Pre-rendered
+       server-side so crawlers see static links; JS replaces on load. -->
+  <section class="cat-featured" id="cat-featured-section">
     <div class="container">
       <div class="section-label">Featured Guides</div>
-      <div class="articles-grid" id="cat-featured-grid"></div>
+      <div class="articles-grid" id="cat-featured-grid"><a class="article-card" data-cat="selling-online" href="/articles/how-to-start-shopify-store-uk.html"><div class="article-card-inner"><div class="article-tag">Selling Online</div><h3>How to Start a Shopify Store in the UK in 2026</h3><p>A step-by-step UK guide to launching a Shopify store. Costs, niches that work, sourcing, tax, and realistic earnings for your first six months.</p><div class="article-meta"><span class="read-time">12 min read</span><span class="earn-badge">£300–£5,000/mo</span></div></div></a></div>
     </div>
   </section>
 
-  <!-- Catalogue: every article in this category. Message shown when empty. -->
+  <!-- Catalogue: every article in this category. Pre-rendered server-side for
+       SEO + no-JS fallback; replaced by articles.js on hydration. -->
   <section class="cat-catalogue">
     <div class="container">
       <div class="section-label">All Selling Online Guides</div>
-      <div class="articles-grid" id="cat-catalogue-grid"></div>
+      <div class="articles-grid" id="cat-catalogue-grid"><a class="article-card" data-cat="selling-online" href="/articles/how-to-start-shopify-store-uk.html"><div class="article-card-inner"><div class="article-tag">Selling Online</div><h3>How to Start a Shopify Store in the UK in 2026</h3><p>A step-by-step UK guide to launching a Shopify store. Costs, niches that work, sourcing, tax, and realistic earnings for your first six months.</p><div class="article-meta"><span class="read-time">12 min read</span><span class="earn-badge">£300–£5,000/mo</span></div></div></a>
+      <a class="article-card" data-cat="selling-online" href="/articles/make-money-vinted-uk.html"><div class="article-card-inner"><div class="article-tag">Selling Online</div><h3>How to Make Money on Vinted UK in 2026</h3><p>Zero seller fees, 23 million buyers, and you can start in minutes. Here is how to turn your wardrobe into real cash.</p><div class="article-meta"><span class="read-time">10 min read</span><span class="earn-badge">£50–£400/mo</span></div></div></a>
+      <a class="article-card" data-cat="selling-online" href="/articles/dropshipping-uk-guide.html"><div class="article-card-inner"><div class="article-tag">Selling Online</div><h3>Dropshipping UK: The Honest Guide for 2026</h3><p>Is dropshipping still worth it in 2026? The unvarnished truth, and better alternatives.</p><div class="article-meta"><span class="read-time">10 min read</span><span class="earn-badge">£0–£500/mo</span></div></div></a>
+      <a class="article-card" data-cat="selling-online" href="/articles/make-money-etsy-uk.html"><div class="article-card-inner"><div class="article-tag">Selling Online</div><h3>How to Make Money on Etsy in the UK: A Beginner's Guide for 2026</h3><p>Etsy has millions of buyers and low competition in the right niches, here is how to start.</p><div class="article-meta"><span class="read-time">12 min read</span><span class="earn-badge">£100–£1,500/mo</span></div></div></a>
+      <a class="article-card" data-cat="selling-online" href="/articles/make-money-selling-ebay-uk.html"><div class="article-card-inner"><div class="article-tag">Selling Online</div><h3>How to Make Money Selling on eBay UK: The Complete 2026 Guide</h3><p>From clearing your loft to building a proper reselling business, everything you need.</p><div class="article-meta"><span class="read-time">14 min read</span><span class="earn-badge">£100–£2,000/mo</span></div></div></a>
+      <a class="article-card" data-cat="selling-online" href="/articles/print-on-demand-uk-guide.html"><div class="article-card-inner"><div class="article-tag">Selling Online</div><h3>How to Make Money with Print on Demand in the UK</h3><p>Create designs once, sell them forever, one of the most scalable passive income models.</p><div class="article-meta"><span class="read-time">10 min read</span><span class="earn-badge">£100–£800/mo</span></div></div></a></div>
       <p class="cat-empty" id="cat-empty-msg" hidden>More guides in this category are on the way.</p>
     </div>
   </section>
