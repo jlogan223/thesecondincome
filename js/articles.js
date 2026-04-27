@@ -10,6 +10,7 @@
  * -----------------------------------------------------
  */
 window.TSI_ARTICLES = [
+  { slug: "toluna-rewards-uk", title: "Toluna Rewards UK Review 2026: How Much Can You Actually Earn?", category: "Surveys", categoryUrl: "category/surveys.html", earn: "£5–£30/mo", readTime: 7, snippet: "Our honest Toluna Rewards UK review for 2026 covers sign-up, earning rates, and whether it is worth your time.", date: "2026-04-27" },
   { slug: "side-jobs-uk", title: "Side Jobs UK 2026: 15 Flexible Ways to Earn Extra Money", category: "Income Ideas", categoryUrl: "category/income-ideas.html", earn: "£200–£1,200/mo", readTime: 9, snippet: "Discover 15 flexible side jobs in the UK for 2026 that fit around your schedule and can genuinely boost your income.", date: "2026-04-27" },
   { slug: "side-hustles-uk", title: "Side Hustles UK 2026: The Most Realistic Ways to Earn Extra Money", category: "Income Ideas", categoryUrl: "category/income-ideas.html", earn: "£200–£1,500/mo", readTime: 10, snippet: "Discover the most realistic UK side hustles for 2026, with honest earnings data and tips to get started without quitting your day job.", date: "2026-04-25" },
   { slug: "make-money-online-uk", title: "How to Make Money Online in the UK in 2026: 20 Proven Methods", category: "Income Ideas", categoryUrl: "category/income-ideas.html", earn: "£50–£2,000/mo", readTime: 11, snippet: "From freelancing to passive income, here are 20 proven ways to make money online in the UK in 2026.", date: "2026-04-27" },
