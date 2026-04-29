@@ -234,6 +234,134 @@
   margin-top: 14px;
 }
 
+/* ========================================================================
+   QUICK COMPARE
+   At-a-glance comparison block for "best X" / "X vs Y" articles.
+   Adapted from L&L's pattern (added 2026-04-29) but re-skinned in TSI-UK
+   design tokens. NB: text-align uses 'center' (the valid CSS keyword) —
+   L&L's CSS used 'centre' which is a silent no-op in browsers.
+   ======================================================================== */
+.quick-compare {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin: 28px 0;
+}
+
+.quick-compare h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 1.25rem;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+}
+
+.quick-compare .qc-subtitle {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  margin-bottom: 18px;
+}
+
+.quick-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.qc-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.qc-card .qc-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.qc-card .qc-stats {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+
+.qc-card .qc-stats ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.qc-card .qc-stats li {
+  padding: 3px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.qc-card .qc-stats li:last-child {
+  border-bottom: 0;
+}
+
+.qc-card .qc-cta {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 8px 16px;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.qc-card .qc-cta:hover {
+  background: var(--gold);
+  color: #111;
+}
+
+.qc-card .qc-cta.aff-link-pending {
+  border-color: var(--border);
+  color: var(--ink-muted);
+  cursor: default;
+  pointer-events: none;
+}
+
+.qc-card .qc-cta.aff-link-pending:hover {
+  background: transparent;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 600px) {
+  .quick-compare-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Inline affiliate link rewriter states (App/js/affiliate-links.js) */
+.aff-link-pending {
+  color: var(--ink-muted) !important;
+  text-decoration: none !important;
+  cursor: default !important;
+  border-bottom: 1px dotted var(--border);
+  pointer-events: none;
+}
+.aff-link-pending::after {
+  content: " (coming soon)";
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+.aff-link-live {
+  /* Default styling — no special rule needed; matches existing link styles. */
+}
+
 /* ---- ARTICLE HERO ILLUSTRATION ---- */
 .article-illustration {
   width: 100%;
