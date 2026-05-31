@@ -1,0 +1,532 @@
+/*
+ * TSI-UK Tools — Calculator design system
+ * Used by /tools/trading-allowance-calculator.html and /tools/side-hustle-tax-calculator.html
+ *
+ * Design language locked 2026-05-31 after iteration with Justin:
+ *   - No Claude-default "card with left-edge accent stripe" patterns
+ *   - Editorial typography (Playfair Display italic eyebrows, sentence-case prose)
+ *   - Plaque-style raised surfaces with drop shadow + inset top highlight
+ *   - Receipt-style dotted-leader breakdowns
+ *   - Tax stack bar always scaled to £150k so all four bands are visible
+ *   - Marginalia treatment for notes: § ornament seal, indented body
+ *   - Gold Clear All button (solid by default, inverts on hover)
+ *   - Tax code field, First Year SA toggle, PAYE-aware POA logic
+ *   - All works in both light + dark mode via existing site CSS variables
+ */
+
+/* ---------- Tax-year pill (Playfair italic gold) ---------- */
+.tool-eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+}
+.tool-stamp {
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  margin-top: 12px;
+}
+
+/* ---------- Section markers (Playfair italic small-caps) ---------- */
+.tool-rule { border: none; border-top: 1px solid var(--border); margin: 26px 0 22px; }
+.tool-rule--thick { border-top: 2px solid var(--gold); }
+.tool-sec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
+  flex-wrap: wrap;
+}
+.tool-section-mark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ---------- Clear All button (gold solid, inverts on hover) ---------- */
+.tool-clear-all {
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  color: var(--gold-ink);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  transition: background 0.15s, color 0.15s;
+}
+[data-theme="light"] .tool-clear-all { color: #fff; }
+.tool-clear-all::before { content: "\2715"; margin-right: 6px; }
+.tool-clear-all:hover {
+  background: transparent;
+  color: var(--gold);
+}
+
+/* ---------- Worksheet inputs (Playfair figures, underline only) ---------- */
+.tool-ws {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 30px;
+}
+@media (max-width: 600px) {
+  .tool-ws { grid-template-columns: 1fr; }
+}
+.tool-ws__cell label {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 3px;
+}
+.tool-ws__inp { position: relative; }
+.tool-ws__inp::before {
+  content: "£";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--ink-muted);
+}
+.tool-ws__cell input[type="number"],
+.tool-ws__cell input[type="text"] {
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 400;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  width: 100%;
+  padding: 4px 0 6px 18px;
+  outline: none;
+}
+.tool-ws__cell input[type="text"] {
+  font-size: 18px;
+  padding-left: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.tool-ws__cell input:focus { border-bottom-color: var(--gold); }
+.tool-ws__hint {
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.tool-ws__flags {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.tool-ws__flag {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.tool-ws__flag input {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--gold);
+  flex-shrink: 0;
+}
+.tool-ws__flag em {
+  font-style: normal;
+  color: var(--ink-muted);
+}
+
+/* ---------- Result headline (big serif number, ink-coloured not gold) ---------- */
+.tool-res-headline {
+  font-family: var(--serif);
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--ink-muted);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+.tool-res-number {
+  font-family: var(--serif);
+  font-size: 68px;
+  line-height: 0.95;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 6px 0 4px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.tool-res-sub {
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin: 0 0 20px;
+  max-width: 520px;
+  line-height: 1.5;
+}
+.tool-res-sub b {
+  color: var(--ink);
+  font-weight: 500;
+}
+.tool-res-empty {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-muted);
+  padding: 34px 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---------- Tax stack bar (always £0 - £150k, all bands visible) ---------- */
+.tool-stack { margin: 10px 0 26px; }
+.tool-stack__bar {
+  display: flex;
+  height: 38px;
+  position: relative;
+  background: var(--border);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+[data-theme="light"] .tool-stack__bar { box-shadow: inset 0 1px 0 rgba(255,255,255,0.95); }
+.tool-stack__seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.5px;
+  color: rgba(0,0,0,0.65);
+  border-right: 1px solid var(--bg-primary);
+}
+.tool-stack__seg--pa { background: #86855d; }
+.tool-stack__seg--basic { background: #9b7e3a; }
+.tool-stack__seg--higher { background: #c8972a; }
+.tool-stack__seg--additional { background: #e0a738; }
+.tool-stack__marker {
+  position: absolute;
+  top: -7px;
+  bottom: -7px;
+  width: 2px;
+  background: var(--ink);
+  transition: left 0.25s ease-out;
+}
+.tool-stack__marker::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -4px;
+  width: 10px;
+  height: 10px;
+  background: var(--ink);
+  border-radius: 50%;
+  border: 2px solid var(--bg-primary);
+}
+.tool-stack__marker-lab {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: var(--ink);
+  white-space: nowrap;
+  background: var(--bg-primary);
+  padding: 1px 6px;
+  font-weight: 500;
+}
+.tool-stack__axis {
+  position: relative;
+  height: 18px;
+  margin-top: 6px;
+}
+.tool-stack__tick {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 10.5px;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.tool-stack__tick::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  height: 5px;
+  width: 1px;
+  background: var(--ink-muted);
+}
+.tool-stack__legend {
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--ink-muted);
+  flex-wrap: wrap;
+}
+.tool-stack__legend span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.tool-stack__legend i {
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+}
+.tool-stack__legend i.pa { background: #86855d; }
+.tool-stack__legend i.basic { background: #9b7e3a; }
+.tool-stack__legend i.higher { background: #c8972a; }
+.tool-stack__legend i.additional { background: #e0a738; }
+
+/* ---------- Receipt-style breakdown (dotted leaders, no card) ---------- */
+.tool-receipt {
+  margin: 14px 0 12px;
+  max-width: 560px;
+}
+.tool-rcp {
+  display: flex;
+  align-items: baseline;
+  font-size: 13.5px;
+  line-height: 1.95;
+}
+.tool-rcp__lab {
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.tool-rcp__dots {
+  flex: 1;
+  border-bottom: 1px dotted var(--border);
+  margin: 0 8px;
+  transform: translateY(-3px);
+}
+.tool-rcp__val {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.tool-rcp--sub .tool-rcp__lab {
+  color: var(--ink-muted);
+  padding-left: 14px;
+  font-size: 12px;
+}
+.tool-rcp--sub .tool-rcp__val {
+  color: var(--ink-muted);
+  font-size: 12px;
+}
+.tool-rcp--total {
+  border-top: 1px solid var(--border);
+  margin-top: 6px;
+  padding-top: 8px;
+  font-size: 14.5px;
+}
+.tool-rcp--total .tool-rcp__lab {
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.tool-rcp--total .tool-rcp__val {
+  color: var(--gold);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--serif);
+}
+
+/* ---------- Plaque (raised 3D card, no left edge stripe) ---------- */
+.tool-plaque {
+  position: relative;
+  padding: 18px 22px 18px 56px;
+  margin: 20px 0;
+  max-width: 580px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+[data-theme="light"] .tool-plaque {
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.95);
+}
+.tool-plaque__seal {
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--gold);
+  background: var(--bg-secondary);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+[data-theme="light"] .tool-plaque__seal {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.95);
+}
+.tool-plaque__title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+.tool-plaque__body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.tool-plaque__body strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+.tool-plaque--warn .tool-plaque__seal {
+  color: var(--accent-high-risk);
+  border-color: var(--accent-high-risk);
+}
+.tool-plaque--warn .tool-plaque__title {
+  color: var(--accent-high-risk);
+}
+
+/* ---------- Comparison rows (Trading Allowance calc) ---------- */
+.tool-compare {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 18px;
+  padding: 12px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  margin-bottom: 6px;
+  box-shadow: var(--shadow);
+}
+.tool-compare--winner {
+  border-color: var(--gold);
+}
+.tool-compare__lab {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.tool-compare__val {
+  font-size: 13.5px;
+  color: var(--ink);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.tool-compare__val strong {
+  color: var(--gold);
+}
+
+/* ---------- Payment schedule (first-year SA) ---------- */
+.tool-schedule {
+  margin: 16px 0 6px;
+  max-width: 600px;
+}
+.tool-sched-item {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 8px 18px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.tool-sched-item:last-child { border-bottom: none; }
+.tool-sched-date {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--gold);
+}
+.tool-sched-what {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.tool-sched-what em {
+  font-style: normal;
+  color: var(--ink-muted);
+  font-size: 11.5px;
+  display: block;
+  margin-top: 2px;
+  line-height: 1.45;
+}
+.tool-sched-amt {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Key terms footer block ---------- */
+.tool-keyterms {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.tool-keyterms__title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+.tool-keyterms__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 24px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+@media (max-width: 600px) {
+  .tool-keyterms__grid { grid-template-columns: 1fr; }
+}
+.tool-keyterms dt {
+  font-weight: 500;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 13px;
+  display: inline;
+}
+.tool-keyterms dd {
+  display: inline;
+  color: var(--ink-muted);
+  margin: 0;
+}
+.tool-keyterms__row { padding: 2px 0; }
+
+/* ---------- Footnotes / disclaimer ---------- */
+.tool-foot {
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  margin-top: 14px;
+  max-width: 560px;
+  font-style: italic;
+}
+
+/* ---------- Inline "recommended" badge in comparison rows ---------- */
+.tool-recommended-badge {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 12px;
+  margin-left: 4px;
+}

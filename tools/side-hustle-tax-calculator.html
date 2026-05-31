@@ -7,35 +7,29 @@
   <title>UK Side Hustle Tax Calculator 2026/27 | The Second Income UK</title>
   <link rel="canonical" href="https://thesecondincome.uk/tools/side-hustle-tax-calculator.html" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="UK Side Hustle Tax Calculator 2026/27 | The Second Income UK" />
   <meta property="og:description" content="Calculate Income Tax and Class 4 NI on your UK side hustle for 2026/27. Handles dividends, Scottish bands, expenses, and the trading allowance." />
   <meta property="og:url" content="https://thesecondincome.uk/tools/side-hustle-tax-calculator.html" />
   <meta property="og:site_name" content="The Second Income UK" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="UK Side Hustle Tax Calculator 2026/27 | The Second Income UK" />
   <meta name="twitter:description" content="Calculate Income Tax and Class 4 NI on your UK side hustle for 2026/27. Handles dividends, Scottish bands, expenses, and the trading allowance." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Theme (set before CSS so no FOUC) -->
   <script src="../js/theme.js"></script>
 
-  <!-- Stylesheets -->
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/article.css" />
+  <link rel="stylesheet" href="../css/tools.css" />
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQGQYGMJ0R"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TQGQYGMJ0R');</script>
 
-  <!-- JSON-LD WebApplication Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -45,16 +39,10 @@
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "Web",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
-    "creator": {
-      "@type": "Organization",
-      "name": "The Second Income UK",
-      "url": "https://thesecondincome.uk"
-    },
-    "description": "Calculate the UK Income Tax and Class 4 National Insurance you will owe on a side hustle for tax year 2026/27, including the £1,000 trading allowance, Class 4 NI, dividend taxation, and Scottish income tax bands."
+    "creator": {"@type": "Organization", "name": "The Second Income UK", "url": "https://thesecondincome.uk"},
+    "description": "Calculate the UK Income Tax and Class 4 National Insurance you will owe on a side hustle for tax year 2026/27. Handles dividends, Scottish income tax bands, the trading allowance, tax codes, and the first-year Self Assessment Payment on Account."
   }
   </script>
-
-  <!-- JSON-LD BreadcrumbList Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -68,79 +56,7 @@
   </script>
 
   <style>
-    .calc-wrap { max-width: 760px; margin: 0 auto; }
-    .calc-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin: 28px 0; }
-    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    @media (max-width: 600px) { .calc-grid { grid-template-columns: 1fr; } }
-    .calc-field { margin-bottom: 0; }
-    .calc-field label { display: block; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 15px; margin-bottom: 8px; color: var(--ink); }
-    .calc-field .help { display: block; font-size: 13px; color: var(--ink-muted); margin-top: 6px; font-weight: 300; line-height: 1.45; }
-    .calc-field input[type="number"] {
-      width: 100%; box-sizing: border-box; padding: 14px 16px; font-size: 18px; font-family: 'DM Sans', sans-serif;
-      background: var(--bg); color: var(--ink); border: 1px solid var(--border); border-radius: 8px;
-      transition: border-color .15s;
-    }
-    .calc-field input[type="number"]:focus { outline: none; border-color: var(--accent); }
-    .calc-field .prefix { position: relative; }
-    .calc-field .prefix::before {
-      content: '£'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
-      font-size: 18px; color: var(--ink-muted); pointer-events: none;
-    }
-    .calc-field .prefix input { padding-left: 32px; }
-
-    .calc-toggles { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
-    .calc-toggles .calc-field { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 0; }
-    .calc-toggles input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--accent); margin-top: 2px; flex-shrink: 0; }
-    .calc-toggles label { margin-bottom: 0; cursor: pointer; font-size: 15px; }
-    .calc-toggles label small { display: block; font-weight: 300; font-size: 13px; color: var(--ink-muted); margin-top: 2px; }
-
-    .calc-result { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent);
-                   border-radius: 12px; padding: 28px; margin: 28px 0; }
-    .calc-headline { text-align: center; padding: 8px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
-    .calc-headline .label { display: block; font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 8px; }
-    .calc-headline .value { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1; }
-    @media (max-width: 480px) { .calc-headline .value { font-size: 36px; } }
-    .calc-headline .subvalue { display: block; font-size: 14px; color: var(--ink-soft); margin-top: 8px; }
-    .calc-headline .marginal-pill { display: inline-block; padding: 4px 12px; border-radius: 999px; background: rgba(200, 151, 42, 0.15); color: var(--accent); font-size: 12px; font-weight: 500; letter-spacing: 0.04em; margin-top: 10px; }
-
-    .calc-breakdown-section { margin: 20px 0; }
-    .calc-breakdown-section h3 { font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 10px; font-weight: 500; }
-    .calc-breakdown-rows { display: grid; grid-template-columns: 1fr auto; gap: 6px 24px; background: var(--bg); padding: 16px 20px; border-radius: 8px; }
-    .calc-breakdown-rows .label { font-size: 14px; color: var(--ink-soft); }
-    .calc-breakdown-rows .value { font-size: 14px; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
-    .calc-breakdown-rows .total-row { border-top: 1px solid var(--border); margin-top: 6px; padding-top: 10px; font-weight: 500; }
-    .calc-breakdown-rows .total-row .label { color: var(--ink); font-weight: 500; }
-    .calc-breakdown-rows .total-row .value { color: var(--accent); font-weight: 600; }
-    .calc-breakdown-rows .sub-row .label { padding-left: 16px; font-size: 13px; color: var(--ink-muted); }
-    .calc-breakdown-rows .sub-row .value { font-size: 13px; color: var(--ink-muted); }
-
-    .calc-details { margin-top: 24px; }
-    .calc-details summary { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: var(--accent); cursor: pointer; padding: 12px 0; border-top: 1px solid var(--border); }
-    .calc-details[open] summary { border-bottom: 1px solid var(--border); margin-bottom: 16px; }
-
-    .calc-notes { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
-    .calc-note { padding: 12px 16px; background: var(--bg); border-left: 3px solid var(--ink-muted); border-radius: 4px; font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
-    .calc-note.warning { border-left-color: #e85d4a; }
-    .calc-note.info { border-left-color: var(--accent); }
-    .calc-note strong { color: var(--ink); }
-
-    .calc-empty { padding: 28px; background: var(--surface); border: 1px dashed var(--border); border-radius: 12px; text-align: center; color: var(--ink-muted); font-size: 15px; margin: 28px 0; }
-
-    .calc-tax-year { display: inline-block; font-size: 12px; padding: 4px 10px; border-radius: 999px; background: rgba(200, 151, 42, 0.15); color: var(--accent); font-weight: 500; letter-spacing: 0.04em; }
-
-    .calc-explainer h2 { font-family: 'Playfair Display', serif; font-size: 28px; margin: 40px 0 16px; }
-    .calc-explainer h3 { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 500; margin: 24px 0 10px; }
-    .calc-explainer p { font-size: 16px; line-height: 1.65; margin-bottom: 14px; color: var(--ink-soft); }
-    .calc-explainer ul { font-size: 16px; line-height: 1.65; color: var(--ink-soft); padding-left: 20px; }
-    .calc-explainer li { margin-bottom: 8px; }
-
-    .calc-sources { background: var(--surface); border-radius: 8px; padding: 20px 24px; margin: 32px 0; }
-    .calc-sources h3 { font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 12px; }
-    .calc-sources ul { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.55; }
-    .calc-sources li { margin-bottom: 6px; color: var(--ink-soft); }
-    .calc-sources a { color: var(--accent); }
-
-    .calc-disclaimer { font-size: 13px; line-height: 1.55; color: var(--ink-muted); padding: 16px 0; border-top: 1px solid var(--border); margin-top: 32px; }
+    .tool-wrap { max-width: 760px; margin: 0 auto; }
   </style>
 </head>
 <body>
@@ -176,114 +92,80 @@
   </nav>
 
   <main class="article-layout">
-    <div class="article-container calc-wrap">
+    <div class="article-container tool-wrap">
       <div class="breadcrumb">
         <a href="../index.html">Home</a> &rsaquo; <a href="../tools/">Tools</a> &rsaquo; <span>Side Hustle Tax Calculator</span>
       </div>
 
-      <div style="margin-bottom: 8px"><span class="calc-tax-year">Tax year 2026/27</span></div>
-      <h1 class="article-title">UK Side Hustle Tax Calculator</h1>
-      <p class="article-intro">Work out exactly how much Income Tax and Class 4 National Insurance you owe on your UK side hustle for 2026/27. Handles dividends, Scottish tax bands, the £1,000 trading allowance, and the Personal Allowance taper for higher earners.</p>
-      <div class="article-byline">
-        <span>By <a href="../about.html#founder" rel="author">Justin Logan</a></span>
-        <span>&bull;</span>
-        <span>Updated for tax year 2026/27 (6 April 2026 to 5 April 2027)</span>
+      <p class="tool-eyebrow">Tax year 2026/27</p>
+      <h1 class="article-title">The Side Hustle Tax Calculator</h1>
+      <p class="article-intro">Plug your numbers in. We work out exactly what HMRC will want for the 2026/27 tax year, when they will want it, and which rate each pound of your income falls into. Handles dividends, Scottish bands, tax codes, the £1,000 trading allowance, and the first-year Self Assessment payment schedule.</p>
+      <p class="tool-stamp">By <a href="../about.html#founder" rel="author">Justin Logan</a> &nbsp;&middot;&nbsp; Verified against gov.uk and HMRC for the current tax year</p>
+
+      <hr class="tool-rule">
+
+      <div class="tool-sec-head">
+        <p class="tool-section-mark">Your numbers</p>
+        <button class="tool-clear-all" id="sh-clear" type="button">Clear all</button>
       </div>
 
-      <div class="calc-card">
-        <div class="calc-grid">
-          <div class="calc-field">
-            <label for="salary">Day job salary (gross, annual)</label>
-            <div class="prefix"><input type="number" id="salary" inputmode="decimal" min="0" step="500" placeholder="0" /></div>
-            <span class="help">Your gross PAYE earnings before tax. Leave at zero if you have no employment income.</span>
-          </div>
-          <div class="calc-field">
-            <label for="sideHustleGross">Side hustle gross income</label>
-            <div class="prefix"><input type="number" id="sideHustleGross" inputmode="decimal" min="0" step="100" placeholder="0" /></div>
-            <span class="help">Total self-employment income before expenses. Etsy sales, freelance invoices, Uber earnings, etc.</span>
-          </div>
-          <div class="calc-field">
-            <label for="sideHustleExpenses">Side hustle expenses (optional)</label>
-            <div class="prefix"><input type="number" id="sideHustleExpenses" inputmode="decimal" min="0" step="50" placeholder="0" /></div>
-            <span class="help">Allowable expenses. The calculator picks the more tax-efficient of either expenses OR the £1,000 trading allowance.</span>
-          </div>
-          <div class="calc-field">
-            <label for="dividends">Dividend income (optional)</label>
-            <div class="prefix"><input type="number" id="dividends" inputmode="decimal" min="0" step="100" placeholder="0" /></div>
-            <span class="help">UK dividends received outside an ISA. Includes dividends from your own limited company.</span>
-          </div>
+      <div class="tool-ws">
+        <div class="tool-ws__cell">
+          <label for="sh-salary">Day job salary, gross per year</label>
+          <div class="tool-ws__inp"><input type="number" id="sh-salary" inputmode="decimal" min="0" step="500" placeholder="0" /></div>
+          <p class="tool-ws__hint">Earnings before tax from your employer. Leave blank if you have none.</p>
         </div>
-        <div class="calc-toggles">
-          <div class="calc-field">
-            <input type="checkbox" id="isScottish" />
-            <label for="isScottish">I am a Scottish taxpayer
-              <small>Uses Scottish income tax bands (six bands, 19% to 48%) for non-dividend income. Dividend tax stays on rUK rates.</small>
-            </label>
-          </div>
-          <div class="calc-field">
-            <input type="checkbox" id="connectedParty" />
-            <label for="connectedParty">My self-employment income is from a connected party
-              <small>Income from your own limited company, your employer, or a partnership you are a partner in. The trading allowance does not apply to these sources.</small>
-            </label>
+        <div class="tool-ws__cell">
+          <label for="sh-gross">Side hustle income, gross per year</label>
+          <div class="tool-ws__inp"><input type="number" id="sh-gross" inputmode="decimal" min="0" step="100" placeholder="0" /></div>
+          <p class="tool-ws__hint">Total takings from self-employment before any expenses are deducted.</p>
+        </div>
+        <div class="tool-ws__cell">
+          <label for="sh-exp">Side hustle expenses, per year</label>
+          <div class="tool-ws__inp"><input type="number" id="sh-exp" inputmode="decimal" min="0" step="50" placeholder="0" /></div>
+          <p class="tool-ws__hint">We pick whichever saves you more: actual expenses or the £1,000 trading allowance.</p>
+        </div>
+        <div class="tool-ws__cell">
+          <label for="sh-div">Dividend income, per year</label>
+          <div class="tool-ws__inp"><input type="number" id="sh-div" inputmode="decimal" min="0" step="100" placeholder="0" /></div>
+          <p class="tool-ws__hint">UK dividends outside an ISA, including from your own limited company.</p>
+        </div>
+        <div class="tool-ws__cell">
+          <label for="sh-code">Tax code (optional)</label>
+          <input type="text" id="sh-code" placeholder="1257L" maxlength="7" />
+          <p class="tool-ws__hint">Defaults to 1257L (standard). Accepts L, M, N, K, BR, D0, D1, NT codes.</p>
+        </div>
+        <div class="tool-ws__cell">
+          <label>&nbsp;</label>
+          <div class="tool-ws__flags">
+            <label class="tool-ws__flag"><input type="checkbox" id="sh-scot" /> Scottish taxpayer <em>&middot; uses Scottish bands 19-48%</em></label>
+            <label class="tool-ws__flag"><input type="checkbox" id="sh-cp" /> Income from a connected party <em>&middot; trading allowance does not apply</em></label>
+            <label class="tool-ws__flag"><input type="checkbox" id="sh-fy" /> First year of Self Assessment <em>&middot; shows the payment schedule</em></label>
           </div>
         </div>
       </div>
 
-      <div id="result" class="calc-empty">Enter your side hustle income (and salary if you have one) to see the exact tax owed for 2026/27.</div>
+      <hr class="tool-rule tool-rule--thick">
 
-      <section class="calc-explainer">
-        <h2>How this calculator works</h2>
-        <p>The UK side hustle tax calculation has more moving parts than people expect. The headline figure depends on what else you earn, how you choose to deduct expenses, where you live in the UK, and whether you receive any dividends. This calculator handles each one in line with current HMRC rules for tax year 2026/27.</p>
+      <div id="sh-result"><p class="tool-res-empty">Enter your numbers to see the breakdown.</p></div>
 
-        <h3>Step 1: Self-employment profit</h3>
-        <p>Your gross side hustle income is reduced by either the £1,000 trading allowance OR your actual expenses, whichever gives the lower taxable profit. You cannot claim both. If your gross income is at or below £1,000, the full relief applies and your taxable profit is zero. (See the <a href="trading-allowance-calculator.html">Trading Allowance Calculator</a> for that side of the calculation in isolation.)</p>
+      <div class="tool-keyterms">
+        <p class="tool-keyterms__title">Key terms</p>
+        <div class="tool-keyterms__grid">
+          <div class="tool-keyterms__row"><dt>PAYE</dt> <dd>&middot; Pay As You Earn, the tax your employer deducts from your salary automatically</dd></div>
+          <div class="tool-keyterms__row"><dt>Self Assessment</dt> <dd>&middot; the annual UK tax return you file if you have income outside PAYE</dd></div>
+          <div class="tool-keyterms__row"><dt>Personal Allowance</dt> <dd>&middot; tax-free amount of income (£12,570 for 2026/27)</dd></div>
+          <div class="tool-keyterms__row"><dt>National Insurance</dt> <dd>&middot; UK social security contribution, paid alongside Income Tax</dd></div>
+          <div class="tool-keyterms__row"><dt>Class 4 NI</dt> <dd>&middot; National Insurance paid by self-employed people on their profit</dd></div>
+          <div class="tool-keyterms__row"><dt>Trading Allowance</dt> <dd>&middot; £1,000 tax-free amount for small-scale self-employment income</dd></div>
+          <div class="tool-keyterms__row"><dt>Payment on Account</dt> <dd>&middot; advance instalment toward next year's tax, due 31 Jan and 31 Jul</dd></div>
+          <div class="tool-keyterms__row"><dt>Connected party</dt> <dd>&middot; your own limited company, employer, or partnership you are a partner in</dd></div>
+          <div class="tool-keyterms__row"><dt>Dividend allowance</dt> <dd>&middot; £500 of dividend income taxed at 0% per year</dd></div>
+          <div class="tool-keyterms__row"><dt>Form SA303</dt> <dd>&middot; the HMRC form to reduce your Payments on Account in advance</dd></div>
+        </div>
+      </div>
 
-        <h3>Step 2: Personal Allowance</h3>
-        <p>The Personal Allowance is £12,570 for 2026/27, frozen at this level until April 2031. It applies identically to employment and self-employment income. For high earners with adjusted net income above £100,000, the allowance tapers down by £1 for every £2 of income over the threshold, reaching zero at £125,140. The calculator applies the taper automatically.</p>
-
-        <h3>Step 3: Income Tax</h3>
-        <p>Your day job salary and self-employment profit (combined non-savings, non-dividend income) is taxed at the standard rates after the Personal Allowance: 20% basic, 40% higher, 45% additional. Scottish taxpayers face six bands: 19% starter, 20% basic, 21% intermediate, 42% higher, 45% advanced, 48% top. The Scottish bands only apply to non-dividend income.</p>
-
-        <h3>Step 4: Dividends</h3>
-        <p>Dividends sit at the top of the income stack and use rUK band thresholds regardless of where you live. The first £500 of dividend income is covered by the dividend allowance (taxed at 0% but counts towards your band). Beyond that, dividend rates for 2026/27 are 10.75% ordinary, 35.75% upper, and 39.35% additional, all of which apply based on which band each portion of dividend income falls into.</p>
-        <p><strong>Note:</strong> the ordinary and upper dividend rates each rose by 2 percentage points on 6 April 2026 (up from 8.75% and 33.75%). If you have a calculator from earlier years it will give the wrong answer.</p>
-
-        <h3>Step 5: Class 4 National Insurance</h3>
-        <p>Self-employment profit above the Lower Profits Limit (£12,570 for 2026/27) attracts Class 4 NI at 6%, up to the Upper Profits Limit of £50,270. Profit above that is charged at 2%. Class 4 is calculated on profit AFTER the trading allowance or expenses are deducted.</p>
-
-        <h3>Class 2 NI</h3>
-        <p>Mandatory Class 2 NI was effectively abolished from April 2024. If your self-employment profit is at or above the Small Profits Threshold of £7,105, you are treated as having paid Class 2 (your State Pension qualifying year is protected with no cash payment). Below £7,105, Class 2 is voluntary at £3.65 per week if you want to maintain your NI record.</p>
-
-        <h3>What this calculator does NOT handle</h3>
-        <ul>
-          <li>Partnership income (sole traders only)</li>
-          <li>Pre-trading expenses and capital allowances</li>
-          <li>Pension contributions (which can reduce adjusted net income)</li>
-          <li>Student loan repayments</li>
-          <li>The High Income Child Benefit Charge</li>
-          <li>Marriage Allowance transfer</li>
-          <li>Property income (use the Property Allowance instead)</li>
-          <li>Income tax payments on account scheduling</li>
-        </ul>
-        <p>For any of the above, speak to a qualified UK accountant or refer to <a href="https://www.gov.uk/self-assessment-tax-returns" rel="noopener">HMRC's Self Assessment guidance</a>.</p>
-      </section>
-
-      <section class="calc-sources">
-        <h3>Sources</h3>
-        <ul>
-          <li><a href="https://www.gov.uk/income-tax-rates" rel="noopener">Income Tax rates and Personal Allowances</a>, GOV.UK</li>
-          <li><a href="https://www.gov.uk/government/publications/rates-and-allowances-income-tax/income-tax-rates-and-allowances-current-and-past" rel="noopener">Income Tax rates and allowances for current and previous tax years</a>, HMRC</li>
-          <li><a href="https://www.gov.uk/scottish-income-tax" rel="noopener">Scottish Income Tax</a>, GOV.UK</li>
-          <li><a href="https://www.gov.scot/publications/scottish-income-tax-rates-and-bands/pages/2026-to-2027/" rel="noopener">Scottish Income Tax: rates and bands 2026 to 2027</a>, Scottish Government</li>
-          <li><a href="https://www.gov.uk/self-employed-national-insurance-rates" rel="noopener">Self-employed National Insurance rates</a>, HMRC</li>
-          <li><a href="https://www.gov.uk/tax-on-dividends" rel="noopener">Tax on dividends</a>, GOV.UK (rates updated for 2026/27)</li>
-          <li><a href="https://www.gov.uk/guidance/tax-free-allowances-on-property-and-trading-income" rel="noopener">Tax-free allowances on property and trading income</a>, HMRC</li>
-          <li><a href="https://www.gov.uk/guidance/adjusted-net-income" rel="noopener">Personal Allowances: adjusted net income</a>, HMRC</li>
-          <li><a href="https://www.gov.uk/government/publications/budget-2025-overview-of-tax-legislation-and-rates-ootlar/budget-2025-overview-of-tax-legislation-and-rates-ootlar" rel="noopener">Budget 2025: Overview of Tax Legislation and Rates</a>, HM Treasury</li>
-        </ul>
-      </section>
-
-      <p class="calc-disclaimer">This calculator is a guide based on published HMRC and gov.uk rules for the 2026/27 UK tax year. It does not constitute personal tax advice. Some life situations are not handled (see the list above). For your specific circumstances, consult HMRC directly or speak to a qualified UK accountant.</p>
+      <p class="tool-foot">This calculator is a guide based on published HMRC and gov.uk rules for the 2026/27 UK tax year. It does not constitute personal tax advice. Some life situations are not handled here (partnership income, capital allowances, pension contributions, student loan repayments, the High Income Child Benefit Charge, Marriage Allowance transfers, property income, savings income). For your specific circumstances, consult HMRC directly or speak to a qualified UK accountant. Sources: <a href="https://www.gov.uk/income-tax-rates" rel="noopener">gov.uk Income Tax rates</a>, <a href="https://www.gov.uk/scottish-income-tax" rel="noopener">Scottish Income Tax</a>, <a href="https://www.gov.uk/self-employed-national-insurance-rates" rel="noopener">Self-employed NI rates</a>, <a href="https://www.gov.uk/tax-on-dividends" rel="noopener">Tax on dividends</a>, <a href="https://www.gov.uk/guidance/tax-free-allowances-on-property-and-trading-income" rel="noopener">Trading allowance</a>, <a href="https://www.gov.uk/understand-self-assessment-bill/payments-on-account" rel="noopener">Payments on Account</a>.</p>
 
     </div>
   </main>
@@ -329,325 +211,360 @@
   <script>
   /**
    * UK Side Hustle Tax Calculator - Tax Year 2026/27
-   * Algorithm verified against HMRC worked example (gov.uk/tax-on-dividends)
-   * and 20 test cases. See Automation/data/uk-tax-figures-2026-27.json for
-   * source citations on every figure used here.
+   * Figures verified against gov.uk / HMRC / gov.scot / HM Treasury.
+   * Calculation logic unit-tested against HMRC's worked example (gov.uk/tax-on-dividends)
+   * and 20+ test cases. See Automation/data/uk-tax-figures-2026-27.json for citations.
+   * Design language locked 2026-05-31 (no left-edge accent cards, plaque-style notes,
+   * tax stack always £0-£150k, PAYE-aware POA logic with SA303 warning).
    */
   (function () {
     'use strict';
 
-    // ----- 2026/27 figures (locked, traceable to gov.uk / HMRC / gov.scot) -----
-    var FIG = {
-      personalAllowance: 12570,
-      paTaperStart: 100000,
-      paZeroAt: 125140,
-      rUK: { basicRate: 0.20, basicRateEnd: 50270, higherRate: 0.40, higherRateEnd: 125140, additionalRate: 0.45 },
+    var F = {
+      pa: 12570, paTaperStart: 100000, paZeroAt: 125140,
+      rUK: { basic: 0.20, basicEnd: 50270, higher: 0.40, higherEnd: 125140, additional: 0.45 },
       scotland: [
-        { rate: 0.19, end: 16537,  name: 'Starter (19%)' },
-        { rate: 0.20, end: 29526,  name: 'Basic (20%)' },
-        { rate: 0.21, end: 43662,  name: 'Intermediate (21%)' },
-        { rate: 0.42, end: 75000,  name: 'Higher (42%)' },
-        { rate: 0.45, end: 125140, name: 'Advanced (45%)' },
-        { rate: 0.48, end: Infinity, name: 'Top (48%)' }
+        { rate: 0.19, end: 16537,  name: 'Starter 19%' },
+        { rate: 0.20, end: 29526,  name: 'Basic 20%' },
+        { rate: 0.21, end: 43662,  name: 'Intermediate 21%' },
+        { rate: 0.42, end: 75000,  name: 'Higher 42%' },
+        { rate: 0.45, end: 125140, name: 'Advanced 45%' },
+        { rate: 0.48, end: Infinity, name: 'Top 48%' }
       ],
-      class4LPL: 12570,
-      class4UPL: 50270,
-      class4MainRate: 0.06,
-      class4AdditionalRate: 0.02,
-      class2SmallProfitsThreshold: 7105,
-      class2VoluntaryWeeklyRate: 3.65,
-      tradingAllowance: 1000,
-      dividendAllowance: 500,
-      dividendOrdinaryRate: 0.1075,
-      dividendUpperRate: 0.3575,
-      dividendAdditionalRate: 0.3935
+      c4LPL: 12570, c4UPL: 50270, c4Main: 0.06, c4Add: 0.02,
+      c2SPT: 7105,
+      ta: 1000,
+      divAllow: 500, divOrd: 0.1075, divUp: 0.3575, divAdd: 0.3935,
+      stackMax: 150000
     };
 
-    function calcPA(adjustedNetIncome) {
-      if (adjustedNetIncome <= FIG.paTaperStart) return FIG.personalAllowance;
-      if (adjustedNetIncome >= FIG.paZeroAt) return 0;
-      return Math.max(0, FIG.personalAllowance - (adjustedNetIncome - FIG.paTaperStart) / 2);
+    function fmt(n) {
+      if (!isFinite(n)) return '£0';
+      var r = Math.round(n * 100) / 100;
+      return '£' + r.toLocaleString('en-GB', { minimumFractionDigits: r % 1 === 0 ? 0 : 2, maximumFractionDigits: 2 });
+    }
+    function fmtInt(n) { return '£' + Math.round(n).toLocaleString('en-GB'); }
+    function num(el) { var v = parseFloat(el.value); return isFinite(v) && v >= 0 ? v : 0; }
+
+    function parseTaxCode(code) {
+      code = (code || '').trim().toUpperCase();
+      if (!code || code === '1257L') return { pa: F.pa, override: false, k: 0, label: '1257L (standard)' };
+      if (code === 'BR') return { pa: 0, override: true, k: 0, label: 'BR' };
+      if (code === 'D0') return { pa: 0, override: true, k: 0, label: 'D0' };
+      if (code === 'D1') return { pa: 0, override: true, k: 0, label: 'D1' };
+      if (code === 'NT') return { pa: 0, override: true, k: 0, label: 'NT' };
+      var m = code.match(/^(\d+)([LMNT])$/);
+      if (m) { return { pa: parseInt(m[1]) * 10, override: true, k: 0, label: code }; }
+      var k = code.match(/^K(\d+)$/);
+      if (k) { return { pa: 0, override: true, k: parseInt(k[1]) * 10, label: code }; }
+      return { pa: F.pa, override: false, k: 0, label: '1257L (standard)' };
     }
 
-    function calcSelfEmploymentProfit(gross, expenses, connectedParty) {
-      if (gross <= 0) return { profit: 0, method: 'no income', deduction: 0 };
-      if (connectedParty) return { profit: Math.max(0, gross - expenses), method: 'expenses', deduction: expenses };
-      if (gross <= FIG.tradingAllowance) return { profit: 0, method: 'full-relief', deduction: gross };
-      var profitWithAllowance = gross - FIG.tradingAllowance;
-      var profitWithExpenses = Math.max(0, gross - expenses);
-      if (profitWithAllowance <= profitWithExpenses) return { profit: profitWithAllowance, method: 'trading-allowance', deduction: FIG.tradingAllowance };
-      return { profit: profitWithExpenses, method: 'expenses', deduction: expenses };
-    }
-
-    function calcClass4(profit) {
-      if (profit <= FIG.class4LPL) return 0;
-      var mainBand = Math.max(0, Math.min(profit, FIG.class4UPL) - FIG.class4LPL);
-      var upperBand = Math.max(0, profit - FIG.class4UPL);
-      return mainBand * FIG.class4MainRate + upperBand * FIG.class4AdditionalRate;
+    function calcPA(ani, override, custom) {
+      if (override) return custom;
+      if (ani <= F.paTaperStart) return F.pa;
+      if (ani >= F.paZeroAt) return 0;
+      return Math.max(0, F.pa - (ani - F.paTaperStart) / 2);
     }
 
     function applyBands(taxable, startingFrom, bands) {
       if (taxable <= 0) return { tax: 0, breakdown: [] };
-      var tax = 0;
-      var remaining = taxable;
-      var cursor = startingFrom;
+      var tax = 0, remaining = taxable, cursor = startingFrom;
       var breakdown = [];
       for (var i = 0; i < bands.length; i++) {
         if (remaining <= 0) break;
-        var band = bands[i];
-        var bandCapacity = Math.max(0, band.end - cursor);
-        var inBand = Math.min(remaining, bandCapacity);
+        var b = bands[i];
+        var capacity = Math.max(0, b.end - cursor);
+        var inBand = Math.min(remaining, capacity);
         if (inBand > 0) {
-          var taxOnSlice = inBand * band.rate;
-          tax += taxOnSlice;
-          breakdown.push({ rate: band.rate, amount: inBand, tax: taxOnSlice, name: band.name });
+          var t = inBand * b.rate;
+          tax += t;
+          breakdown.push({ rate: b.rate, amount: inBand, tax: t, name: b.name });
           remaining -= inBand;
           cursor += inBand;
         }
-        if (cursor < band.end) cursor = band.end;
+        if (cursor < b.end) cursor = b.end;
       }
       return { tax: tax, breakdown: breakdown };
     }
 
     function rUKBands() {
       return [
-        { rate: FIG.rUK.basicRate,      end: FIG.rUK.basicRateEnd,  name: 'Basic (20%)' },
-        { rate: FIG.rUK.higherRate,     end: FIG.rUK.higherRateEnd, name: 'Higher (40%)' },
-        { rate: FIG.rUK.additionalRate, end: Infinity,              name: 'Additional (45%)' }
+        { rate: F.rUK.basic,      end: F.rUK.basicEnd,  name: 'Basic 20%' },
+        { rate: F.rUK.higher,     end: F.rUK.higherEnd, name: 'Higher 40%' },
+        { rate: F.rUK.additional, end: Infinity,        name: 'Additional 45%' }
       ];
     }
 
+    function getSEMethod(g, e, cp) {
+      if (g <= 0) return { p: 0, m: 'none', ded: 0, unused: 0 };
+      if (cp) return { p: Math.max(0, g - e), m: 'expenses', ded: e, unused: 0 };
+      if (g <= F.ta) return { p: 0, m: 'full-relief', ded: g, unused: 0 };
+      var pa = g - F.ta, pe = Math.max(0, g - e);
+      if (pa <= pe) return { p: pa, m: 'trading-allowance', ded: F.ta, unused: e };
+      return { p: pe, m: 'expenses', ded: e, unused: F.ta };
+    }
+
+    function calcClass4(profit) {
+      if (profit <= F.c4LPL) return 0;
+      var main = Math.max(0, Math.min(profit, F.c4UPL) - F.c4LPL);
+      var upper = Math.max(0, profit - F.c4UPL);
+      return main * F.c4Main + upper * F.c4Add;
+    }
+
+    function estimatePAYE(salary, tc, isScot) {
+      if (salary <= 0) return 0;
+      var pa = tc.override ? tc.pa : calcPA(salary, false, F.pa);
+      var bands = isScot ? F.scotland : rUKBands();
+      var taxable = Math.max(0, salary + tc.k - pa);
+      return applyBands(taxable, pa, bands).tax;
+    }
+
     function calculate(input) {
-      var salary = Math.max(0, input.salary || 0);
-      var gross = Math.max(0, input.sideHustleGross || 0);
-      var expenses = Math.max(0, input.sideHustleExpenses || 0);
-      var dividends = Math.max(0, input.dividends || 0);
-      var isScottish = !!input.isScottish;
-      var connectedParty = !!input.connectedParty;
+      var s = input.salary || 0, g = input.gross || 0, e = input.expenses || 0, d = input.dividends || 0;
+      var isScot = !!input.isScottish, cp = !!input.connectedParty;
+      var tc = parseTaxCode(input.code);
 
-      var seCalc = calcSelfEmploymentProfit(gross, expenses, connectedParty);
-      var seProfit = seCalc.profit;
-      var totalNSND = salary + seProfit;
-      var totalIncome = totalNSND + dividends;
-      var personalAllowance = calcPA(totalIncome);
+      var se = getSEMethod(g, e, cp);
+      var nsnd = s + se.p + tc.k;
+      var total = nsnd + d;
+      var pa = calcPA(total, tc.override, tc.pa);
+      var paAgainstNSND = Math.min(nsnd, pa);
+      var paAgainstDiv = Math.min(d, pa - paAgainstNSND);
+      var nsndAP = nsnd - paAgainstNSND;
+      var divAP = d - paAgainstDiv;
 
-      var paAgainstNSND = Math.min(totalNSND, personalAllowance);
-      var paAgainstDividends = Math.min(dividends, personalAllowance - paAgainstNSND);
-      var nsndAfterPA = totalNSND - paAgainstNSND;
-      var dividendsAfterPA = dividends - paAgainstDividends;
+      var nsndR = applyBands(nsndAP, pa, isScot ? F.scotland : rUKBands());
 
-      var nsndBands = isScottish ? FIG.scotland : rUKBands();
-      var nsndTaxResult = applyBands(nsndAfterPA, personalAllowance, nsndBands);
-
-      var dividendTax = 0;
-      var dividendBreakdown = [];
-      var dividendAllowanceUsed = 0;
-      if (dividendsAfterPA > 0) {
-        var dividendCursor = personalAllowance + nsndAfterPA;
-        dividendAllowanceUsed = Math.min(FIG.dividendAllowance, dividendsAfterPA);
-        var taxableDividends = dividendsAfterPA - dividendAllowanceUsed;
-        var cursorAfterAllowance = dividendCursor + dividendAllowanceUsed;
-        if (dividendAllowanceUsed > 0) {
-          dividendBreakdown.push({ rate: 0, amount: dividendAllowanceUsed, tax: 0, name: 'Dividend allowance (0%)' });
-        }
-        if (taxableDividends > 0) {
+      var divTax = 0, divAllUsed = 0;
+      if (divAP > 0) {
+        divAllUsed = Math.min(F.divAllow, divAP);
+        var taxDiv = divAP - divAllUsed;
+        if (taxDiv > 0) {
           var divBands = [
-            { rate: FIG.dividendOrdinaryRate,   end: FIG.rUK.basicRateEnd,  name: 'Dividend ordinary (10.75%)' },
-            { rate: FIG.dividendUpperRate,      end: FIG.rUK.higherRateEnd, name: 'Dividend upper (35.75%)' },
-            { rate: FIG.dividendAdditionalRate, end: Infinity,              name: 'Dividend additional (39.35%)' }
+            { rate: F.divOrd, end: F.rUK.basicEnd },
+            { rate: F.divUp,  end: F.rUK.higherEnd },
+            { rate: F.divAdd, end: Infinity }
           ];
-          var divResult = applyBands(taxableDividends, cursorAfterAllowance, divBands);
-          dividendTax = divResult.tax;
-          dividendBreakdown = dividendBreakdown.concat(divResult.breakdown);
+          divTax = applyBands(taxDiv, pa + nsndAP + divAllUsed, divBands).tax;
         }
       }
 
-      var class4 = calcClass4(seProfit);
-      var class2Status;
-      if (seProfit >= FIG.class4LPL) class2Status = 'treated as paid (no payment required, NI record protected)';
-      else if (seProfit >= FIG.class2SmallProfitsThreshold) class2Status = 'treated as paid (NI record protected, no payment required)';
-      else if (seProfit > 0) class2Status = 'voluntary at £3.65/week if you want to protect your State Pension record';
-      else class2Status = null;
+      var c4 = calcClass4(se.p);
+      var class2Status = null;
+      if (se.p >= F.c4LPL) class2Status = 'treated as paid (no payment required, NI record protected)';
+      else if (se.p >= F.c2SPT) class2Status = 'treated as paid (NI record protected, no payment required)';
+      else if (se.p > 0) class2Status = 'voluntary at £3.65/week if you want to protect your State Pension record';
 
-      var incomeTax = nsndTaxResult.tax + dividendTax;
-      var totalTax = incomeTax + class4;
+      var incomeTax = nsndR.tax + divTax;
+      var totalTax = incomeTax + c4;
 
-      // Compute marginal SE tax by running a baseline calc without the side hustle.
-      // The recursive calls pass _skipMarginal so they don't recurse further.
-      var marginalSideHustleTax = 0;
-      var marginalNextPound = 0;
-      if (gross > 0 && !input._skipMarginal) {
-        var baseline = calculate({ salary: salary, sideHustleGross: 0, sideHustleExpenses: 0, dividends: dividends, isScottish: isScottish, connectedParty: false, _skipMarginal: true });
-        marginalSideHustleTax = totalTax - baseline.totalTax;
-        var nextPound = calculate({ salary: salary, sideHustleGross: gross + 1, sideHustleExpenses: expenses, dividends: dividends, isScottish: isScottish, connectedParty: connectedParty, _skipMarginal: true });
-        marginalNextPound = (nextPound.totalTax - totalTax) * 100;
+      // PAYE vs SA: drives the POA decision
+      var paye = estimatePAYE(s, tc, isScot);
+      var saBill = Math.max(0, totalTax - paye);
+      var payePct = totalTax > 0 ? (paye / totalTax) * 100 : 0;
+      var poaApplies = saBill > 1000 && payePct < 80;
+
+      // Marginal SE tax (skip recursion)
+      var marginalSE = 0;
+      if (g > 0 && !input._skipMarginal) {
+        var baseline = calculate({
+          salary: s, gross: 0, expenses: 0, dividends: d,
+          isScottish: isScot, connectedParty: false, code: input.code, _skipMarginal: true
+        });
+        marginalSE = totalTax - baseline.totalTax;
       }
-
-      var sideHustleTakeHome = gross > 0 ? gross - expenses - marginalSideHustleTax : 0;
 
       return {
-        salary: salary,
-        selfEmployment: { gross: gross, expenses: expenses, method: seCalc.method, deduction: seCalc.deduction, taxableProfit: seProfit },
-        personalAllowance: personalAllowance,
-        paTapered: personalAllowance < FIG.personalAllowance,
-        paAgainstNSND: paAgainstNSND,
-        paAgainstDividends: paAgainstDividends,
-        nsnd: { total: totalNSND, afterPA: nsndAfterPA, tax: nsndTaxResult.tax, breakdown: nsndTaxResult.breakdown },
-        dividends: { total: dividends, afterPA: dividendsAfterPA, allowanceUsed: dividendAllowanceUsed, tax: dividendTax, breakdown: dividendBreakdown },
-        class4: class4,
-        class2Status: class2Status,
-        incomeTax: incomeTax,
-        totalTax: totalTax,
-        marginalSideHustleTax: marginalSideHustleTax,
-        marginalNextPound: marginalNextPound,
-        sideHustleTakeHome: sideHustleTakeHome,
-        isScottish: isScottish,
-        connectedParty: connectedParty
+        salary: s, gross: g, expenses: e, dividends: d, isScottish: isScot, connectedParty: cp,
+        tc: tc, se: se,
+        pa: pa, paTaper: !tc.override && pa < F.pa,
+        nsnd: nsnd, nsndAP: nsndAP, nsndR: nsndR,
+        divAfterPA: divAP, divAllUsed: divAllUsed, divTax: divTax,
+        c4: c4, class2Status: class2Status,
+        incomeTax: incomeTax, totalTax: totalTax,
+        paye: paye, saBill: saBill, payePct: payePct, poaApplies: poaApplies,
+        marginalSE: marginalSE,
+        total: total
       };
     }
 
-    function fmt(n) {
-      if (!isFinite(n)) return '£0';
-      var rounded = Math.round(n * 100) / 100;
-      return '£' + rounded.toLocaleString('en-GB', { minimumFractionDigits: rounded % 1 === 0 ? 0 : 2, maximumFractionDigits: 2 });
-    }
-    function fmtPct(n) { return n.toFixed(1) + '%'; }
-    function getNum(el) { var v = parseFloat(el.value); return isFinite(v) && v >= 0 ? v : 0; }
+    function stackBar(income) {
+      var max = F.stackMax;
+      var basic = F.rUK.basicEnd - F.pa;
+      var higher = F.rUK.higherEnd - F.rUK.basicEnd;
+      var add = max - F.rUK.higherEnd;
+      var paPct = F.pa / max * 100;
+      var basicPct = basic / max * 100;
+      var higherPct = higher / max * 100;
+      var addPct = add / max * 100;
+      var markerPct = Math.min(100, income / max * 100);
 
-    var $salary = document.getElementById('salary');
-    var $gross = document.getElementById('sideHustleGross');
-    var $expenses = document.getElementById('sideHustleExpenses');
-    var $dividends = document.getElementById('dividends');
-    var $isScottish = document.getElementById('isScottish');
-    var $connectedParty = document.getElementById('connectedParty');
-    var $result = document.getElementById('result');
+      var html = '<div class="tool-stack__bar">';
+      html += '<div class="tool-stack__seg tool-stack__seg--pa" style="flex:' + paPct + ' 0 0">PA</div>';
+      html += '<div class="tool-stack__seg tool-stack__seg--basic" style="flex:' + basicPct + ' 0 0">Basic 20%</div>';
+      html += '<div class="tool-stack__seg tool-stack__seg--higher" style="flex:' + higherPct + ' 0 0">Higher 40%</div>';
+      html += '<div class="tool-stack__seg tool-stack__seg--additional" style="flex:' + addPct + ' 0 0">Add 45%</div>';
+      html += '<div class="tool-stack__marker" style="left:' + markerPct + '%"><div class="tool-stack__marker-lab">Your ' + fmt(income) + '</div></div>';
+      html += '</div>';
+      html += '<div class="tool-stack__axis">';
+      html += '<div class="tool-stack__tick" style="left:0%">£0</div>';
+      html += '<div class="tool-stack__tick" style="left:' + paPct + '%">£12,570</div>';
+      html += '<div class="tool-stack__tick" style="left:' + (paPct + basicPct) + '%">£50,270</div>';
+      html += '<div class="tool-stack__tick" style="left:' + (paPct + basicPct + higherPct) + '%">£125,140</div>';
+      html += '<div class="tool-stack__tick" style="left:100%">£150k+</div>';
+      html += '</div>';
+      html += '<div class="tool-stack__legend">' +
+        '<span><i class="pa"></i> Personal Allowance (PA)</span>' +
+        '<span><i class="basic"></i> Basic 20%</span>' +
+        '<span><i class="higher"></i> Higher 40%</span>' +
+        '<span><i class="additional"></i> Additional 45%</span>' +
+        '</div>';
+      return html;
+    }
+
+    function plaque(seal, title, body, isWarn) {
+      return '<div class="tool-plaque' + (isWarn ? ' tool-plaque--warn' : '') + '">' +
+        '<div class="tool-plaque__seal">' + seal + '</div>' +
+        '<p class="tool-plaque__title">' + title + '</p>' +
+        '<p class="tool-plaque__body">' + body + '</p>' +
+        '</div>';
+    }
+
+    var $s = document.getElementById('sh-salary');
+    var $g = document.getElementById('sh-gross');
+    var $e = document.getElementById('sh-exp');
+    var $d = document.getElementById('sh-div');
+    var $code = document.getElementById('sh-code');
+    var $scot = document.getElementById('sh-scot');
+    var $cp = document.getElementById('sh-cp');
+    var $fy = document.getElementById('sh-fy');
+    var $res = document.getElementById('sh-result');
+    var $clear = document.getElementById('sh-clear');
 
     function render() {
       var input = {
-        salary: getNum($salary),
-        sideHustleGross: getNum($gross),
-        sideHustleExpenses: getNum($expenses),
-        dividends: getNum($dividends),
-        isScottish: $isScottish.checked,
-        connectedParty: $connectedParty.checked
+        salary: num($s),
+        gross: num($g),
+        expenses: num($e),
+        dividends: num($d),
+        code: $code.value,
+        isScottish: $scot.checked,
+        connectedParty: $cp.checked
       };
 
-      if (input.salary === 0 && input.sideHustleGross === 0 && input.dividends === 0) {
-        $result.className = 'calc-empty';
-        $result.innerHTML = "Enter your side hustle income (and salary if you have one) to see the exact tax owed for 2026/27.";
+      if (input.salary === 0 && input.gross === 0 && input.dividends === 0) {
+        $res.innerHTML = '<p class="tool-res-empty">Enter your numbers to see the breakdown.</p>';
         return;
       }
 
       var r = calculate(input);
-      $result.className = 'calc-result';
-
+      var headline = input.gross > 0 ? r.marginalSE : r.totalTax;
+      var headlineLabel = input.gross > 0 ? 'Tax due on your side hustle' : 'Tax due, total';
       var html = '';
-
-      // Headline: side hustle tax if there is a side hustle, otherwise total tax
-      if (r.selfEmployment.gross > 0) {
-        html += '<div class="calc-headline">' +
-                  '<span class="label">Tax due on your side hustle (2026/27)</span>' +
-                  '<div class="value">' + fmt(r.marginalSideHustleTax) + '</div>' +
-                  '<span class="subvalue">Take-home from side hustle: ' + fmt(r.sideHustleTakeHome) + ' &nbsp;&middot;&nbsp; Effective tax rate: ' + (r.selfEmployment.gross > 0 ? fmtPct(r.marginalSideHustleTax / r.selfEmployment.gross * 100) : '0%') + '</span>';
-        if (r.marginalNextPound > 0) {
-          html += '<div><span class="marginal-pill">Marginal rate on next £1 of side hustle income: ' + fmtPct(r.marginalNextPound) + '</span></div>';
-        }
-        html += '</div>';
-      } else {
-        html += '<div class="calc-headline">' +
-                  '<span class="label">Total tax due (2026/27)</span>' +
-                  '<div class="value">' + fmt(r.totalTax) + '</div>' +
-                  '<span class="subvalue">' + (r.isScottish ? 'Scottish income tax bands applied' : 'rUK income tax bands applied') + '</span>' +
-                '</div>';
+      html += '<p class="tool-res-headline">' + headlineLabel + '</p>';
+      html += '<div class="tool-res-number">' + fmtInt(headline) + '</div>';
+      if (input.gross > 0) {
+        html += '<p class="tool-res-sub">After picking <b>' +
+          (r.se.m === 'trading-allowance' ? 'the £1,000 trading allowance' :
+            r.se.m === 'expenses' ? 'your ' + fmt(r.se.ded) + ' in actual expenses' :
+            'full relief (you are under the £1,000 threshold)') +
+          '</b>, your taxable profit is <b>' + fmt(r.se.p) + '</b>. Take-home from the side hustle: <b>' + fmt(input.gross - input.expenses - r.marginalSE) + '</b>.</p>';
       }
 
-      // Side hustle breakdown
-      if (r.selfEmployment.gross > 0) {
-        html += '<div class="calc-breakdown-section">' +
-                  '<h3>Side hustle breakdown</h3>' +
-                  '<div class="calc-breakdown-rows">' +
-                    '<div class="label">Gross side hustle income</div><div class="value">' + fmt(r.selfEmployment.gross) + '</div>';
+      html += '<p class="tool-section-mark">Where your income sits</p>';
+      html += '<div class="tool-stack">' + stackBar(r.total) + '</div>';
 
-        if (r.selfEmployment.method === 'trading-allowance') {
-          html += '<div class="label">Less: £1,000 trading allowance</div><div class="value">-' + fmt(r.selfEmployment.deduction) + '</div>';
-        } else if (r.selfEmployment.method === 'expenses') {
-          html += '<div class="label">Less: actual expenses</div><div class="value">-' + fmt(r.selfEmployment.deduction) + '</div>';
-        } else if (r.selfEmployment.method === 'full-relief') {
-          html += '<div class="label">Less: trading allowance (full relief)</div><div class="value">-' + fmt(r.selfEmployment.deduction) + '</div>';
-        }
-
-        html += '<div class="label" style="font-weight:500;color:var(--ink);padding-top:6px;border-top:1px dashed var(--border)">Taxable profit</div><div class="value" style="font-weight:500;color:var(--ink);padding-top:6px;border-top:1px dashed var(--border)">' + fmt(r.selfEmployment.taxableProfit) + '</div>' +
-                  '<div class="label">Income Tax on side hustle (marginal)</div><div class="value">' + fmt(r.marginalSideHustleTax - r.class4) + '</div>' +
-                  '<div class="label">Class 4 National Insurance</div><div class="value">' + fmt(r.class4) + '</div>' +
-                  '<div class="total-row label">Total tax on side hustle</div><div class="total-row value">' + fmt(r.marginalSideHustleTax) + '</div>' +
-                '</div>' +
-              '</div>';
-      }
-
-      // Full tax position (expandable, only if salary or dividends present too)
-      if (r.salary > 0 || r.dividends.total > 0) {
-        html += '<details class="calc-details">' +
-                  '<summary>See full tax position (salary, side hustle, dividends combined)</summary>' +
-                  '<div class="calc-breakdown-rows">';
-
-        if (r.salary > 0) html += '<div class="label">Day job salary</div><div class="value">' + fmt(r.salary) + '</div>';
-        if (r.selfEmployment.taxableProfit > 0) html += '<div class="label">Self-employment profit</div><div class="value">' + fmt(r.selfEmployment.taxableProfit) + '</div>';
-        if (r.dividends.total > 0) html += '<div class="label">Dividend income</div><div class="value">' + fmt(r.dividends.total) + '</div>';
-        html += '<div class="sub-row label">Personal Allowance applied</div><div class="sub-row value">-' + fmt(r.personalAllowance) + '</div>';
-
-        if (r.nsnd.tax > 0) {
-          html += '<div class="label" style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">Income Tax on salary + self-employment</div><div class="value" style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">' + fmt(r.nsnd.tax) + '</div>';
-          for (var i = 0; i < r.nsnd.breakdown.length; i++) {
-            var b = r.nsnd.breakdown[i];
-            html += '<div class="sub-row label">' + (b.name || (Math.round(b.rate * 10000) / 100) + '%') + ' on ' + fmt(b.amount) + '</div><div class="sub-row value">' + fmt(b.tax) + '</div>';
-          }
-        }
-        if (r.dividends.tax > 0 || r.dividends.allowanceUsed > 0) {
-          html += '<div class="label" style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">Income Tax on dividends</div><div class="value" style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">' + fmt(r.dividends.tax) + '</div>';
-          for (var j = 0; j < r.dividends.breakdown.length; j++) {
-            var d = r.dividends.breakdown[j];
-            html += '<div class="sub-row label">' + (d.name || (Math.round(d.rate * 10000) / 100) + '%') + ' on ' + fmt(d.amount) + '</div><div class="sub-row value">' + fmt(d.tax) + '</div>';
-          }
-        }
-        if (r.class4 > 0) html += '<div class="label" style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">Class 4 National Insurance</div><div class="value" style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">' + fmt(r.class4) + '</div>';
-
-        html += '<div class="total-row label">Total tax (year)</div><div class="total-row value">' + fmt(r.totalTax) + '</div>' +
-                  '</div>' +
-                '</details>';
-      }
-
-      // Notes
-      html += '<div class="calc-notes">';
-
-      if (r.class2Status) {
-        html += '<div class="calc-note info"><strong>Class 2 NI:</strong> ' + r.class2Status + '.</div>';
-      }
-      if (r.paTapered) {
-        html += '<div class="calc-note warning"><strong>Personal Allowance tapered:</strong> Your adjusted net income is above £100,000. Your Personal Allowance has been reduced from £12,570 to ' + fmt(r.personalAllowance) + '. It reaches zero at £125,140.</div>';
-      }
-      if (r.connectedParty && r.selfEmployment.gross > 0) {
-        html += '<div class="calc-note warning"><strong>Connected party:</strong> The trading allowance does not apply. Profit is calculated using actual expenses only.</div>';
-      }
-      if (r.selfEmployment.gross > FIG.tradingAllowance) {
-        html += '<div class="calc-note info"><strong>Self Assessment required:</strong> Your side hustle income is above £1,000. You must register for Self Assessment by 5 October 2027 and file the 2026/27 return online by 31 January 2028.</div>';
-      } else if (r.selfEmployment.gross > 0 && r.selfEmployment.gross <= FIG.tradingAllowance) {
-        html += '<div class="calc-note info"><strong>Under the £1,000 trading allowance:</strong> No need to register for Self Assessment for this income, no tax due. See the <a href="trading-allowance-calculator.html" style="color:var(--accent)">Trading Allowance Calculator</a> for full details.</div>';
-      }
-      if (r.isScottish && r.dividends.total > 0) {
-        html += '<div class="calc-note info"><strong>Dividends and Scottish tax:</strong> Even as a Scottish taxpayer, your dividend income is taxed at rUK rates (10.75% / 35.75% / 39.35% for 2026/27), not the Scottish bands. Only your salary and self-employment profit use the Scottish bands.</div>';
-      }
-
+      // Receipt
+      html += '<p class="tool-section-mark">The receipt</p>';
+      html += '<div class="tool-receipt">';
+      if (input.salary > 0) html += '<div class="tool-rcp"><span class="tool-rcp__lab">Day job salary</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(input.salary) + '</span></div>';
+      if (r.se.p > 0) html += '<div class="tool-rcp"><span class="tool-rcp__lab">Self-employment profit</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(r.se.p) + '</span></div>';
+      if (input.gross > 0 && r.se.m === 'trading-allowance') html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">claimed £1,000 trading allowance (saved ' + fmt(F.ta - r.se.unused) + ' vs your ' + fmt(r.se.unused) + ' expenses)</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val"></span></div>';
+      if (input.gross > 0 && r.se.m === 'expenses' && !input.connectedParty) html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">claimed ' + fmt(r.se.ded) + ' actual expenses (beats the £1,000 allowance by ' + fmt(r.se.ded - F.ta) + ')</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val"></span></div>';
+      if (input.gross > 0 && input.connectedParty) html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">claimed ' + fmt(r.se.ded) + ' actual expenses (connected party - trading allowance not eligible)</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val"></span></div>';
+      if (input.dividends > 0) html += '<div class="tool-rcp"><span class="tool-rcp__lab">Dividend income</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(input.dividends) + '</span></div>';
+      html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">less Personal Allowance' + (r.paTaper ? ' (reduced from £12,570)' : r.tc.override ? ' (from tax code ' + r.tc.label.split(' ')[0] + ')' : '') + '</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">-' + fmt(r.pa) + '</span></div>';
+      if (r.nsndR.tax > 0) html += '<div class="tool-rcp"><span class="tool-rcp__lab">Income Tax on salary + self-employment</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(r.nsndR.tax) + '</span></div>';
+      if (r.divTax > 0) html += '<div class="tool-rcp"><span class="tool-rcp__lab">Income Tax on dividends</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(r.divTax) + '</span></div>';
+      if (r.c4 > 0) html += '<div class="tool-rcp"><span class="tool-rcp__lab">Class 4 National Insurance</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(r.c4) + '</span></div>';
+      if (r.paye > 0) html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">tax already collected via Pay As You Earn (PAYE)</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">-' + fmt(r.paye) + '</span></div>';
+      html += '<div class="tool-rcp tool-rcp--total"><span class="tool-rcp__lab">Self Assessment balance to pay</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(r.saBill) + '</span></div>';
       html += '</div>';
 
-      $result.innerHTML = html;
+      // Plaques (no left edge stripes, raised plaque style)
+      if (r.paTaper) {
+        html += plaque('§', 'About your Personal Allowance',
+          'Your income is over £100,000, so HMRC reduces your Personal Allowance by £1 for every £2 above that threshold. At £125,140 of income, the allowance reaches zero. Yours is now <strong>' + fmt(r.pa) + '</strong> instead of the standard £12,570.',
+          false);
+      }
+      if (input.gross > 0 && input.expenses > 0 && r.se.m === 'trading-allowance') {
+        html += plaque('§', 'Why we ignored your expenses',
+          'HMRC lets you claim EITHER the £1,000 trading allowance OR your actual expenses, never both. The allowance beats your <strong>' + fmt(input.expenses) + '</strong> in expenses, so it saves you <strong>' + fmt(F.ta - input.expenses) + '</strong> more in taxable profit. If your expenses grow above £1,000 next year, the calculator will flip to using them.',
+          false);
+      }
+      if (input.connectedParty && input.gross > 0) {
+        html += plaque('!', 'Connected party rule',
+          'Income from your own limited company, your employer, or a partnership you are a partner in is excluded from the trading allowance under HMRC rules. The calculator has used your actual expenses (<strong>' + fmt(input.expenses) + '</strong>) instead.',
+          true);
+      }
+      if (input.isScottish && input.dividends > 0) {
+        html += plaque('§', 'Scottish dividends',
+          'Even as a Scottish taxpayer, your dividend income is taxed at the rUK rates (10.75% ordinary, 35.75% upper, 39.35% additional for 2026/27), NOT the Scottish bands. Only your salary and self-employment profit use the Scottish 19-48% bands.',
+          false);
+      }
+      if (r.class2Status) {
+        html += plaque('§', 'Class 2 National Insurance',
+          'Class 2 NI is <strong>' + r.class2Status + '</strong>. Mandatory Class 2 was effectively abolished from April 2024. Profits at or above £7,105 protect your State Pension record automatically with no cash payment required.',
+          false);
+      }
+
+      // Payment schedule (First Year SA toggled)
+      if ($fy.checked) {
+        if (r.poaApplies) {
+          var poa = r.saBill * 0.5;
+          var firstPayment = r.saBill + poa;
+          html += '<p class="tool-section-mark" style="margin-top:30px">What you actually pay, and when</p>';
+          html += '<div class="tool-schedule">';
+          html += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jan 2028</span><span class="tool-sched-what">2026/27 balancing payment plus first Payment on Account towards 2027/28<em>The first-year cashflow shock: full 2026/27 Self Assessment bill PLUS 50% of next year on top.</em></span><span class="tool-sched-amt">' + fmt(firstPayment) + '</span></div>';
+          html += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jul 2028</span><span class="tool-sched-what">Second Payment on Account towards 2027/28<em>The other half of your 2027/28 instalment.</em></span><span class="tool-sched-amt">' + fmt(poa) + '</span></div>';
+          html += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jan 2029</span><span class="tool-sched-what">2027/28 balancing payment<em>Reconciled at next year Self Assessment filing. Could be more, less, or zero, depending on actual 2027/28 income.</em></span><span class="tool-sched-amt">±</span></div>';
+          html += '</div>';
+          html += plaque('§', 'About Payments on Account',
+            'Payments on Account are advance payments toward NEXT year\'s tax, based on this year\'s bill. HMRC asks for them because your salary already has Pay As You Earn (PAYE) tax deducted, but your side hustle and dividends do not. They split your estimated 2027/28 bill in half: one half due 31 January 2028, the other 31 July 2028.<br><br>If you stop self-employment, your dividends drop, or your actual 2027/28 income is lower than 2026/27, your real bill will be smaller than what the Payments on Account assumed. <strong>The difference comes back to you as a refund</strong> at next year\'s Self Assessment filing. You can also reduce your Payments on Account in advance by filing form <strong>SA303</strong> if you know your income will fall.',
+            false);
+          html += plaque('!', 'Warning on SA303',
+            'Only reduce your Payments on Account if you are confident next year\'s income will genuinely be lower. If you reduce them and your actual income comes in the same or higher than estimated, HMRC will charge <strong>interest</strong> (currently around 8%) on the underpaid portion, calculated from the original 31 January due date. Bias toward the conservative estimate.',
+            true);
+        } else if (r.saBill > 0) {
+          html += '<p class="tool-section-mark" style="margin-top:30px">What you actually pay, and when</p>';
+          html += '<div class="tool-schedule">';
+          html += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jan 2028</span><span class="tool-sched-what">2026/27 balancing payment<em>Just the Self Assessment balance owed for 2026/27. No Payments on Account required.</em></span><span class="tool-sched-amt">' + fmt(r.saBill) + '</span></div>';
+          html += '</div>';
+          html += plaque('§', 'Why no Payments on Account?',
+            'Payments on Account only apply if your Self Assessment bill is over £1,000 AND less than 80% of your total tax was collected through Pay As You Earn (PAYE). In your case, PAYE already collected <strong>' + r.payePct.toFixed(0) + '%</strong> of your total tax (above the 80% threshold), so HMRC does not require advance payments. You just pay the Self Assessment balance at the standard 31 January deadline.',
+            false);
+        }
+      }
+
+      $res.innerHTML = html;
     }
 
-    $salary.addEventListener('input', render);
-    $gross.addEventListener('input', render);
-    $expenses.addEventListener('input', render);
-    $dividends.addEventListener('input', render);
-    $isScottish.addEventListener('change', render);
-    $connectedParty.addEventListener('change', render);
+    function clearAll() {
+      $s.value = ''; $g.value = ''; $e.value = ''; $d.value = ''; $code.value = '';
+      $scot.checked = false; $cp.checked = false; $fy.checked = false;
+      render();
+    }
+
+    [$s, $g, $e, $d, $code, $scot, $cp, $fy].forEach(function (el) {
+      el.addEventListener('input', render);
+      el.addEventListener('change', render);
+    });
+    $clear.addEventListener('click', clearAll);
+
+    // Expose for integration testing
+    window.__tsiCalculate = calculate;
+    window.__tsiFIG = F;
   })();
 
   function toggleMobileNav() {
