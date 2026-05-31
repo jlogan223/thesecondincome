@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Find out if your UK side hustle is above the £1,000 trading allowance for 2026/27. Compare claiming the allowance vs claiming expenses, with HMRC's exact rules." />
+  <title>UK Trading Allowance Calculator 2026/27 | The Second Income UK</title>
+  <link rel="canonical" href="https://thesecondincome.uk/tools/trading-allowance-calculator.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="UK Trading Allowance Calculator 2026/27 | The Second Income UK" />
+  <meta property="og:description" content="Find out if your UK side hustle is above the £1,000 trading allowance for 2026/27. Compare claiming the allowance vs claiming expenses, with HMRC's exact rules." />
+  <meta property="og:url" content="https://thesecondincome.uk/tools/trading-allowance-calculator.html" />
+  <meta property="og:site_name" content="The Second Income UK" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UK Trading Allowance Calculator 2026/27 | The Second Income UK" />
+  <meta name="twitter:description" content="Find out if your UK side hustle is above the £1,000 trading allowance for 2026/27. Compare claiming the allowance vs claiming expenses, with HMRC's exact rules." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Theme (set before CSS so no FOUC) -->
+  <script src="../js/theme.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/article.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQGQYGMJ0R"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TQGQYGMJ0R');</script>
+
+  <!-- JSON-LD WebApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "UK Trading Allowance Calculator 2026/27",
+    "url": "https://thesecondincome.uk/tools/trading-allowance-calculator.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+    "creator": {
+      "@type": "Organization",
+      "name": "The Second Income UK",
+      "url": "https://thesecondincome.uk"
+    },
+    "description": "Calculate whether your UK side hustle income is above the £1,000 trading allowance for tax year 2026/27, and compare claiming the allowance versus claiming actual expenses."
+  }
+  </script>
+
+  <!-- JSON-LD BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thesecondincome.uk/"},
+      {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://thesecondincome.uk/tools/"},
+      {"@type": "ListItem", "position": 3, "name": "Trading Allowance Calculator", "item": "https://thesecondincome.uk/tools/trading-allowance-calculator.html"}
+    ]
+  }
+  </script>
+
+  <style>
+    .calc-wrap { max-width: 720px; margin: 0 auto; }
+    .calc-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin: 28px 0; }
+    .calc-field { margin-bottom: 20px; }
+    .calc-field:last-child { margin-bottom: 0; }
+    .calc-field label { display: block; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 15px; margin-bottom: 8px; color: var(--ink); }
+    .calc-field .help { display: block; font-size: 13px; color: var(--ink-muted); margin-top: 6px; font-weight: 300; }
+    .calc-field input[type="number"] {
+      width: 100%; box-sizing: border-box; padding: 14px 16px; font-size: 18px; font-family: 'DM Sans', sans-serif;
+      background: var(--bg); color: var(--ink); border: 1px solid var(--border); border-radius: 8px;
+      transition: border-color .15s;
+    }
+    .calc-field input[type="number"]:focus { outline: none; border-color: var(--accent); }
+    .calc-field .prefix { position: relative; }
+    .calc-field .prefix::before {
+      content: '£'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+      font-size: 18px; color: var(--ink-muted); pointer-events: none;
+    }
+    .calc-field .prefix input { padding-left: 32px; }
+    .calc-field--toggle { display: flex; align-items: center; gap: 10px; }
+    .calc-field--toggle input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--accent); }
+    .calc-field--toggle label { margin-bottom: 0; cursor: pointer; }
+
+    .calc-result { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent);
+                   border-radius: 12px; padding: 28px; margin: 28px 0; }
+    .calc-result h2 { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 12px; color: var(--accent); }
+    .calc-result h2.neutral { color: var(--ink); }
+    .calc-result h2.warning { color: #e85d4a; }
+    .calc-result p { font-size: 16px; line-height: 1.6; margin: 0 0 14px; color: var(--ink); }
+    .calc-result p:last-child { margin-bottom: 0; }
+    .calc-result .breakdown { display: grid; grid-template-columns: 1fr auto; gap: 8px 24px;
+                              padding: 16px; background: var(--bg); border-radius: 8px; margin: 16px 0; }
+    .calc-result .breakdown .label { font-size: 14px; color: var(--ink-soft); }
+    .calc-result .breakdown .value { font-size: 14px; font-weight: 500; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
+    .calc-result .breakdown .value strong { color: var(--accent); }
+    .calc-result .comparison { margin: 20px 0; }
+    .calc-result .comparison-row { display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; padding: 12px 16px; background: var(--bg); border-radius: 6px; margin-bottom: 8px; }
+    .calc-result .comparison-row.winner { border: 1px solid var(--accent); background: rgba(200, 151, 42, 0.08); }
+    .calc-result .pill { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+    .calc-result .pill--green { background: rgba(76, 175, 80, 0.15); color: #4caf50; }
+    .calc-result .pill--gold { background: rgba(200, 151, 42, 0.15); color: var(--accent); }
+    .calc-result .pill--red { background: rgba(232, 93, 74, 0.15); color: #e85d4a; }
+    .calc-result .next-steps { background: var(--bg); border-radius: 8px; padding: 16px 20px; margin-top: 16px; }
+    .calc-result .next-steps strong { display: block; font-family: 'DM Sans', sans-serif; font-size: 14px; margin-bottom: 8px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-muted); }
+    .calc-result .next-steps ul { margin: 0; padding-left: 20px; }
+    .calc-result .next-steps li { font-size: 15px; line-height: 1.55; margin-bottom: 6px; color: var(--ink); }
+    .calc-result .next-steps li a { color: var(--accent); }
+
+    .calc-empty { padding: 28px; background: var(--surface); border: 1px dashed var(--border); border-radius: 12px; text-align: center; color: var(--ink-muted); font-size: 15px; margin: 28px 0; }
+
+    .calc-tax-year { display: inline-block; font-size: 12px; padding: 4px 10px; border-radius: 999px; background: rgba(200, 151, 42, 0.15); color: var(--accent); font-weight: 500; letter-spacing: 0.04em; }
+
+    .calc-notice { background: rgba(200, 151, 42, 0.06); border-left: 3px solid var(--accent); padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
+    .calc-notice p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--ink-soft); }
+    .calc-notice strong { color: var(--ink); }
+
+    .calc-explainer h2 { font-family: 'Playfair Display', serif; font-size: 28px; margin: 40px 0 16px; }
+    .calc-explainer h3 { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 500; margin: 24px 0 10px; }
+    .calc-explainer p { font-size: 16px; line-height: 1.65; margin-bottom: 14px; color: var(--ink-soft); }
+    .calc-explainer ul { font-size: 16px; line-height: 1.65; color: var(--ink-soft); padding-left: 20px; }
+    .calc-explainer li { margin-bottom: 8px; }
+
+    .calc-sources { background: var(--surface); border-radius: 8px; padding: 20px 24px; margin: 32px 0; }
+    .calc-sources h3 { font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 12px; }
+    .calc-sources ul { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.55; }
+    .calc-sources li { margin-bottom: 6px; color: var(--ink-soft); }
+    .calc-sources a { color: var(--accent); }
+
+    .calc-disclaimer { font-size: 13px; line-height: 1.55; color: var(--ink-muted); padding: 16px 0; border-top: 1px solid var(--border); margin-top: 32px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-wordmark"><span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span></div>
+      </a>
+      <nav class="main-nav">
+        <a href="../category/income-ideas.html">Income Ideas</a>
+        <a href="../category/cashback.html">Cashback</a>
+        <a href="../category/freelancing.html">Freelancing</a>
+        <a href="../category/selling-online.html">Selling Online</a>
+        <a href="../category/tax.html">Tax &amp; Money</a>
+        <a href="../tools/" style="color:var(--accent)">Tools</a>
+      </nav>
+      <a href="../about.html" class="nav-cta">About</a>
+      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
+      <button class="burger" id="burger-btn" aria-label="Menu" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="../category/income-ideas.html">Income Ideas</a>
+    <a href="../category/cashback.html">Cashback</a>
+    <a href="../category/freelancing.html">Freelancing</a>
+    <a href="../category/selling-online.html">Selling Online</a>
+    <a href="../category/tax.html">Tax &amp; Money</a>
+    <a href="../tools/">Tools</a>
+    <a href="../about.html">About</a>
+  </nav>
+
+  <main class="article-layout">
+    <div class="article-container calc-wrap">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> &rsaquo; <a href="../tools/">Tools</a> &rsaquo; <span>Trading Allowance Calculator</span>
+      </div>
+
+      <div style="margin-bottom: 8px"><span class="calc-tax-year">Tax year 2026/27</span></div>
+      <h1 class="article-title">UK Trading Allowance Calculator</h1>
+      <p class="article-intro">Find out if your UK side hustle income is above the £1,000 tax-free trading allowance, whether you need to register for Self Assessment, and whether claiming the allowance or your actual expenses leaves you better off.</p>
+      <div class="article-byline">
+        <span>By <a href="../about.html#founder" rel="author">Justin Logan</a></span>
+        <span>&bull;</span>
+        <span>Updated for tax year 2026/27 (6 April 2026 to 5 April 2027)</span>
+      </div>
+
+      <div class="calc-card">
+        <div class="calc-field">
+          <label for="grossIncome">Total gross side hustle income for the tax year</label>
+          <div class="prefix">
+            <input type="number" id="grossIncome" inputmode="decimal" min="0" step="50" placeholder="0" aria-describedby="grossIncomeHelp" />
+          </div>
+          <span class="help" id="grossIncomeHelp">Total money you've taken in from your trade or casual income, before any expenses are taken off. Examples: Etsy sales totals, Uber earnings, freelance invoices paid.</span>
+        </div>
+        <div class="calc-field">
+          <label for="expenses">Allowable expenses for the same income (optional)</label>
+          <div class="prefix">
+            <input type="number" id="expenses" inputmode="decimal" min="0" step="50" placeholder="0" aria-describedby="expensesHelp" />
+          </div>
+          <span class="help" id="expensesHelp">Costs you'd otherwise claim against this income: materials, fees, software, business mileage, etc. Leave at zero if you don't have any or aren't sure yet.</span>
+        </div>
+        <div class="calc-field calc-field--toggle">
+          <input type="checkbox" id="connectedParty" />
+          <label for="connectedParty">My income comes from a connected party (my employer, my own company, or a partnership)</label>
+        </div>
+      </div>
+
+      <div id="result" class="calc-empty">Enter your gross income above to see if you're over the £1,000 threshold and which method saves you the most tax.</div>
+
+      <section class="calc-explainer">
+        <h2>What is the trading allowance?</h2>
+        <p>The trading allowance is a tax exemption set by HMRC. For the 2026/27 tax year it is <strong>£1,000 of gross trading income per person, per tax year</strong>. It applies to most small-scale self-employment and casual income, including online selling, freelance work, content creation, ride-share driving, food delivery, hobbies that earn money, and most other "side hustle" activities.</p>
+
+        <h3>If your gross income is at or below £1,000</h3>
+        <p>You do not need to register for Self Assessment in respect of that income, and you do not owe Income Tax or Class 4 National Insurance on it. The whole lot is covered by the allowance.</p>
+        <p>There are a few exceptions where you might still want to register. The main ones: if you want to pay voluntary Class 2 NI to protect your State Pension record, if you want Tax-Free Childcare based on self-employment, or if you need to declare a loss to claim relief.</p>
+
+        <h3>If your gross income is above £1,000</h3>
+        <p>You have a choice on your Self Assessment return. You can either:</p>
+        <ul>
+          <li><strong>Claim the trading allowance</strong>, which means deducting £1,000 from your gross income and ignoring your actual expenses, or</li>
+          <li><strong>Claim your actual expenses</strong>, which means doing the standard "gross income minus expenses" sum.</li>
+        </ul>
+        <p>You cannot do both. The calculator above compares the two methods automatically and shows which one leaves you with less taxable profit.</p>
+
+        <div class="calc-notice">
+          <p><strong>The £3,000 threshold change is announced but NOT in force.</strong> The Government announced on 11 March 2025 that it intends to raise the Self Assessment reporting threshold for trading income from £1,000 to £3,000 "within this Parliament", with a new HMRC online reporting tool promised by 2029. As of the 2026/27 tax year, the threshold remains £1,000. We will update this calculator when the change takes effect.</p>
+        </div>
+
+        <h3>When the allowance does NOT apply</h3>
+        <p>You cannot use the trading allowance if your income comes from a connected party (for example, your own limited company, your employer, or a partnership you're a partner in). It also cannot create a loss: at most it reduces your taxable income to nil. If you have multiple sources of trading or miscellaneous income, the £1,000 covers all of them in total, not each one separately.</p>
+
+        <h3>How this interacts with Class 4 National Insurance</h3>
+        <p>Class 4 NI is calculated on your taxable profits, which is the figure AFTER you've applied either the trading allowance or your actual expenses. So if claiming the allowance gets you to a lower taxable profit than claiming expenses, you also save on Class 4 NI as well as Income Tax. The full Class 4 calculation lives in the <a href="side-hustle-tax-calculator.html">Side Hustle Tax Calculator</a>.</p>
+      </section>
+
+      <section class="calc-sources">
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.gov.uk/guidance/tax-free-allowances-on-property-and-trading-income" rel="noopener">Tax-free allowances on property and trading income</a>, HMRC (last updated 31 March 2026)</li>
+          <li><a href="https://www.gov.uk/hmrc-internal-manuals/business-income-manual/bim86000" rel="noopener">BIM86000: Trading and Miscellaneous Income Allowance (TMIA)</a>, HMRC Business Income Manual (last updated 18 March 2026)</li>
+          <li><a href="https://www.gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return" rel="noopener">Self Assessment: Who must send a tax return</a>, GOV.UK (last updated 27 May 2026)</li>
+          <li><a href="https://www.gov.uk/self-assessment-tax-returns/deadlines" rel="noopener">Self Assessment deadlines</a>, GOV.UK</li>
+          <li><a href="https://www.gov.uk/government/news/boost-for-side-hustlers-as-300000-people-to-be-taken-out-of-tax-returns-government-announces" rel="noopener">£3,000 trading allowance announcement</a>, HMRC press release, 11 March 2025</li>
+        </ul>
+      </section>
+
+      <p class="calc-disclaimer">This calculator is a guide based on published HMRC and gov.uk rules for the 2026/27 UK tax year. It does not constitute personal tax advice. Your individual circumstances may include factors this calculator does not handle, such as multiple trades, partnership income, capital allowances, or pre-trading expenses. For your specific situation, consult HMRC directly or speak to a qualified accountant.</p>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo-wordmark logo-wordmark--footer">
+            <span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span>
+          </div>
+          <p>Helping UK adults earn a second income alongside their day job.</p>
+        </div>
+        <div class="footer-links">
+          <strong>Categories</strong>
+          <a href="../category/income-ideas.html">Income Ideas</a>
+          <a href="../category/cashback.html">Cashback</a>
+          <a href="../category/freelancing.html">Freelancing</a>
+          <a href="../category/selling-online.html">Selling Online</a>
+          <a href="../category/tax.html">Tax &amp; Money</a>
+        </div>
+        <div class="footer-links">
+          <strong>Tools</strong>
+          <a href="../tools/trading-allowance-calculator.html">Trading Allowance</a>
+          <a href="../tools/side-hustle-tax-calculator.html">Side Hustle Tax</a>
+        </div>
+        <div class="footer-links">
+          <strong>Site</strong>
+          <a href="../about.html">About</a>
+          <a href="../editorial-policy.html">Editorial Policy</a>
+          <a href="../privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        <p>TSI-UK contains affiliate links. We may earn a commission when you sign up through our links, at no extra cost to you. This site does not constitute financial advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/cookies.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var ALLOWANCE = 1000;
+    var TAX_YEAR_END_FOR_REGISTRATION = '5 October 2027';
+    var TAX_YEAR_FILING_DEADLINE = '31 January 2028';
+
+    var $gross = document.getElementById('grossIncome');
+    var $expenses = document.getElementById('expenses');
+    var $connected = document.getElementById('connectedParty');
+    var $result = document.getElementById('result');
+
+    function fmt(n) {
+      if (!isFinite(n)) return '£0';
+      var rounded = Math.round(n * 100) / 100;
+      return '£' + rounded.toLocaleString('en-GB', { minimumFractionDigits: rounded % 1 === 0 ? 0 : 2, maximumFractionDigits: 2 });
+    }
+
+    function getNum(el) {
+      var v = parseFloat(el.value);
+      if (!isFinite(v) || v < 0) return 0;
+      return v;
+    }
+
+    function render() {
+      var gross = getNum($gross);
+      var expenses = getNum($expenses);
+      var connected = $connected.checked;
+
+      if (gross <= 0) {
+        $result.className = 'calc-empty';
+        $result.innerHTML = "Enter your gross income above to see if you're over the £1,000 threshold and which method saves you the most tax.";
+        return;
+      }
+
+      $result.className = 'calc-result';
+
+      // Connected party = trading allowance not available
+      if (connected) {
+        var profitConnected = Math.max(0, gross - expenses);
+        $result.innerHTML =
+          '<h2 class="warning">Trading allowance does not apply</h2>' +
+          '<p>Income from a connected party (your own limited company, your employer, or a partnership you are a partner in) is specifically excluded from the trading allowance under HMRC rules.</p>' +
+          '<p>You must use the standard profit method: gross income minus actual expenses.</p>' +
+          '<div class="breakdown">' +
+            '<div class="label">Gross income</div><div class="value">' + fmt(gross) + '</div>' +
+            '<div class="label">Allowable expenses</div><div class="value">' + fmt(expenses) + '</div>' +
+            '<div class="label"><strong>Taxable profit</strong></div><div class="value"><strong>' + fmt(profitConnected) + '</strong></div>' +
+          '</div>' +
+          '<div class="next-steps">' +
+            '<strong>Next steps</strong>' +
+            '<ul>' +
+              '<li>Register for Self Assessment by ' + TAX_YEAR_END_FOR_REGISTRATION + ' if you have not already.</li>' +
+              '<li>Report this income on your 2026/27 Self Assessment return, due online by ' + TAX_YEAR_FILING_DEADLINE + '.</li>' +
+              '<li>Calculate your Income Tax and Class 4 NI using the <a href="side-hustle-tax-calculator.html">Side Hustle Tax Calculator</a>.</li>' +
+            '</ul>' +
+          '</div>';
+        return;
+      }
+
+      // Under or at the allowance
+      if (gross <= ALLOWANCE) {
+        $result.innerHTML =
+          '<h2><span class="pill pill--green">Under the allowance</span></h2>' +
+          '<p>Your gross side hustle income of <strong>' + fmt(gross) + '</strong> is at or below the £1,000 trading allowance for 2026/27.</p>' +
+          '<p>You do not need to register for Self Assessment for this income, and you do not owe Income Tax or Class 4 National Insurance on it.</p>' +
+          '<div class="next-steps">' +
+            '<strong>One thing to check</strong>' +
+            '<ul>' +
+              '<li>If you want to pay voluntary Class 2 NI (£3.65/week) to protect your State Pension record, you will still need to register for Self Assessment.</li>' +
+              '<li>If you have rental income separately, the £1,000 trading allowance does not cover that. Property has its own £1,000 property allowance.</li>' +
+              '<li>Keep records (invoices, receipts, bank statements) for at least 5 years after the 31 January filing deadline, even if you do not file.</li>' +
+            '</ul>' +
+          '</div>';
+        return;
+      }
+
+      // Over the allowance: compare both methods
+      var profitWithAllowance = gross - ALLOWANCE;
+      var profitWithExpenses = Math.max(0, gross - expenses);
+      var allowanceBetter = profitWithAllowance < profitWithExpenses;
+      var saving = Math.abs(profitWithAllowance - profitWithExpenses);
+
+      var html =
+        '<h2><span class="pill pill--gold">Above the allowance</span></h2>' +
+        '<p>Your gross side hustle income of <strong>' + fmt(gross) + '</strong> is above the £1,000 trading allowance, so you must register for Self Assessment and report this income.</p>' +
+        '<p>You have a choice: claim the £1,000 allowance, OR claim your actual expenses. You cannot do both. Here is the comparison for your numbers:</p>' +
+        '<div class="comparison">' +
+          '<div class="comparison-row' + (allowanceBetter ? ' winner' : '') + '">' +
+            '<div class="label">Claim the £1,000 allowance' + (allowanceBetter ? ' <span class="pill pill--gold">Best for you</span>' : '') + '</div>' +
+            '<div class="value">Taxable profit: <strong>' + fmt(profitWithAllowance) + '</strong></div>' +
+          '</div>' +
+          '<div class="comparison-row' + (!allowanceBetter && expenses > 0 ? ' winner' : '') + '">' +
+            '<div class="label">Claim your actual expenses (' + fmt(expenses) + ')' + (!allowanceBetter && expenses > 0 ? ' <span class="pill pill--gold">Best for you</span>' : '') + '</div>' +
+            '<div class="value">Taxable profit: <strong>' + fmt(profitWithExpenses) + '</strong></div>' +
+          '</div>' +
+        '</div>';
+
+      if (expenses === 0) {
+        html += '<p>You have not entered any expenses, so claiming the £1,000 allowance is the obvious choice. If you do have business expenses, add them above to see whether claiming them would beat the allowance.</p>';
+      } else if (saving < 0.01) {
+        html += '<p>Both methods give the same taxable profit. Either is fine. Most people claim the allowance because there is no paperwork.</p>';
+      } else if (allowanceBetter) {
+        html += '<p>The trading allowance saves you <strong>' + fmt(saving) + '</strong> of taxable profit versus claiming your actual expenses. Use the allowance.</p>';
+      } else {
+        html += '<p>Claiming your actual expenses saves you <strong>' + fmt(saving) + '</strong> of taxable profit versus claiming the allowance. Use the expenses method, and keep your receipts.</p>';
+      }
+
+      html +=
+        '<div class="next-steps">' +
+          '<strong>Next steps</strong>' +
+          '<ul>' +
+            '<li>Register for Self Assessment by <strong>' + TAX_YEAR_END_FOR_REGISTRATION + '</strong>: <a href="https://www.gov.uk/register-for-self-assessment" rel="noopener">gov.uk/register-for-self-assessment</a></li>' +
+            '<li>File your 2026/27 return online by <strong>' + TAX_YEAR_FILING_DEADLINE + '</strong>.</li>' +
+            '<li>Calculate the actual Income Tax and Class 4 NI you will owe with the <a href="side-hustle-tax-calculator.html">Side Hustle Tax Calculator</a>.</li>' +
+            '<li>If you started part-way through the year, the £1,000 allowance still applies in full. It does not need to be pro-rated.</li>' +
+          '</ul>' +
+        '</div>';
+
+      $result.innerHTML = html;
+    }
+
+    $gross.addEventListener('input', render);
+    $expenses.addEventListener('input', render);
+    $connected.addEventListener('change', render);
+  })();
+
+  function toggleMobileNav() {
+    document.getElementById('burger-btn').classList.toggle('open');
+    document.getElementById('mobile-nav').classList.toggle('open');
+  }
+  </script>
+</body>
+</html>
