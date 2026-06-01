@@ -1285,3 +1285,33 @@ body {
   body { overflow-x: hidden; }
   .header-inner { gap: 16px; }
 }
+
+/* ---------- Freshness pill on cards + carousel ---------- */
+/* Added 2026-05-31 (competitive audit: mainstream UK sites surface     */
+/* last-touched dates on listing surfaces — cheap freshness signal).    */
+.card-date-pill {
+  display: inline-block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+  padding: 0 8px;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  margin: 0 4px;
+}
+.carousel-meta .card-date-pill {
+  border: none;
+  padding: 0 0 0 12px;
+  margin: 0;
+  position: relative;
+}
+.carousel-meta .card-date-pill::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-muted);
+}

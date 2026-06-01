@@ -36,6 +36,25 @@
       .replace(/"/g, '&quot;');
   }
 
+  // Freshness pill — "Updated MMM YYYY" when dateModified > date,
+  // "MMM YYYY" otherwise. Renders only if a date is present.
+  // Added 2026-05-31 from competitive audit: every mainstream UK money
+  // site surfaces last-touched dates on listing surfaces, not just inside
+  // articles. Cheap freshness signal for users and crawlers.
+  function fmtDatePill(article) {
+    var raw = (article.dateModified && article.dateModified !== article.date)
+      ? article.dateModified
+      : article.date;
+    if (!raw) return '';
+    var d = new Date(raw);
+    if (isNaN(d.getTime())) return '';
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var label = months[d.getMonth()] + ' ' + d.getFullYear();
+    var prefix = (article.dateModified && article.dateModified !== article.date)
+      ? 'Updated ' : '';
+    return '<span class="card-date-pill">' + prefix + label + '</span>';
+  }
+
   function renderGrid(a) {
     var cat = categoryClass(a.category);
     return '' +
@@ -46,6 +65,7 @@
           '<p>' + esc(a.snippet) + '</p>' +
           '<div class="article-meta">' +
             '<span class="read-time">' + esc(a.readTime) + ' min read</span>' +
+            fmtDatePill(a) +
             '<span class="earn-badge">' + esc(a.earn) + '</span>' +
           '</div>' +
         '</div>' +
@@ -62,7 +82,7 @@
           '<div class="carousel-earn-label">potential earnings</div>' +
           '<div class="carousel-title">' + esc(a.title) + '</div>' +
           '<div class="carousel-snippet">' + esc(a.snippet) + '</div>' +
-          '<div class="carousel-meta"><span>' + esc(a.readTime) + ' min read</span></div>' +
+          '<div class="carousel-meta"><span>' + esc(a.readTime) + ' min read</span>' + fmtDatePill(a) + '</div>' +
         '</div>' +
         '<div class="carousel-card-footer">' +
           '<a href="' + fmtUrl(a.slug) + '" class="carousel-btn-read">Read guide</a>' +
