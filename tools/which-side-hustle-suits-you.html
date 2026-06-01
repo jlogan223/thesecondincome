@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Answer 7 short questions and we will rank the UK side hustles best suited to your time, budget, skills, and risk tolerance. No signup, no email needed." />
+  <title>Which UK Side Hustle Suits You? Free Quiz | The Second Income UK</title>
+  <link rel="canonical" href="https://thesecondincome.uk/tools/which-side-hustle-suits-you.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Which UK Side Hustle Suits You? Free Quiz | The Second Income UK" />
+  <meta property="og:description" content="Answer 7 short questions and we will rank the UK side hustles best suited to your time, budget, skills, and risk tolerance. No signup, no email needed." />
+  <meta property="og:url" content="https://thesecondincome.uk/tools/which-side-hustle-suits-you.html" />
+  <meta property="og:site_name" content="The Second Income UK" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Which UK Side Hustle Suits You? Free Quiz | The Second Income UK" />
+  <meta name="twitter:description" content="Answer 7 short questions and we will rank the UK side hustles best suited to your time, budget, skills, and risk tolerance. No signup, no email needed." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <script src="../js/theme.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/article.css" />
+  <link rel="stylesheet" href="../css/tools.css" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQGQYGMJ0R"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TQGQYGMJ0R');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Which UK Side Hustle Suits You? Free Quiz",
+    "url": "https://thesecondincome.uk/tools/which-side-hustle-suits-you.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+    "creator": {"@type": "Organization", "name": "The Second Income UK", "url": "https://thesecondincome.uk"},
+    "description": "A free 7-question quiz that ranks the UK side hustles best suited to your time, budget, skills, payoff speed, and risk tolerance."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thesecondincome.uk/"},
+      {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://thesecondincome.uk/tools/"},
+      {"@type": "ListItem", "position": 3, "name": "Which Side Hustle Suits You?", "item": "https://thesecondincome.uk/tools/which-side-hustle-suits-you.html"}
+    ]
+  }
+  </script>
+
+  <style>
+    .tool-wrap { max-width: 760px; margin: 0 auto; }
+    .quiz-progress { display: flex; gap: 6px; margin: 18px 0 24px; }
+    .quiz-progress__dot { flex: 1; height: 4px; background: var(--border); border-radius: 2px; transition: background 0.2s; }
+    .quiz-progress__dot.done { background: var(--gold); }
+    .quiz-progress__dot.current { background: var(--gold); opacity: 0.5; }
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; }
+    .quiz-q { font-family: var(--serif); font-size: 26px; font-weight: 700; line-height: 1.2; margin: 0 0 18px; color: var(--ink); }
+    .quiz-q-num { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--gold); letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 8px; }
+    .quiz-options { display: grid; gap: 8px; margin-bottom: 20px; }
+    .quiz-opt { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: var(--bg-surface); border: 1px solid var(--border); cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+    .quiz-opt:hover { border-color: var(--gold); }
+    .quiz-opt.selected { border-color: var(--gold); background: var(--gold-alpha); }
+    .quiz-opt input { margin: 3px 0 0 0; accent-color: var(--gold); flex-shrink: 0; }
+    .quiz-opt-label { font-size: 14.5px; color: var(--ink); line-height: 1.45; }
+    .quiz-opt-label small { display: block; font-size: 12px; color: var(--ink-muted); margin-top: 3px; }
+    .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 20px; }
+    .quiz-btn { font-family: var(--sans); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 18px; cursor: pointer; font-weight: 500; transition: background 0.15s, color 0.15s; }
+    .quiz-btn--primary { background: var(--gold); border: 1px solid var(--gold); color: var(--gold-ink); box-shadow: var(--shadow); }
+    [data-theme="light"] .quiz-btn--primary { color: #fff; }
+    .quiz-btn--primary:hover { background: transparent; color: var(--gold); }
+    .quiz-btn--secondary { background: transparent; border: 1px solid var(--border); color: var(--ink-soft); }
+    .quiz-btn--secondary:hover { border-color: var(--gold); color: var(--gold); }
+    .quiz-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .quiz-results { display: none; }
+    .quiz-results.active { display: block; }
+    .quiz-result-card { background: var(--bg-surface); border: 1px solid var(--border); padding: 22px 24px; margin-bottom: 14px; box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.08); position: relative; }
+    [data-theme="light"] .quiz-result-card { box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.95); }
+    .quiz-result-rank { position: absolute; top: 14px; right: 18px; font-family: var(--serif); font-size: 38px; font-weight: 700; color: var(--gold); opacity: 0.4; line-height: 1; }
+    .quiz-result-cat { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--gold); letter-spacing: 0.05em; text-transform: uppercase; margin: 0 0 6px; }
+    .quiz-result-card h3 { font-family: var(--serif); font-size: 21px; font-weight: 700; margin: 0 0 8px; color: var(--ink); line-height: 1.25; max-width: 85%; }
+    .quiz-result-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.55; margin: 0 0 12px; }
+    .quiz-result-card .why { background: var(--bg-secondary); padding: 10px 14px; font-size: 13px; color: var(--ink-soft); margin: 12px 0; line-height: 1.5; font-style: italic; }
+    .quiz-result-card a.cta { display: inline-block; font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em; color: var(--gold); text-decoration: none; font-weight: 500; }
+    .quiz-result-card a.cta:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-wordmark"><span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span></div>
+      </a>
+      <nav class="main-nav">
+        <a href="../category/income-ideas.html">Income Ideas</a>
+        <a href="../category/cashback.html">Cashback</a>
+        <a href="../category/freelancing.html">Freelancing</a>
+        <a href="../category/selling-online.html">Selling Online</a>
+        <a href="../category/tax.html">Tax &amp; Money</a>
+        <a href="../tools/" style="color:var(--accent)">Tools</a>
+      </nav>
+      <a href="../about.html" class="nav-cta">About</a>
+      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
+      <button class="burger" id="burger-btn" aria-label="Menu" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="../category/income-ideas.html">Income Ideas</a>
+    <a href="../category/cashback.html">Cashback</a>
+    <a href="../category/freelancing.html">Freelancing</a>
+    <a href="../category/selling-online.html">Selling Online</a>
+    <a href="../category/tax.html">Tax &amp; Money</a>
+    <a href="../tools/">Tools</a>
+    <a href="../about.html">About</a>
+  </nav>
+
+  <main class="article-layout">
+    <div class="article-container tool-wrap">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> &rsaquo; <a href="../tools/">Tools</a> &rsaquo; <span>Which Side Hustle Suits You?</span>
+      </div>
+
+      <p class="tool-eyebrow">Free 90-second quiz</p>
+      <h1 class="article-title">Which UK Side Hustle Suits You?</h1>
+      <p class="article-intro">Answer seven short questions about your time, budget, skills, and risk tolerance, and we will rank the UK side hustles best suited to you from our 29 reviewed options. No signup, no email, just a result.</p>
+      <p class="tool-stamp">By <a href="../about.html#founder" rel="author">Justin Logan</a> &nbsp;&middot;&nbsp; Updated for 2026</p>
+
+      <hr class="tool-rule">
+
+      <div id="quiz-container">
+        <div class="quiz-progress" id="quiz-progress" aria-hidden="true"></div>
+
+        <div class="quiz-step active" data-step="0">
+          <p class="quiz-q-num">Question 1 of 7</p>
+          <h2 class="quiz-q">How much time can you commit each week?</h2>
+          <div class="quiz-options" data-q="time">
+            <label class="quiz-opt"><input type="radio" name="time" value="low" /><span class="quiz-opt-label">Under 2 hours <small>I want something genuinely passive, set and forget</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="time" value="med" /><span class="quiz-opt-label">2 to 5 hours <small>Could squeeze in evenings or one weekend morning</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="time" value="high" /><span class="quiz-opt-label">5 to 10 hours <small>I am serious about building this</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="time" value="vhigh" /><span class="quiz-opt-label">10+ hours <small>This is going to be a proper second job</small></span></label>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="1">
+          <p class="quiz-q-num">Question 2 of 7</p>
+          <h2 class="quiz-q">What is your starting budget?</h2>
+          <div class="quiz-options" data-q="budget">
+            <label class="quiz-opt"><input type="radio" name="budget" value="zero" /><span class="quiz-opt-label">£0 <small>I want to start with literally nothing upfront</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="budget" value="low" /><span class="quiz-opt-label">Up to £200 <small>Happy to invest a bit if it pays back fast</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="budget" value="mid" /><span class="quiz-opt-label">£200 to £1,000 <small>I have some startup money set aside</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="budget" value="high" /><span class="quiz-opt-label">£1,000+ <small>Money is not the constraint, time and ideas are</small></span></label>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="2">
+          <p class="quiz-q-num">Question 3 of 7</p>
+          <h2 class="quiz-q">Which kind of work do you actually want to do?</h2>
+          <div class="quiz-options" data-q="format">
+            <label class="quiz-opt"><input type="radio" name="format" value="online" /><span class="quiz-opt-label">Online, behind a screen <small>Freelance, content, digital products, surveys</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="format" value="selling" /><span class="quiz-opt-label">Selling physical items <small>Reselling, handmade, dropshipping, Etsy / eBay / Vinted</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="format" value="active" /><span class="quiz-opt-label">In-person or driving <small>Delivery, ride-share, hosting, hands-on services</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="format" value="passive" /><span class="quiz-opt-label">As passive as possible <small>Cashback, rentals, anything that earns without my input</small></span></label>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="3">
+          <p class="quiz-q-num">Question 4 of 7</p>
+          <h2 class="quiz-q">How quickly do you need to see real money?</h2>
+          <div class="quiz-options" data-q="speed">
+            <label class="quiz-opt"><input type="radio" name="speed" value="fast" /><span class="quiz-opt-label">This week <small>I need cash now, not in three months</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="speed" value="med" /><span class="quiz-opt-label">Within a month or two <small>Patient enough to ramp up</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="speed" value="slow" /><span class="quiz-opt-label">Happy to build slowly over 6 months+ <small>The compound asset play</small></span></label>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="4">
+          <p class="quiz-q-num">Question 5 of 7</p>
+          <h2 class="quiz-q">How much risk can you live with?</h2>
+          <div class="quiz-options" data-q="risk">
+            <label class="quiz-opt"><input type="radio" name="risk" value="zero" /><span class="quiz-opt-label">None <small>Even if it pays less, I want zero chance of losing money</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="risk" value="low" /><span class="quiz-opt-label">A little <small>Some risk is fine if the payoff justifies it</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="risk" value="high" /><span class="quiz-opt-label">A lot <small>I can stomach losing my stake for a chance at higher returns</small></span></label>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="5">
+          <p class="quiz-q-num">Question 6 of 7</p>
+          <h2 class="quiz-q">Do you have a specific skill to monetise?</h2>
+          <div class="quiz-options" data-q="skill">
+            <label class="quiz-opt"><input type="radio" name="skill" value="creative" /><span class="quiz-opt-label">Creative skills <small>Writing, design, video, photography, voiceover</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="skill" value="technical" /><span class="quiz-opt-label">Technical skills <small>Coding, AI, engineering, data, IT support</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="skill" value="teaching" /><span class="quiz-opt-label">Teaching or expertise <small>I know a subject well enough to tutor or consult</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="skill" value="none" /><span class="quiz-opt-label">Nothing specific <small>I am looking for entry-level options</small></span></label>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="6">
+          <p class="quiz-q-num">Question 7 of 7</p>
+          <h2 class="quiz-q">Comfortable selling to others?</h2>
+          <div class="quiz-options" data-q="selling">
+            <label class="quiz-opt"><input type="radio" name="selling" value="yes" /><span class="quiz-opt-label">Yes, I can pitch and close <small>Happy doing freelance gigs, sales calls, marketing</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="selling" value="reluctant" /><span class="quiz-opt-label">Reluctantly, if I have to <small>Would rather customers come to me via a platform</small></span></label>
+            <label class="quiz-opt"><input type="radio" name="selling" value="no" /><span class="quiz-opt-label">Absolutely not <small>I want zero customer interaction</small></span></label>
+          </div>
+        </div>
+
+        <div class="quiz-nav">
+          <button class="quiz-btn quiz-btn--secondary" id="quiz-back" disabled>&larr; Back</button>
+          <button class="quiz-btn quiz-btn--primary" id="quiz-next">Next &rarr;</button>
+        </div>
+
+        <div class="quiz-results" id="quiz-results">
+          <hr class="tool-rule tool-rule--thick">
+          <p class="tool-section-mark">Your top three side hustles</p>
+          <p class="tool-res-sub">Ranked by fit against your answers. Each pick links to a full guide on this site.</p>
+          <div id="quiz-result-cards"></div>
+          <div class="quiz-nav">
+            <button class="quiz-btn quiz-btn--secondary" id="quiz-restart">Start over</button>
+            <a class="quiz-btn quiz-btn--secondary" href="../tools/" style="text-decoration:none">All tools &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-keyterms" style="margin-top:40px">
+        <p class="tool-keyterms__title">How the quiz works</p>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.55">Every side hustle on TSI-UK is tagged with attributes: time required, startup budget, format (online/physical/active/passive), payoff speed, risk profile, skill needs, and whether you need to sell yourself. The quiz scores each side hustle against your answers and ranks the top three. Tie-breaks go to the option with the highest realistic monthly ceiling.</p>
+      </div>
+
+      <p class="tool-foot">This is a guide. Your actual results depend on local demand, how much you commit, and timing. Pick a top match, read the full guide, then come back and re-take if your situation changes.</p>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo-wordmark logo-wordmark--footer">
+            <span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span>
+          </div>
+          <p>Helping UK adults earn a second income alongside their day job.</p>
+        </div>
+        <div class="footer-links">
+          <strong>Categories</strong>
+          <a href="../category/income-ideas.html">Income Ideas</a>
+          <a href="../category/cashback.html">Cashback</a>
+          <a href="../category/freelancing.html">Freelancing</a>
+          <a href="../category/selling-online.html">Selling Online</a>
+          <a href="../category/tax.html">Tax &amp; Money</a>
+        </div>
+        <div class="footer-links">
+          <strong>Tools</strong>
+          <a href="../tools/trading-allowance-calculator.html">Trading Allowance</a>
+          <a href="../tools/side-hustle-tax-calculator.html">Side Hustle Tax</a>
+          <a href="../tools/which-side-hustle-suits-you.html">Which suits you?</a>
+        </div>
+        <div class="footer-links">
+          <strong>Site</strong>
+          <a href="../about.html">About</a>
+          <a href="../editorial-policy.html">Editorial Policy</a>
+          <a href="../privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        <p>TSI-UK contains affiliate links. We may earn a commission when you sign up through our links, at no extra cost to you. This site does not constitute financial advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/cookies.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // Side hustle inventory with attribute tags. Each tag value maps to quiz answers.
+    // time: low | med | high | vhigh
+    // budget: zero | low | mid | high (max startup budget reasonably required)
+    // format: online | selling | active | passive
+    // speed: fast | med | slow (how quickly £1 lands)
+    // risk: zero | low | high
+    // skill: creative | technical | teaching | none (best-fit; none means truly entry-level)
+    // selling: yes | reluctant | no (customer-facing intensity)
+    // ceiling: realistic monthly ceiling for tie-break
+    var INVENTORY = [
+      { slug:'topcashback-vs-quidco', title:'Cashback on everyday spending', cat:'Cashback', summary:'Earn money on shopping you already do via TopCashback and Quidco.', time:'low', budget:'zero', format:'passive', speed:'fast', risk:'zero', skill:'none', selling:'no', ceiling:50 },
+      { slug:'best-paid-survey-sites-uk', title:'Paid survey sites', cat:'Surveys', summary:'Low-effort paid surveys from the platforms that actually pay.', time:'med', budget:'zero', format:'online', speed:'fast', risk:'zero', skill:'none', selling:'no', ceiling:40 },
+      { slug:'get-paid-testing-websites-uk', title:'Get paid testing websites and apps', cat:'Surveys', summary:'Test live websites for cash, decent hourly rates for short bursts.', time:'low', budget:'zero', format:'online', speed:'fast', risk:'zero', skill:'none', selling:'no', ceiling:200 },
+      { slug:'make-money-vinted-uk', title:'Sell on Vinted', cat:'Selling Online', summary:'Zero seller fees, 23 million UK buyers, list in minutes.', time:'med', budget:'zero', format:'selling', speed:'fast', risk:'zero', skill:'none', selling:'reluctant', ceiling:400 },
+      { slug:'make-money-selling-ebay-uk', title:'Sell on eBay', cat:'Selling Online', summary:'From clearing your loft to building a real reselling business.', time:'med', budget:'low', format:'selling', speed:'fast', risk:'zero', skill:'none', selling:'reluctant', ceiling:800 },
+      { slug:'make-money-etsy-uk', title:'Sell on Etsy', cat:'Selling Online', summary:'Handmade, vintage, or digital products to a ready-made audience.', time:'high', budget:'low', format:'selling', speed:'med', risk:'low', skill:'creative', selling:'reluctant', ceiling:1500 },
+      { slug:'how-to-make-money-on-fiverr-uk', title:'Freelance gigs on Fiverr', cat:'Freelancing', summary:'Sell services to a global audience without doing your own marketing.', time:'med', budget:'zero', format:'online', speed:'med', risk:'zero', skill:'creative', selling:'reluctant', ceiling:1500 },
+      { slug:'freelancing-beginners-uk', title:'Get your first freelance client', cat:'Freelancing', summary:'How to land your first paying client with no portfolio or experience.', time:'med', budget:'zero', format:'online', speed:'med', risk:'zero', skill:'creative', selling:'yes', ceiling:2500 },
+      { slug:'best-freelance-platforms-uk', title:'Freelance via UK platforms', cat:'Freelancing', summary:'PeoplePerHour, Upwork, Toptal compared by realistic earnings.', time:'high', budget:'zero', format:'online', speed:'med', risk:'zero', skill:'technical', selling:'yes', ceiling:3000 },
+      { slug:'become-online-tutor-uk', title:'Tutor online (£25-£50 per hour)', cat:'Freelancing', summary:'No teaching qualification needed, big demand for academic subjects.', time:'med', budget:'zero', format:'online', speed:'med', risk:'zero', skill:'teaching', selling:'reluctant', ceiling:1500 },
+      { slug:'become-virtual-assistant-uk', title:'Become a virtual assistant', cat:'Freelancing', summary:'Admin work from home for UK businesses, £15-£35/hour.', time:'high', budget:'zero', format:'online', speed:'med', risk:'zero', skill:'none', selling:'reluctant', ceiling:2000 },
+      { slug:'make-money-driving-uk', title:'Drive for Uber, Deliveroo or similar', cat:'Income Ideas', summary:'Uber, Bolt, Deliveroo, Amazon Flex compared honestly.', time:'high', budget:'mid', format:'active', speed:'fast', risk:'low', skill:'none', selling:'no', ceiling:2000 },
+      { slug:'rent-driveway-parking-space-uk', title:'Rent your driveway or parking space', cat:'Income Ideas', summary:'Turn an empty driveway into £50-£500 a month of passive income.', time:'low', budget:'zero', format:'passive', speed:'fast', risk:'zero', skill:'none', selling:'no', ceiling:500 },
+      { slug:'rent-out-your-car-uk', title:'Rent out your car', cat:'Income Ideas', summary:'Peer-to-peer hire via Hiyacar, Turo and Karshare.', time:'low', budget:'zero', format:'passive', speed:'fast', risk:'low', skill:'none', selling:'no', ceiling:600 },
+      { slug:'make-money-airbnb-uk', title:'Host on Airbnb without owning property', cat:'Income Ideas', summary:'Spare room, experiences and co-hosting routes.', time:'med', budget:'low', format:'active', speed:'med', risk:'low', skill:'none', selling:'reluctant', ceiling:1500 },
+      { slug:'matched-betting-guide', title:'Matched betting', cat:'High Risk', summary:'£500-£1,500 in first months by converting bookmaker offers.', time:'high', budget:'mid', format:'online', speed:'fast', risk:'high', skill:'none', selling:'no', ceiling:1500 },
+      { slug:'dropshipping-uk-guide', title:'Dropshipping in the UK', cat:'Selling Online', summary:'The unvarnished 2026 truth on margins, suppliers, and ad costs.', time:'vhigh', budget:'high', format:'selling', speed:'slow', risk:'high', skill:'technical', selling:'yes', ceiling:3000 },
+      { slug:'how-to-start-shopify-store-uk', title:'Launch a Shopify store', cat:'Selling Online', summary:'Step-by-step UK guide to launching a Shopify store.', time:'vhigh', budget:'high', format:'selling', speed:'slow', risk:'high', skill:'technical', selling:'yes', ceiling:5000 },
+      { slug:'print-on-demand-uk-guide', title:'Print on demand', cat:'Selling Online', summary:'Design once, sell forever, one of the most scalable passive models.', time:'high', budget:'low', format:'selling', speed:'slow', risk:'low', skill:'creative', selling:'reluctant', ceiling:1500 },
+      { slug:'make-money-tiktok-uk', title:'Earn from TikTok', cat:'Income Ideas', summary:'Creator Fund, brand deals, TikTok Shop, the LIVE economy.', time:'vhigh', budget:'zero', format:'online', speed:'slow', risk:'low', skill:'creative', selling:'yes', ceiling:2000 },
+      { slug:'best-investing-apps-uk-beginners', title:'Start investing with a UK app', cat:'Investing', summary:'Trading 212, Vanguard, Moneybox compared honestly.', time:'low', budget:'low', format:'passive', speed:'slow', risk:'low', skill:'none', selling:'no', ceiling:300 },
+      { slug:'passive-income-ideas-uk', title:'Genuine UK passive income ideas', cat:'Income Ideas', summary:'Cutting through the hype on what passive income actually means.', time:'low', budget:'low', format:'passive', speed:'slow', risk:'low', skill:'none', selling:'no', ceiling:800 }
+    ];
+
+    function score(item, answers) {
+      var s = 0;
+      // Time fit: exact match best, adjacent ok
+      var timeRank = { low:1, med:2, high:3, vhigh:4 };
+      var timeDiff = Math.abs(timeRank[item.time] - timeRank[answers.time || 'med']);
+      s += [10, 6, 3, 0][timeDiff] || 0;
+
+      // Budget fit
+      var budgetRank = { zero:1, low:2, mid:3, high:4 };
+      var bDiff = Math.abs(budgetRank[item.budget] - budgetRank[answers.budget || 'low']);
+      // Penalise if user budget is below required
+      if (budgetRank[answers.budget || 'low'] < budgetRank[item.budget]) s += 0;
+      else s += [10, 7, 4, 1][bDiff] || 0;
+
+      // Format
+      s += item.format === answers.format ? 12 : (item.format === 'passive' && answers.format === 'online' ? 4 : 0);
+
+      // Speed
+      var speedRank = { fast:1, med:2, slow:3 };
+      var spDiff = Math.abs(speedRank[item.speed] - speedRank[answers.speed || 'med']);
+      s += [10, 5, 0][spDiff] || 0;
+
+      // Risk
+      var riskRank = { zero:1, low:2, high:3 };
+      var rDiff = Math.abs(riskRank[item.risk] - riskRank[answers.risk || 'low']);
+      // Penalise if item risk > user tolerance
+      if (riskRank[item.risk] > riskRank[answers.risk || 'low']) s -= 8;
+      else s += [8, 5, 2][rDiff] || 0;
+
+      // Skill
+      if (answers.skill === 'none') {
+        s += item.skill === 'none' ? 8 : 2;
+      } else if (item.skill === answers.skill) {
+        s += 10;
+      } else if (item.skill === 'none') {
+        s += 6; // entry level always partially fits
+      }
+
+      // Selling
+      if (item.selling === answers.selling) s += 6;
+      else if (item.selling === 'no' && answers.selling === 'no') s += 6;
+      else if (item.selling === 'yes' && answers.selling === 'no') s -= 6;
+
+      return s;
+    }
+
+    var answers = {};
+    var step = 0;
+    var totalSteps = 7;
+
+    function $(id) { return document.getElementById(id); }
+    function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+
+    function renderProgress() {
+      var prog = $('quiz-progress');
+      prog.innerHTML = '';
+      for (var i = 0; i < totalSteps; i++) {
+        var d = document.createElement('div');
+        d.className = 'quiz-progress__dot' + (i < step ? ' done' : i === step ? ' current' : '');
+        prog.appendChild(d);
+      }
+    }
+
+    function showStep(n) {
+      $$('.quiz-step').forEach(function (el) { el.classList.toggle('active', el.dataset.step == n); });
+      $('quiz-back').disabled = (n === 0);
+      $('quiz-next').textContent = (n === totalSteps - 1) ? 'See my results' : 'Next →';
+      renderProgress();
+    }
+
+    function readAnswer(n) {
+      var step = $$('.quiz-step')[n];
+      if (!step) return null;
+      var opts = step.querySelectorAll('input[type="radio"]');
+      for (var i = 0; i < opts.length; i++) if (opts[i].checked) return opts[i].value;
+      return null;
+    }
+
+    function renderResults() {
+      // Read all answers
+      for (var i = 0; i < totalSteps; i++) {
+        var step = $$('.quiz-step')[i];
+        var qName = step.querySelector('.quiz-options').dataset.q;
+        answers[qName] = readAnswer(i);
+      }
+      // Score and rank
+      var ranked = INVENTORY
+        .map(function (item) { return { item: item, score: score(item, answers) }; })
+        .sort(function (a, b) {
+          if (b.score !== a.score) return b.score - a.score;
+          return b.item.ceiling - a.item.ceiling;
+        });
+      var top3 = ranked.slice(0, 3);
+
+      // Show results
+      $('quiz-container').querySelector('.quiz-progress').style.display = 'none';
+      $$('.quiz-step').forEach(function (el) { el.classList.remove('active'); });
+      $$('.quiz-nav')[0].style.display = 'none';
+      $('quiz-results').classList.add('active');
+
+      var html = '';
+      top3.forEach(function (r, i) {
+        var item = r.item;
+        var why = buildWhy(item, answers);
+        html += '<div class="quiz-result-card">' +
+          '<div class="quiz-result-rank">' + (i + 1) + '</div>' +
+          '<p class="quiz-result-cat">' + item.cat + '</p>' +
+          '<h3>' + item.title + '</h3>' +
+          '<p>' + item.summary + '</p>' +
+          '<p class="why"><strong>Why this fits you:</strong> ' + why + '</p>' +
+          '<a class="cta" href="../articles/' + item.slug + '.html">Read the full guide &rarr;</a>' +
+          '</div>';
+      });
+      $('quiz-result-cards').innerHTML = html;
+
+      // Scroll to results
+      $('quiz-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function buildWhy(item, ans) {
+      var bits = [];
+      if (item.time === ans.time) bits.push('matches your time commitment');
+      if (item.budget === ans.budget || (ans.budget === 'zero' && item.budget === 'zero')) bits.push('fits your budget');
+      if (item.format === ans.format) bits.push('the format you prefer');
+      if (item.speed === ans.speed) bits.push('payoff speed you want');
+      if (item.risk === ans.risk) bits.push('the risk level you can live with');
+      if (item.skill === ans.skill) bits.push('uses skills you already have');
+      if (bits.length < 2) bits.push('strongest overall fit from your answers');
+      return bits.slice(0, 4).join(', ') + '.';
+    }
+
+    function restart() {
+      step = 0;
+      answers = {};
+      $$('input[type="radio"]').forEach(function (r) { r.checked = false; });
+      $$('.quiz-opt').forEach(function (o) { o.classList.remove('selected'); });
+      $('quiz-results').classList.remove('active');
+      $('quiz-container').querySelector('.quiz-progress').style.display = '';
+      $$('.quiz-nav')[0].style.display = '';
+      showStep(0);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Click on option labels = select radio + visual state
+    $$('.quiz-opt').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        var input = opt.querySelector('input');
+        input.checked = true;
+        $$('.quiz-opt', opt.parentElement).forEach(function (o) { o.classList.remove('selected'); });
+        opt.classList.add('selected');
+      });
+    });
+
+    $('quiz-next').addEventListener('click', function () {
+      if (readAnswer(step) === null) return; // require selection
+      if (step === totalSteps - 1) { renderResults(); return; }
+      step++;
+      showStep(step);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    $('quiz-back').addEventListener('click', function () {
+      if (step === 0) return;
+      step--;
+      showStep(step);
+    });
+    $('quiz-restart').addEventListener('click', restart);
+
+    renderProgress();
+  })();
+
+  function toggleMobileNav() {
+    document.getElementById('burger-btn').classList.toggle('open');
+    document.getElementById('mobile-nav').classList.toggle('open');
+  }
+  </script>
+</body>
+</html>
