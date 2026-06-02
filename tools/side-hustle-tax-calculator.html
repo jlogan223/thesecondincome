@@ -542,36 +542,35 @@
       if (r.paye > 0) html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">tax already collected via Pay As You Earn (PAYE)</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">-' + fmt(r.paye) + '</span></div>';
       html += '<div class="tool-rcp tool-rcp--total"><span class="tool-rcp__lab">Self Assessment balance to pay</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(r.saBill) + '</span></div>';
 
-      // Pointer to the payment schedule below if first-year SA is ticked
-      if ($fy.checked && (r.poaApplies || r.saBill > 0)) {
-        html += '<div style="margin-top:10px"><span class="tool-res-pointer">See your full payment schedule below</span></div>';
-      }
-
       html += '</div>';
 
-      // Plaques (no left edge stripes, raised plaque style)
+      // Collect every plaque + the payment schedule into a single buffer so
+      // we can wrap them in a bordered "Important notes" container below.
+      // Receipt total above can otherwise look like the end of the page.
+      var notesHtml = '';
+
       if (r.paTaper) {
-        html += plaque('§', 'About your Personal Allowance',
+        notesHtml += plaque('§', 'About your Personal Allowance',
           'Your income is over £100,000, so HMRC reduces your Personal Allowance by £1 for every £2 above that threshold. At £125,140 of income, the allowance reaches zero. Yours is now <strong>' + fmt(r.pa) + '</strong> instead of the standard £12,570.',
           false);
       }
       if (input.gross > 0 && input.expenses > 0 && r.se.m === 'trading-allowance') {
-        html += plaque('§', 'Why we ignored your expenses',
+        notesHtml += plaque('§', 'Why we ignored your expenses',
           'HMRC lets you claim EITHER the £1,000 trading allowance OR your actual expenses, never both. The allowance beats your <strong>' + fmt(input.expenses) + '</strong> in expenses, so it saves you <strong>' + fmt(F.ta - input.expenses) + '</strong> more in taxable profit. If your expenses grow above £1,000 next year, the calculator will flip to using them.',
           false);
       }
       if (input.connectedParty && input.gross > 0) {
-        html += plaque('!', 'Connected party rule',
+        notesHtml += plaque('!', 'Connected party rule',
           'Income from your own limited company, your employer, or a partnership you are a partner in is excluded from the trading allowance under HMRC rules. The calculator has used your actual expenses (<strong>' + fmt(input.expenses) + '</strong>) instead.',
           true);
       }
       if (input.isScottish && input.dividends > 0) {
-        html += plaque('§', 'Scottish dividends',
+        notesHtml += plaque('§', 'Scottish dividends',
           'Even as a Scottish taxpayer, your dividend income is taxed at the rUK rates (10.75% ordinary, 35.75% upper, 39.35% additional for 2026/27), NOT the Scottish bands. Only your salary and self-employment profit use the Scottish 19-48% bands.',
           false);
       }
       if (r.class2Status) {
-        html += plaque('§', 'Class 2 National Insurance',
+        notesHtml += plaque('§', 'Class 2 National Insurance',
           'Class 2 NI is <strong>' + r.class2Status + '</strong>. Mandatory Class 2 was effectively abolished from April 2024. Profits at or above £7,105 protect your State Pension record automatically with no cash payment required.',
           false);
       }
@@ -581,27 +580,47 @@
         if (r.poaApplies) {
           var poa = r.saBill * 0.5;
           var firstPayment = r.saBill + poa;
-          html += '<p class="tool-section-mark" style="margin-top:30px">What you actually pay, and when</p>';
-          html += '<div class="tool-schedule">';
-          html += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jan 2028</span><span class="tool-sched-what">2026/27 balancing payment plus first Payment on Account towards 2027/28<em>The first-year cashflow shock: full 2026/27 Self Assessment bill PLUS 50% of next year on top.</em></span><span class="tool-sched-amt">' + fmt(firstPayment) + '</span></div>';
-          html += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jul 2028</span><span class="tool-sched-what">Second Payment on Account towards 2027/28<em>The other half of your 2027/28 instalment.</em></span><span class="tool-sched-amt">' + fmt(poa) + '</span></div>';
-          html += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jan 2029</span><span class="tool-sched-what">2027/28 balancing payment<em>Reconciled at next year Self Assessment filing. Could be more, less, or zero, depending on actual 2027/28 income.</em></span><span class="tool-sched-amt">±</span></div>';
-          html += '</div>';
-          html += plaque('§', 'About Payments on Account',
+          notesHtml += '<p class="tool-section-mark">What you actually pay, and when</p>';
+          notesHtml += '<div class="tool-schedule">';
+          notesHtml += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jan 2028</span><span class="tool-sched-what">2026/27 balancing payment plus first Payment on Account towards 2027/28<em>The first-year cashflow shock: full 2026/27 Self Assessment bill PLUS 50% of next year on top.</em></span><span class="tool-sched-amt">' + fmt(firstPayment) + '</span></div>';
+          notesHtml += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jul 2028</span><span class="tool-sched-what">Second Payment on Account towards 2027/28<em>The other half of your 2027/28 instalment.</em></span><span class="tool-sched-amt">' + fmt(poa) + '</span></div>';
+          notesHtml += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jan 2029</span><span class="tool-sched-what">2027/28 balancing payment<em>Reconciled at next year Self Assessment filing. Could be more, less, or zero, depending on actual 2027/28 income.</em></span><span class="tool-sched-amt">±</span></div>';
+          notesHtml += '</div>';
+          notesHtml += plaque('§', 'About Payments on Account',
             'Payments on Account are advance payments toward NEXT year\'s tax, based on this year\'s bill. HMRC asks for them because your salary already has Pay As You Earn (PAYE) tax deducted at source, but your side hustle and dividends do not. HMRC splits your estimated 2027/28 bill in half: one half due 31 January 2028 alongside the 2026/27 balancing payment, the other 31 July 2028.<br><br>HMRC only triggers Payments on Account when (1) your Self Assessment bill is over £1,000 AND (2) over 20% of your total tax is owed via Self Assessment (the rest having been collected through PAYE). Put another way: if PAYE already covered 80% or more of your total tax, HMRC does not ask for advance payments.<br><br>If you stop self-employment, your dividends drop, or your actual 2027/28 income is lower than 2026/27, your real bill will be smaller than the advance payments assumed. <strong>The difference comes back to you as a refund</strong> at next year\'s Self Assessment filing. You can also reduce your Payments on Account in advance by filing form <strong>SA303</strong> if you know your income will fall.',
             false);
-          html += plaque('!', 'Warning on SA303',
+          notesHtml += plaque('!', 'Warning on SA303',
             'Only reduce your Payments on Account if you are confident next year\'s income will genuinely be lower. If you reduce them and your actual income comes in the same or higher than estimated, HMRC will charge <strong>interest</strong> (currently around 8%) on the underpaid portion, calculated from the original 31 January due date. Bias toward the conservative estimate.',
             true);
         } else if (r.saBill > 0) {
-          html += '<p class="tool-section-mark" style="margin-top:30px">What you actually pay, and when</p>';
-          html += '<div class="tool-schedule">';
-          html += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jan 2028</span><span class="tool-sched-what">2026/27 balancing payment<em>Just the Self Assessment balance owed for 2026/27. No Payments on Account required.</em></span><span class="tool-sched-amt">' + fmt(r.saBill) + '</span></div>';
-          html += '</div>';
-          html += plaque('§', 'Why no Payments on Account?',
+          notesHtml += '<p class="tool-section-mark">What you actually pay, and when</p>';
+          notesHtml += '<div class="tool-schedule">';
+          notesHtml += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jan 2028</span><span class="tool-sched-what">2026/27 balancing payment<em>Just the Self Assessment balance owed for 2026/27. No Payments on Account required.</em></span><span class="tool-sched-amt">' + fmt(r.saBill) + '</span></div>';
+          notesHtml += '</div>';
+          notesHtml += plaque('§', 'Why no Payments on Account?',
             'HMRC only asks for Payments on Account when (1) your Self Assessment bill is over £1,000 AND (2) over 20% of your total tax is owed via Self Assessment (the rest being already collected through PAYE). In your case, PAYE already collected <strong>' + r.payePct.toFixed(0) + '%</strong> of your total tax, which is at or above the 80% threshold, so HMRC does not require advance payments. You just pay the Self Assessment balance at the standard 31 January deadline.',
             false);
         }
+      }
+
+      // If we have any notes (plaques or payment schedule), surface them
+      // loudly: a full-width arrow banner under the receipt total, then
+      // a gold-bordered "Important notes" wrapper containing the lot.
+      if (notesHtml) {
+        var bannerText;
+        if ($fy.checked && (r.poaApplies || r.saBill > 0)) {
+          bannerText = '<strong>Don\'t stop at the total.</strong> Your full payment schedule (when HMRC actually wants the money) and the Payments on Account rules that could double your January bill are in the bordered box below.';
+        } else {
+          bannerText = '<strong>Don\'t stop at the total.</strong> Important notes about your situation are in the bordered box below.';
+        }
+        html += '<div class="tool-scroll-cta">';
+        html += '<span class="tool-scroll-cta__arrow" aria-hidden="true">&#x2193;</span>';
+        html += '<p class="tool-scroll-cta__text">' + bannerText + '</p>';
+        html += '</div>';
+        html += '<div class="tool-importance">';
+        html += '<p class="tool-importance__head">Important. Read before you file.</p>';
+        html += notesHtml;
+        html += '</div>';
       }
 
       $res.innerHTML = html;
