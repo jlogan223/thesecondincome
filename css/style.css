@@ -340,8 +340,8 @@ html, body { max-width: 100%; overflow-x: hidden; }
   --bg-secondary: #f0ece3;
   --bg-surface:   #ffffff;
   --ink:          #1a1a1a;
-  --ink-soft:     #4a4a4a;
-  --ink-muted:    #8a8a8a;
+  --ink-soft:     #3a3a3a;
+  --ink-muted:    #5a5a5a;
   --border:       #e0d8cc;
   --header-bg:    #1a1a1a;
   --hero-bg:      #1a1a1a;

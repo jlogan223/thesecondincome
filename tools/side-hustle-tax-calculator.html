@@ -149,6 +149,36 @@
 
       <div id="sh-result"><p class="tool-res-empty">Enter your numbers to see the breakdown.</p></div>
 
+      <section class="tool-next">
+        <p class="tool-next__title">What next</p>
+        <div class="tool-next__grid">
+          <a class="tool-next__card" href="trading-allowance-calculator.html">
+            <span class="tool-next__kind">Calculator</span>
+            <h3 class="tool-next__head">Trading Allowance Calculator</h3>
+            <p class="tool-next__copy">Step back and check whether your gross income is even above the £1,000 threshold, or whether expenses beat the allowance.</p>
+            <span class="tool-next__cta">Open calculator &rsaquo;</span>
+          </a>
+          <a class="tool-next__card" href="../articles/second-income-tax-guide-uk.html">
+            <span class="tool-next__kind">Read next</span>
+            <h3 class="tool-next__head">How much tax do you pay on a second income?</h3>
+            <p class="tool-next__copy">The plain English explainer for what the calculator just told you, with worked examples and tax-band breakdowns.</p>
+            <span class="tool-next__cta">Read article &rsaquo;</span>
+          </a>
+          <a class="tool-next__card" href="../articles/hmrc-side-hustle-tax-uk.html">
+            <span class="tool-next__kind">Read next</span>
+            <h3 class="tool-next__head">Do I need to tell HMRC about my side hustle?</h3>
+            <p class="tool-next__copy">When the £1,000 trading allowance covers you, when Self Assessment kicks in, and exactly what triggers a tax bill.</p>
+            <span class="tool-next__cta">Read article &rsaquo;</span>
+          </a>
+          <a class="tool-next__card" href="sa-registration-checklist.html">
+            <span class="tool-next__kind">Template</span>
+            <h3 class="tool-next__head">SA Registration Checklist</h3>
+            <p class="tool-next__copy">If your side hustle is over £1,000, this 12-step checklist walks you through registering with HMRC, with all the gov.uk links inline.</p>
+            <span class="tool-next__cta">Open checklist &rsaquo;</span>
+          </a>
+        </div>
+      </section>
+
       <div class="tool-keyterms">
         <p class="tool-keyterms__title">Key terms</p>
         <div class="tool-keyterms__grid">
@@ -475,21 +505,48 @@
       html += '<p class="tool-section-mark">Where your income sits</p>';
       html += '<div class="tool-stack">' + stackBar(r.total) + '</div>';
 
-      // Receipt
+      // Receipt: restructured 2026-06-02 so the PA line is in its own
+      // "Allowances" section (NOT under any specific income), which makes it
+      // clear PA is applied against the income POOL, not against dividends.
       html += '<p class="tool-section-mark">The receipt</p>';
       html += '<div class="tool-receipt">';
+
+      // Section 1: Income
+      html += '<div class="tool-rcp tool-rcp--section-head"><span class="tool-rcp__lab tool-rcp__section-label">Income</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val"></span></div>';
       if (input.salary > 0) html += '<div class="tool-rcp"><span class="tool-rcp__lab">Day job salary</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(input.salary) + '</span></div>';
       if (r.se.p > 0) html += '<div class="tool-rcp"><span class="tool-rcp__lab">Self-employment profit</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(r.se.p) + '</span></div>';
       if (input.gross > 0 && r.se.m === 'trading-allowance') html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">claimed £1,000 trading allowance (saved ' + fmt(F.ta - r.se.unused) + ' vs your ' + fmt(r.se.unused) + ' expenses)</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val"></span></div>';
       if (input.gross > 0 && r.se.m === 'expenses' && !input.connectedParty) html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">claimed ' + fmt(r.se.ded) + ' actual expenses (beats the £1,000 allowance by ' + fmt(r.se.ded - F.ta) + ')</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val"></span></div>';
-      if (input.gross > 0 && input.connectedParty) html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">claimed ' + fmt(r.se.ded) + ' actual expenses (connected party - trading allowance not eligible)</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val"></span></div>';
+      if (input.gross > 0 && input.connectedParty) html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">claimed ' + fmt(r.se.ded) + ' actual expenses (connected party, trading allowance not eligible)</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val"></span></div>';
       if (input.dividends > 0) html += '<div class="tool-rcp"><span class="tool-rcp__lab">Dividend income</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(input.dividends) + '</span></div>';
-      html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">less Personal Allowance' + (r.paTaper ? ' (reduced from £12,570)' : r.tc.override ? ' (from tax code ' + r.tc.label.split(' ')[0] + ')' : '') + '</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">-' + fmt(r.pa) + '</span></div>';
+
+      // Section 2: Allowances applied (note explains pooling)
+      var paAppliedTo = '';
+      if (input.salary > 0 && r.se.p > 0) paAppliedTo = 'applied to salary first, then self-employment';
+      else if (input.salary > 0) paAppliedTo = 'applied to salary first';
+      else if (r.se.p > 0) paAppliedTo = 'applied to self-employment profit';
+      else paAppliedTo = 'applied to dividends';
+      html += '<div class="tool-rcp tool-rcp--section-head"><span class="tool-rcp__lab tool-rcp__section-label">Allowances</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val"></span></div>';
+      html += '<div class="tool-rcp"><span class="tool-rcp__lab">Personal Allowance' + (r.paTaper ? ' (reduced from £12,570, see note)' : r.tc.override ? ' (from tax code ' + r.tc.label.split(' ')[0] + ')' : '') + '</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">-' + fmt(r.pa) + '</span></div>';
+      html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">' + paAppliedTo + '</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val"></span></div>';
+      if (input.dividends > 0) {
+        html += '<div class="tool-rcp"><span class="tool-rcp__lab">Dividend Allowance</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">-£500</span></div>';
+        html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">applied to dividend income (first £500 taxed at 0%)</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val"></span></div>';
+      }
+
+      // Section 3: Tax owed
+      html += '<div class="tool-rcp tool-rcp--section-head"><span class="tool-rcp__lab tool-rcp__section-label">Tax owed</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val"></span></div>';
       if (r.nsndR.tax > 0) html += '<div class="tool-rcp"><span class="tool-rcp__lab">Income Tax on salary + self-employment</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(r.nsndR.tax) + '</span></div>';
       if (r.divTax > 0) html += '<div class="tool-rcp"><span class="tool-rcp__lab">Income Tax on dividends</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(r.divTax) + '</span></div>';
       if (r.c4 > 0) html += '<div class="tool-rcp"><span class="tool-rcp__lab">Class 4 National Insurance</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(r.c4) + '</span></div>';
       if (r.paye > 0) html += '<div class="tool-rcp tool-rcp--sub"><span class="tool-rcp__lab">tax already collected via Pay As You Earn (PAYE)</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">-' + fmt(r.paye) + '</span></div>';
       html += '<div class="tool-rcp tool-rcp--total"><span class="tool-rcp__lab">Self Assessment balance to pay</span><span class="tool-rcp__dots"></span><span class="tool-rcp__val">' + fmt(r.saBill) + '</span></div>';
+
+      // Pointer to the payment schedule below if first-year SA is ticked
+      if ($fy.checked && (r.poaApplies || r.saBill > 0)) {
+        html += '<div style="margin-top:10px"><span class="tool-res-pointer">See your full payment schedule below</span></div>';
+      }
+
       html += '</div>';
 
       // Plaques (no left edge stripes, raised plaque style)
@@ -531,7 +588,7 @@
           html += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jan 2029</span><span class="tool-sched-what">2027/28 balancing payment<em>Reconciled at next year Self Assessment filing. Could be more, less, or zero, depending on actual 2027/28 income.</em></span><span class="tool-sched-amt">±</span></div>';
           html += '</div>';
           html += plaque('§', 'About Payments on Account',
-            'Payments on Account are advance payments toward NEXT year\'s tax, based on this year\'s bill. HMRC asks for them because your salary already has Pay As You Earn (PAYE) tax deducted, but your side hustle and dividends do not. They split your estimated 2027/28 bill in half: one half due 31 January 2028, the other 31 July 2028.<br><br>If you stop self-employment, your dividends drop, or your actual 2027/28 income is lower than 2026/27, your real bill will be smaller than what the Payments on Account assumed. <strong>The difference comes back to you as a refund</strong> at next year\'s Self Assessment filing. You can also reduce your Payments on Account in advance by filing form <strong>SA303</strong> if you know your income will fall.',
+            'Payments on Account are advance payments toward NEXT year\'s tax, based on this year\'s bill. HMRC asks for them because your salary already has Pay As You Earn (PAYE) tax deducted at source, but your side hustle and dividends do not. HMRC splits your estimated 2027/28 bill in half: one half due 31 January 2028 alongside the 2026/27 balancing payment, the other 31 July 2028.<br><br>HMRC only triggers Payments on Account when (1) your Self Assessment bill is over £1,000 AND (2) over 20% of your total tax is owed via Self Assessment (the rest having been collected through PAYE). Put another way: if PAYE already covered 80% or more of your total tax, HMRC does not ask for advance payments.<br><br>If you stop self-employment, your dividends drop, or your actual 2027/28 income is lower than 2026/27, your real bill will be smaller than the advance payments assumed. <strong>The difference comes back to you as a refund</strong> at next year\'s Self Assessment filing. You can also reduce your Payments on Account in advance by filing form <strong>SA303</strong> if you know your income will fall.',
             false);
           html += plaque('!', 'Warning on SA303',
             'Only reduce your Payments on Account if you are confident next year\'s income will genuinely be lower. If you reduce them and your actual income comes in the same or higher than estimated, HMRC will charge <strong>interest</strong> (currently around 8%) on the underpaid portion, calculated from the original 31 January due date. Bias toward the conservative estimate.',
@@ -542,7 +599,7 @@
           html += '<div class="tool-sched-item"><span class="tool-sched-date">31 Jan 2028</span><span class="tool-sched-what">2026/27 balancing payment<em>Just the Self Assessment balance owed for 2026/27. No Payments on Account required.</em></span><span class="tool-sched-amt">' + fmt(r.saBill) + '</span></div>';
           html += '</div>';
           html += plaque('§', 'Why no Payments on Account?',
-            'Payments on Account only apply if your Self Assessment bill is over £1,000 AND less than 80% of your total tax was collected through Pay As You Earn (PAYE). In your case, PAYE already collected <strong>' + r.payePct.toFixed(0) + '%</strong> of your total tax (above the 80% threshold), so HMRC does not require advance payments. You just pay the Self Assessment balance at the standard 31 January deadline.',
+            'HMRC only asks for Payments on Account when (1) your Self Assessment bill is over £1,000 AND (2) over 20% of your total tax is owed via Self Assessment (the rest being already collected through PAYE). In your case, PAYE already collected <strong>' + r.payePct.toFixed(0) + '%</strong> of your total tax, which is at or above the 80% threshold, so HMRC does not require advance payments. You just pay the Self Assessment balance at the standard 31 January deadline.',
             false);
         }
       }
