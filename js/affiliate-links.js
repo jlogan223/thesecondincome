@@ -223,7 +223,7 @@
         targetUrl: href,
         referrer: document.referrer || ''
       };
-      var blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+      var blob = new Blob([JSON.stringify(data)], { type: 'text/plain' });
       navigator.sendBeacon(TRACK_URL, blob);
     } catch (e) { /* never block navigation */ }
   }
@@ -235,3 +235,4 @@
     if (shouldTrack(a)) send(a);
   }, true);
 })();
+      
