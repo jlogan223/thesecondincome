@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A UK-specific guide to building and selling custom GPTs on OpenAI's marketplace. Setup, monetisation share, and what actually sells." />
+  <title>Sell Custom GPTs in the UK: How the OpenAI Marketplace Works in 2026 | The Second Income UK</title>
+  <link rel="canonical" href="https://thesecondincome.uk/articles/sell-custom-gpts-uk.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Sell Custom GPTs in the UK: How the OpenAI Marketplace Works in 2026 | The Second Income UK" />
+  <meta property="og:description" content="A UK-specific guide to building and selling custom GPTs on OpenAI's marketplace. Setup, monetisation share, and what actually sells." />
+  <meta property="og:url" content="https://thesecondincome.uk/articles/sell-custom-gpts-uk.html" />
+  <meta property="og:image" content="https://thesecondincome.uk/img/hero-side-hustle.svg" />
+  <meta property="og:site_name" content="The Second Income UK" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sell Custom GPTs in the UK: How the OpenAI Marketplace Works in 2026 | The Second Income UK" />
+  <meta name="twitter:description" content="A UK-specific guide to building and selling custom GPTs on OpenAI's marketplace. Setup, monetisation share, and what actually sells." />
+  <meta name="twitter:image" content="https://thesecondincome.uk/img/hero-side-hustle.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Theme (set before CSS so no FOUC) -->
+  <script src="../js/theme.js"></script>
+
+  <!-- Affiliate link rewriter (hybrid model: build-time URLs in HTML, this script
+       handles late-approved brands + dynamic content as a safety net) -->
+  <script src="../js/affiliate-links.js" defer></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/article.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQGQYGMJ0R"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TQGQYGMJ0R');</script>
+
+  <!-- JSON-LD Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Sell Custom GPTs in the UK: How the OpenAI Marketplace Works in 2026",
+    "description": "A UK-specific guide to building and selling custom GPTs on OpenAI's marketplace. Setup, monetisation share, and what actually sells.",
+    "url": "https://thesecondincome.uk/articles/sell-custom-gpts-uk.html",
+    "datePublished": "2026-04-27",
+    "dateModified": "2026-04-27",
+    "author": {
+      "@type": "Person",
+      "name": "Justin Logan",
+      "url": "https://thesecondincome.uk/about.html#founder",
+      "jobTitle": "Founder",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "The Second Income UK",
+        "url": "https://thesecondincome.uk"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Second Income UK",
+      "url": "https://thesecondincome.uk",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thesecondincome.uk/tsi-logo.png"
+      }
+    },
+    "image": "https://thesecondincome.uk/img/hero-side-hustle.svg",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://thesecondincome.uk/articles/sell-custom-gpts-uk.html"}
+  }
+  </script>
+
+  <!-- JSON-LD FAQPage Schema (auto-emitted when the body contains a FAQ section) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to know how to code to create a custom GPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. GPT Builder uses a conversational interface where you describe what you want the GPT to do. You can add instructions, upload files, and configure behaviour entirely through text inputs. Coding knowledge is only needed if you want to add custom API actions, which most GPTs do not require."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can UK residents actually receive payments from the OpenAI GPT Store?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, as of April 2026 UK residents are eligible for the builder revenue programme. Payments are processed through Stripe in US dollars. You will need a Stripe account and must complete the W-8BEN tax form to avoid US withholding tax on your earnings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much can a custom GPT realistically earn per month?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most new GPTs earn between &pound;0 and &pound;20 per month in their first quarter. GPTs in productive niches with active promotion can reach &pound;200 to &pound;500 per month after six to twelve months. A small number of top-performing GPTs earn more, but these are the exception rather than the rule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to declare GPT Store income to HMRC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your total self-employment income across all sources is above &pound;1,000 in a tax year, you must register for Self Assessment and declare it. Below that threshold, the trading allowance covers it. Keep records of income and any allowable expenses such as your ChatGPT Plus subscription."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the GPT Store and how is it different from ChatGPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ChatGPT is OpenAI's main conversational AI product. The GPT Store is a marketplace within ChatGPT where users can find and use custom GPTs built by third-party creators. It works similarly to an app store: builders publish tools, users discover and use them, and OpenAI pays eligible builders based on engagement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to build a custom GPT worth publishing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A focused, well-tested GPT typically takes 4 to 6 hours to build and test properly. Simpler tools can be ready in 2 to 3 hours. More complex GPTs with uploaded knowledge files or integrated actions can take up to 10 hours. Ongoing maintenance after launch is usually under an hour per month."
+      }
+    }
+  ]
+}
+  </script>
+
+  <!-- JSON-LD BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thesecondincome.uk/"},
+      {"@type": "ListItem", "position": 2, "name": "Income Ideas", "item": "https://thesecondincome.uk/category/income-ideas.html"},
+      {"@type": "ListItem", "position": 3, "name": "Sell Custom GPTs in the UK: How the OpenAI Marketplace Works in 2026", "item": "https://thesecondincome.uk/articles/sell-custom-gpts-uk.html"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-wordmark"><span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span></div>
+      </a>
+      <nav class="main-nav">
+        <a href="../category/income-ideas.html">Income Ideas</a>
+        <a href="../category/cashback.html">Cashback</a>
+        <a href="../category/freelancing.html">Freelancing</a>
+        <a href="../category/selling-online.html">Selling Online</a>
+        <a href="../category/tax.html">Tax &amp; Money</a>
+        <a href="../category/high-risk.html" class="cat-accent-high-risk">High Risk</a>
+      </nav>
+      <a href="../about.html" class="nav-cta">About</a>
+      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
+      <button class="burger" id="burger-btn" aria-label="Menu" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="../category/income-ideas.html">Income Ideas</a>
+    <a href="../category/cashback.html">Cashback</a>
+    <a href="../category/freelancing.html">Freelancing</a>
+    <a href="../category/selling-online.html">Selling Online</a>
+    <a href="../category/tax.html">Tax &amp; Money</a>
+    <a href="../category/high-risk.html" class="nav-high-risk">High Risk</a>
+    <a href="../about.html">About</a>
+  </nav>
+
+  <main class="article-layout">
+    <div class="article-container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> &rsaquo; <a href="../category/income-ideas.html">Income Ideas</a>
+      </div>
+      <h1 class="article-title">Sell Custom GPTs in the UK: How the OpenAI Marketplace Works in 2026</h1>
+      <p class="article-intro">If you want to sell custom GPTs in the UK, the opportunity is real but more nuanced than most guides admit. OpenAI's GPT Store lets you publish and monetise custom AI tools built inside ChatGPT, and in 2026 the platform has a revenue share scheme that pays out to eligible creators worldwide, including in the UK.</p>
+      <div class="article-byline">
+        <span>By <a href="../about.html#founder" rel="author">Justin Logan</a></span>
+        <span>&bull;</span>
+        <span>9 min read</span>
+        <span>&bull;</span>
+        <span class="earn-small">£0-£500/mo per GPT</span>
+      </div>
+      <div class="article-meta">
+        <span>Published <time datetime="2026-04-27">27 April 2026</time></span>
+        <span>&bull;</span>
+        <span>Last reviewed <time datetime="2026-04-27">27 April 2026</time></span>
+        
+      </div>
+
+      <div class="article-illustration">
+        <img src="../img/hero-side-hustle.svg" alt="" role="presentation" fetchpriority="high" />
+      </div>
+
+      <!-- ad slots: content added later via data-ad-slot attr + one-file edit. Empty = zero layout impact. -->
+      <div class="ad-slot" data-ad-slot="top"></div>
+
+      <div class="article-body">
+<h2>What is a custom GPT and what makes one sellable?</h2>
+<p>A custom GPT (short for Generative Pre-trained Transformer) is a version of ChatGPT that you configure with specific instructions, a persona, and optionally your own documents or data. Think of it as a specialist chatbot built on top of ChatGPT's underlying model, trained to do one job very well. You create it through OpenAI's GPT Builder tool, no coding required.</p>
+<p>According to The Second Income UK, the GPTs that earn are almost always narrow in focus. A generic "helpful assistant" GPT is invisible in the marketplace. A GPT that converts planning permission refusal letters into appeal arguments, or one that generates Amazon product listings in compliant English, has a defined audience willing to pay for it. Specificity is the single biggest factor in whether your GPT earns anything at all.</p>
+<p>As <a href="https://www.writearm.co.uk/news/custom-gpts-why-you-need-them-and-how-to-create-them/" target="_blank" rel="noopener">Writearm explains when covering custom GPTs</a>, the real value comes from packaging the prompt engineering work so end users do not have to do it themselves. That packaging is what you are selling.</p>
+
+<h2>How do you set up a GPT using GPT Builder?</h2>
+<p>GPT Builder is available to any ChatGPT Plus or Team subscriber. As of 2026, a Plus subscription costs &pound;20 per month. You open the "Create a GPT" screen, fill in a name and description, write your system instructions (the rules the GPT follows), upload any reference files, and choose whether to publish it publicly, by link only, or to the GPT Store.</p>
+<p>The setup time for a simple GPT is around 2 to 3 hours including testing. A more complex tool with uploaded knowledge files, custom actions, or API integrations can take 8 to 10 hours. Ongoing maintenance is minimal once the GPT is stable, usually under an hour per month unless OpenAI changes a policy that affects your instructions.</p>
+<p>The quality of your system prompt is the lever that matters most. Spending two hours refining and testing the instructions is more valuable than any amount of post-launch promotion.</p>
+
+<h2>How does OpenAI's revenue share work for UK creators?</h2>
+<p>OpenAI's GPT Store revenue programme pays builders a share of the revenue generated when ChatGPT Plus subscribers use their GPTs. The exact split OpenAI applies is not publicly detailed per creator, but the programme is based on engagement: the more conversations your GPT handles each month, the more you earn. <a href="https://community.openai.com/t/how-to-monetize-my-custom-gpts/600016?page=2" target="_blank" rel="noopener">Discussion on the OpenAI community forum</a> confirms the programme is live and that payouts are processed via Stripe.</p>
+<p>UK creators receive payments in US dollars, which Stripe converts at the prevailing exchange rate. There is no upfront fee to list a GPT, but you do need to have your own ChatGPT Plus subscription active. OpenAI has at times limited the builder revenue programme to US-based creators, then expanded it. As of April 2026 it is open to UK residents, but it is worth checking the current eligibility page directly on OpenAI's site before building around this as your primary income stream.</p>
+<p>The Second Income UK found that most new GPT builders make between &pound;0 and &pound;50 per month from marketplace revenue in their first three months, with established GPTs in productive niches reaching &pound;200 to &pound;500 per month after six to twelve months of active promotion.</p>
+
+<h2>What types of GPTs actually earn?</h2>
+<p>Research from creators and <a href="https://www.francescatabor.com/articles/2025/10/19/monetising-custom-gpts" target="_blank" rel="noopener">analysis of monetising custom GPTs</a> points to three consistently performing categories:</p>
+<ul>
+  <li><strong>Niche writing tools:</strong> GPTs that write in a specific format or for a specific industry, such as job adverts for care homes, product descriptions for Etsy sellers, or cover letters for NHS roles.</li>
+  <li><strong>Research and summarisation tools:</strong> GPTs loaded with a knowledge file (a PDF, a style guide, a regulatory document) that answer questions only about that source. Legal, compliance, and HR audiences value these.</li>
+  <li><strong>Template generators:</strong> GPTs that produce structured outputs such as project briefs, invoice text, meeting agendas, or social media calendars. These serve small business owners who use ChatGPT daily.</li>
+</ul>
+<p>As The Second Income UK explains, the common thread is that each of these saves a user 15 to 30 minutes on a repeatable task. That measurable time saving is what converts a casual visitor into a regular user, and regular usage is what drives revenue share earnings.</p>
+<p>E-commerce is a strong vertical. <a href="https://www.searchup.co.uk/post/custom-gpt-for-ecommerce" target="_blank" rel="noopener">Custom GPTs built for e-commerce</a> can handle product description generation, FAQ drafting, and customer reply templates, all tasks that online retailers do repeatedly and are happy to outsource to a well-configured tool.</p>
+
+<h2>Examples of high-earning GPT types and why they work</h2>
+<p>A GPT that helps UK landlords draft Section 21 or Section 8 notices in plain English, cross-referencing the current legislation, sits at the intersection of legal need and low technical confidence. The user cannot do it quickly alone, and a solicitor would charge &pound;150 or more for the same output. The GPT earns its place.</p>
+<p>Similarly, a GPT trained on a specific brand's tone-of-voice guidelines and product catalogue can generate on-brand copy in seconds. Small agencies and freelancers who manage multiple clients find this saves several hours per week. GPTs like this attract repeat daily usage, which is exactly what the revenue share model rewards.</p>
+<p>According to The Second Income UK, GPTs with a clear use-case title, a well-written GPT Store description, and at least five positive user interactions in the first two weeks perform measurably better in search rankings inside the ChatGPT interface.</p>
+
+<h2>How do you get your GPT discovered in the marketplace?</h2>
+<p>The GPT Store has its own internal search. Your GPT's name and description are the primary ranking signals. Use the exact phrase your target user would type, for example "UK VAT invoice generator" rather than "helpful business assistant."</p>
+<p>Outside the marketplace, the fastest discovery channel is Reddit. <a href="https://www.reddit.com/r/ChatGPTPro/comments/1nhqwys/selling_custom_gpts/" target="_blank" rel="noopener">Threads on r/ChatGPTPro about selling custom GPTs</a> show that creators who post a genuine demo in relevant subreddits, without spamming, pick up their first 50 to 100 users within days. LinkedIn works well for B2B-focused GPTs aimed at professionals.</p>
+<p>Building a simple landing page for your GPT, even a one-page site, gives you a shareable link and helps with Google discoverability. Link it to your GPT Store listing and include a short video walkthrough. This kind of external promotion separates creators earning &pound;20 per month from those earning &pound;300.</p>
+<p>If you are exploring <a href="how-to-start-an-ai-business-uk.html">broader AI business models</a>, a custom GPT can anchor a wider service: you build the GPT, then offer paid onboarding or customisation for clients who want a private version. This hybrid approach often earns more than marketplace revenue alone.</p>
+
+<h2>Realistic earnings ranges: new and established GPTs</h2>
+<div class="stat-row">
+  <div class="stat-row__item"><span class="stat-row__value">&pound;0&ndash;&pound;20</span><span class="stat-row__label">Months 1&ndash;3, average new GPT</span></div>
+  <div class="stat-row__item"><span class="stat-row__value">&pound;50&ndash;&pound;200</span><span class="stat-row__label">Months 4&ndash;9, actively promoted</span></div>
+  <div class="stat-row__item"><span class="stat-row__value">&pound;200&ndash;&pound;500</span><span class="stat-row__label">12+ months, strong niche, repeat users</span></div>
+</div>
+<p>These are realistic ranges, not guarantees. The top 5% of GPT Store listings generate the vast majority of traffic, and the marketplace is more crowded in 2026 than it was at launch. Do not treat this as a passive income source from day one; treat it as a product you need to build, test, and market just like any other.</p>
+<p>For more context on related income streams, see our guide to <a href="make-money-with-chatgpt-uk.html">other ChatGPT income methods</a> that sit alongside GPT Store earnings.</p>
+
+<h2>UK tax: how OpenAI payouts are treated</h2>
+<p>Payments from OpenAI via Stripe count as self-employment income under UK tax law. If your total income from all self-employment sources exceeds the <a href="https://www.gov.uk/guidance/tax-free-allowances-on-property-and-trading-income" target="_blank" rel="noopener">trading allowance of &pound;1,000 per tax year</a>, you need to register for Self Assessment with HMRC and declare it. Below &pound;1,000 gross in a tax year, the trading allowance covers it and no return is needed.</p>
+<p>OpenAI will treat you as a non-US person and should not withhold US tax if you submit a W-8BEN form through Stripe. You pay UK Income Tax and Class 4 National Insurance on your net profit. Keep records of your Plus subscription cost (&pound;240 per year) as a legitimate business expense.</p>
+
+<h2>Five mistakes that kill a GPT's earning potential</h2>
+<ol>
+  <li><strong>Building too broadly.</strong> A GPT that does everything is found by no one. Narrow the use case until it feels almost too specific, then narrow it further.</li>
+  <li><strong>Poor GPT Store description.</strong> The first two lines of your description appear in search results. If they do not explain exactly what the GPT does, users skip it.</li>
+  <li><strong>Skipping testing.</strong> A GPT that gives wrong or inconsistent answers on its first few uses collects bad ratings that suppress its ranking. Test with at least 20 real queries before publishing.</li>
+  <li><strong>No external promotion.</strong> Relying only on marketplace discovery means competing with thousands of other GPTs. Even one Reddit post or LinkedIn share can multiply early usage tenfold.</li>
+  <li><strong>Ignoring the W-8BEN.</strong> Failing to submit this form to Stripe means OpenAI withholds 30% US tax from your earnings. It takes five minutes to complete and saves a significant share of your revenue.</li>
+</ol>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq-list">
+  <div class="faq-list__item">
+    <h3 class="faq-list__q">Do I need to know how to code to create a custom GPT?</h3>
+    <p class="faq-list__a">No. GPT Builder uses a conversational interface where you describe what you want the GPT to do. You can add instructions, upload files, and configure behaviour entirely through text inputs. Coding knowledge is only needed if you want to add custom API actions, which most GPTs do not require.</p>
+  </div>
+  <div class="faq-list__item">
+    <h3 class="faq-list__q">Can UK residents actually receive payments from the OpenAI GPT Store?</h3>
+    <p class="faq-list__a">Yes, as of April 2026 UK residents are eligible for the builder revenue programme. Payments are processed through Stripe in US dollars. You will need a Stripe account and must complete the W-8BEN tax form to avoid US withholding tax on your earnings.</p>
+  </div>
+  <div class="faq-list__item">
+    <h3 class="faq-list__q">How much can a custom GPT realistically earn per month?</h3>
+    <p class="faq-list__a">Most new GPTs earn between &pound;0 and &pound;20 per month in their first quarter. GPTs in productive niches with active promotion can reach &pound;200 to &pound;500 per month after six to twelve months. A small number of top-performing GPTs earn more, but these are the exception rather than the rule.</p>
+  </div>
+  <div class="faq-list__item">
+    <h3 class="faq-list__q">Do I need to declare GPT Store income to HMRC?</h3>
+    <p class="faq-list__a">If your total self-employment income across all sources is above &pound;1,000 in a tax year, you must register for Self Assessment and declare it. Below that threshold, the trading allowance covers it. Keep records of income and any allowable expenses such as your ChatGPT Plus subscription.</p>
+  </div>
+  <div class="faq-list__item">
+    <h3 class="faq-list__q">What is the GPT Store and how is it different from ChatGPT?</h3>
+    <p class="faq-list__a">ChatGPT is OpenAI's main conversational AI product. The GPT Store is a marketplace within ChatGPT where users can find and use custom GPTs built by third-party creators. It works similarly to an app store: builders publish tools, users discover and use them, and OpenAI pays eligible builders based on engagement.</p>
+  </div>
+  <div class="faq-list__item">
+    <h3 class="faq-list__q">How long does it take to build a custom GPT worth publishing?</h3>
+    <p class="faq-list__a">A focused, well-tested GPT typically takes 4 to 6 hours to build and test properly. Simpler tools can be ready in 2 to 3 hours. More complex GPTs with uploaded knowledge files or integrated actions can take up to 10 hours. Ongoing maintenance after launch is usually under an hour per month.</p>
+  </div>
+</div>
+
+<h2>Sources</h2>
+<ul class="article-sources">
+  <li><a href="https://www.francescatabor.com/articles/2025/10/19/monetising-custom-gpts" target="_blank" rel="noopener">Francesca Tabor: Monetising Custom GPTs</a></li>
+  <li><a href="https://www.reddit.com/r/ChatGPTPro/comments/1nhqwys/selling_custom_gpts/" target="_blank" rel="noopener">Reddit r/ChatGPTPro: Selling custom GPTs?</a></li>
+  <li><a href="https://www.writearm.co.uk/news/custom-gpts-why-you-need-them-and-how-to-create-them/" target="_blank" rel="noopener">Writearm: Custom GPTs: Why you need them, and how to create them</a></li>
+  <li><a href="https://community.openai.com/t/how-to-monetize-my-custom-gpts/600016?page=2" target="_blank" rel="noopener">OpenAI Community Forum: How to Monetize my Custom GPTs</a></li>
+  <li><a href="https://www.searchup.co.uk/post/custom-gpt-for-ecommerce" target="_blank" rel="noopener">SearchUp: Custom GPT for eCommerce</a></li>
+  <li><a href="https://www.gov.uk/guidance/tax-free-allowances-on-property-and-trading-income" target="_blank" rel="noopener">HMRC: Tax-free allowances on property and trading income</a></li>
+</ul>
+      </div>
+
+      
+
+      <div class="ad-slot" data-ad-slot="end"></div>
+
+      <section class="related-articles" aria-labelledby="related-heading">
+        <h2 id="related-heading" class="related-articles__heading">Related guides</h2>
+        <div class="related-articles__grid">
+        <a class="related-card" data-cat="income-ideas" href="/articles/side-jobs-uk.html"><div class="related-tag">Income Ideas</div><h4>Side Jobs UK 2026: 15 Flexible Ways to Earn Extra Money</h4><p>Discover 15 flexible side jobs in the UK for 2026 that fit around your schedule and can genuinely boost your income.</p></a>
+        <a class="related-card" data-cat="income-ideas" href="/articles/make-money-online-uk.html"><div class="related-tag">Income Ideas</div><h4>How to Make Money Online in the UK in 2026: 20 Proven Methods</h4><p>From freelancing to passive income, here are 20 proven ways to make money online in the UK in 2026.</p></a>
+        <a class="related-card" data-cat="income-ideas" href="/articles/how-to-make-money-fast-uk.html"><div class="related-tag">Income Ideas</div><h4>How to Make Money Fast UK: 12 Legit Ways to Earn Cash Today or This Week</h4><p>Need money fast in the UK? Twelve legit, tested ways to earn cash today or within a week ,  ranked by realistic speed and payout, with the actual time it takes to see money in your account.</p></a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo-wordmark logo-wordmark--footer">
+            <span class="logo-the">The</span><span class="logo-si">Second Income</span><span class="logo-uk">UK</span>
+          </div>
+          <p>Helping UK adults earn a second income alongside their day job.</p>
+        </div>
+        <div class="footer-links">
+          <strong>Categories</strong>
+          <a href="../category/income-ideas.html">Income Ideas</a>
+          <a href="../category/cashback.html">Cashback</a>
+          <a href="../category/freelancing.html">Freelancing</a>
+          <a href="../category/selling-online.html">Selling Online</a>
+          <a href="../category/tax.html">Tax &amp; Money</a>
+        </div>
+        <div class="footer-links">
+          <strong>Site</strong>
+          <a href="../about.html">About</a>
+          <a href="../editorial-policy.html">Editorial Policy</a>
+          <a href="../privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        <p>TSI-UK contains affiliate links. We may earn a commission when you sign up through our links, at no extra cost to you. This site does not constitute financial advice.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/cookies.js"></script>
+  <script>
+  function toggleMobileNav() {
+    document.getElementById('burger-btn').classList.toggle('open');
+    document.getElementById('mobile-nav').classList.toggle('open');
+  }
+  </script>
+</body>
+</html>
